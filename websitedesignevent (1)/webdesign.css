@@ -1,0 +1,129 @@
+* {
+    margin: 10px
+}
+
+body {
+    background-color: aliceblue;
+
+}
+
+.tab {
+    overflow: hidden;
+    background-color: aliceblue;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: gainsboro;
+}
+
+table {
+    font-family: arial;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    padding-bottom:80px;
+    font-size: 10px;
+    border: 1px solid gainsboro;
+    width:100px;
+    height:80px;
+}
+
+tr {
+    background-color:whitesmoke;
+}
+th{
+    background-color:rgb(153, 161, 237);
+}
+
+.eventsport {
+    background-color: darkseagreen;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    font-size: 10px;
+    font-family: arial;
+    text-align:center;
+    }
+
+.eventconcert {
+    background-color: lemonchiffon;
+    color: goldenrod;
+    border: 1px solid goldenrod;
+    font-size: 10px;
+    font-family: arial;
+    text-align:center;
+}
+
+.eventsport:hover {
+    background-color: #609f60;
+}
+
+.eventconcert:hover {
+    background-color: #fff280
+}
+
+th {
+    font-family: arial;
+    font-weight: lighter;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    height: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top:-5px;
+    left:105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#homepageimage {
+    width:600px;
+    height:300px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    border: 3px solid darkblue;
+}
+.smalltext{
+    font-size:5px;
+}
+h1{
+    padding-left: 40px;
+    padding-bottom:40px;
+    font-size: 70px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:rgb(153, 161, 237);
+}
+.text{
+    position:absolute;
+    left:1000px;
+    top:100px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
