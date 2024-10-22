@@ -10,7 +10,7 @@ body{
     background-color:inherit;
 }
 
-.tab button {
+.tabclick{
     background-color:inherit;
     float: left;
     border: none;
@@ -23,7 +23,7 @@ body{
     font-size:15px;
 }
 
-.tab button:hover {
+.tabclick:hover {
     background-color: gainsboro;
 }
 
@@ -114,10 +114,10 @@ th{
     border-radius:6px;
 }
 h1{
-    text-align:left;
     font-size:50px;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color:white;
+    text-align:center;
 }
 .text{
     position:absolute;
@@ -142,6 +142,7 @@ li{
 .contact{
     background-color:whitesmoke;
     color:rgb(102, 109, 167);
+    font-weight:lighter;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width:auto;
     height:120px;
@@ -149,7 +150,7 @@ li{
 h2{
     color:rgb(111, 117, 176);
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight:lighter;
+    font-weight:500;
     text-align:center;
 }
 .instagram{
@@ -157,21 +158,21 @@ h2{
     height:50px;
     position:absolute;
     left:645px;
-    top:480px;
+    top:435px;
 }
 .tiktok{
     width:50px;
     height:50px;
     position:absolute;
     left:725px;
-    top:480px;
+    top:435px;
 }
-.X{
+.twitter{
     width:50px;
     height:50px;
     position:absolute;
     left:805px;
-    top:480px;
+    top:435px;
 }
 .button{
     background-color:rgb(111, 117, 176);
@@ -193,17 +194,17 @@ h2{
     background-color:whitesmoke;
     position:absolute;
     left:630px;
-    top:540px;
+    top:490px;
 }
 .tiktoktext{
     background-color:whitesmoke;
     position:absolute;
     left:725px;
-    top:540px;
+    top:490px;
 }
 .Xtext{
     background-color:whitesmoke;
     position:absolute;
     left:825px;
-    top:540px;
+    top:490px;
 }
