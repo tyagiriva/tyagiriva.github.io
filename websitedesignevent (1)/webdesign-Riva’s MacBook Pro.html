@@ -4,143 +4,19 @@
 <head>
     <title>jim</title>
     <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="main">
-        <div class="tab">
-            <button class="tabclick" onclick="openPage(event,'calendar')">calendar</button>
-            <button class="tabclick" onclick="openPage(event,'information')">information</button>
-            <button class="tabclick" onclick="openPage(event,'tickets')">tickets</button>
-            <button class="tabclick" onclick="openPage(event,'rental')">rental</button>
-        </div>
-        <h1>Rent our Gym</h1>
-        <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events,including concerts, sports
-            events, and club meetings. <br />Book our gym today for your events</p>
-        <button class="button">Rent Now</button>
-    </div>
-    <img id="homepageimage" src="gym.jpg">
-    
-   
-    <div class="information">
-    <h2>Information</h2>
-    <p class="informationtext">Below you will find information relating to gym rentals, including provided ammenties, a seating chart, and directions.</p>
-    <img id="seatingchart" src="SeatingChart.jpg">
-    </div>
-    
-    <div class="ammenities">
-        <h2>Ammenities</h2>
-        <img class="parking"src="parking.png">
-        <p> <div class="ammenitiesheader">Parking</div>The back 2 parking lots are available for those who are parking for events held within the gym. Contact the gym rental superviser Kaylee Henry to learn more.</p>
-    
-        <p> <div class="ammenitiesheader">Food and Beverages </div> Food and Beverages will be provided at all events, courtesy of KayleeHenry.co food company. Any outside food or beverages are not allowed and will be confiscated upon entry.</p>
-        <img src="food.png">
-        <p> <div class="ammenitiesheader">Security Measures  </div>Here at WestSide, we take pride in maintaning a safe enviroment. Depending on the event, an officer may be deployed outside the arena.</p>
-    </div>
-    <h2 class="calendardown"> Location:</h2>
-    <img id="seatingchart" src="Location.jpg">
-    <div class="calendardown">
-        <table class="calendar">
-            <tr>
-                <th>Mon</th>
-                <th>Tues</th>
-                <th>Wed</th>
-                <th>Thurs</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                </td>
-                <td>3</td>
-                <td>4
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                    </div>
-                </td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>9
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                    </div>
-                </td>
-                <td>10</td>
-                <td>11
-                    <div class="tooltip">
-                        <p class="eventconcert">band concert</p>
-                        <span class="tooltiptext">5pm-6pm</span>
-                    </div>
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6:30pm-8pm</span>
-                    </div>
-                </td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>16
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                </td>
-                <td>17</td>
-                <td>18
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                </td>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td>23
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                </td>
-                <td>24</td>
-                <td>25
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">6pm-8pm</span>
-                </td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>30
-                    <div class="tooltip">
-                        <p class="eventsport">girls basketball practice</p>
-                        <span class="tooltiptext">Girls Basketball practice
-                            <br /> Tuesday, October 30, 6pm-8pm
-                        </span>
-                </td>
-                <td>31</td>
-            </tr>
-        </table>
-    </div>
-    <h2> Box Office </h2>
-    <p> <div class="ammenitiesheader">Purchasing Online</div> Purchase onine here. Tickets can be purchased online up to 2 hours before any games.  </p>
-    
+    <div class="tabcontent">
+    <div id="ctab">
+    <h1>Westside Gym</h1>
+    <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events,including concerts, sports
+        events, and club meetings. <br />Book our gym today for your events</p>
+    <button class="button" onclick="openPage(event,'rental')">Rent Now</button>
     <div class="contact">
         <h2>Get in touch</h2>
         <img class="instagram" src="instagram.png">
@@ -150,7 +26,139 @@
         <img class="twitter" src="x.png">
         <p class="Xtext"><a href="google.com">X</a></p>
     </div>
-    
+    </div>
+<table class="calendar">
+    <tr>
+        <th>Mon</th>
+        <th>Tues</th>
+        <th>Wed</th>
+        <th>Thurs</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+        </td>
+        <td>3</td>
+        <td>4
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+            </div>
+        </td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>9
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+            </div>
+        </td>
+        <td>10</td>
+        <td>11
+            <div class="tooltip">
+                <p class="eventconcert">band concert</p>
+                <span class="tooltiptext">5pm-6pm</span>
+            </div>
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6:30pm-8pm</span>
+            </div>
+        </td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>16
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+        </td>
+        <td>17</td>
+        <td>18
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+        </td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td>23
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+        </td>
+        <td>24</td>
+        <td>25
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">6pm-8pm</span>
+        </td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+    </tr>
+    <tr>
+        <td>29</td>
+        <td>30
+            <div class="tooltip">
+                <p class="eventsport">girls basketball practice</p>
+                <span class="tooltiptext">Girls Basketball practice
+                    <br /> Tuesday, October 30, 6pm-8pm
+                </span>
+        </td>
+        <td>31</td>
+    </tr>
+    </table>
+    <div id="information">
+        <h2>Information</h2>
+        <p class="informationtext">Below you will find information relating to gym rentals, including provided
+            ammenties, a seating chart, and directions.</p>
+        <div class="gridcontainer">
+            <img id="seatingchart" src="SeatingChart.jpg">
+            <img id="seatingchart" src="Location.jpg"></td>
+        </div>
+    </div>
+
+    <div class="ammenities">
+        <h2>Ammenities</h2>
+        <table class="squares">
+            <tr>
+                <td><img src="parking.png">
+                    <p>
+                    <div class="ammenitiesheader">Parking</div>The back 2 parking lots are available for those who are
+                    parking for events held within the gym. <br />Contact the gym rental superviser Kaylee Henry to
+                    learn more.</p>
+                </td>
+                <td><img src="food.png">
+                    <p>
+                    <div class="ammenitiesheader">Food and Beverages </div> Food and Beverages will be provided at all
+                    events, courtesy of KayleeHenry.co food company.<br /> Any outside food or beverages are not allowed
+                    and will be confiscated upon entry.</p>
+                </td>
+                <td><img src="security.png">
+                    <p>
+                    <div class="ammenitiesheader">Security Measures </div>Here at WestSide, we take pride in maintaning
+                    a safe enviroment.<br /> Depending on the event, an officer may be deployed outside the arena.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </div>
     
 
 </body>
