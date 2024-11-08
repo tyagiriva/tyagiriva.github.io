@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="webdesign.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    </head>
+    <body>
+        <table>
+            <tr>
+    <td><img src="SeatingChart3.jpeg" width="700px" height="400px"></td>
+    <td>
+        <form name="ticketform">
+        <div>
+        Section:
+       <select id="seatsection" name="seatsection" onchange="getprice()">
+        <option value="25">B1</option>
+        <option value="50">B3</option>
+        <option value="13">B4</option>
+        <option value="18">B2</option>
+       </select> 
+    </div>
+    <div>Number of seats: <input type="text" size="5" name="numberofseats"></div>
+    <div>
+        Price: <span class="output"></span>
+    </div>
+</td>
+</tr>
+</form>
+</table>
+<script> getprice()
+{
+    selectElement = 
+                  document.querySelector('#seatsection');
+            output = selectElement.value;
+alert(output);
+} 
+</script>
+    </body>

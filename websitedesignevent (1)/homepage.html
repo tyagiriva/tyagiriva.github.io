@@ -9,10 +9,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 </head>
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
 <div class="tab">
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <button class="tabclick" onclick="openPage(event,'information')">Information</button>
-    <button class="tabclick" onclick="openPage(event,'tickets')">Tickets</button>
+    <div class="dropdown">
+
+    </div><button class="tabclick" onclick="newtickets()" class="dropbtn" >Tickets</button>
+
+    <div id="myDropdown" class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </div>
+
     <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
 </div>
 <body>
