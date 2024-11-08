@@ -9,13 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
 </head>
-
+<div class="tab">
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <button class="tabclick" onclick="openPage(event,'information')">Information</button>
+    <button class="tabclick" onclick="openPage(event,'tickets')">Tickets</button>
+    <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+</div>
 <body>
     <div id="homepage">
     <h1>Westside Gym</h1>
     <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events,including concerts, sports
         events, and club meetings. <br />Book our gym today for your events</p>
     <button class="button" onclick="openPage(event,'rental')">Rent Now</button>
+    </div>
     <div class="contact">
         <h2>Get in touch</h2>
         <img class="instagram" src="instagram.png">
@@ -24,7 +30,6 @@
         <p class="tiktoktext"><a href="google.com">Tiktok</a></p>
         <img class="twitter" src="x.png">
         <p class="Xtext"><a href="google.com">X</a></p>
-    </div>
     </div>
 <table class="calendar">
     <tr>
@@ -169,12 +174,12 @@
         <tr> 
         
             <td class="upcomingeventtd"> <a href="ticketvoleyball.html"> <button class="buyticketbutton"> Buy tickets</button></a></td>
-            <td class="upcomingeventtd"></td>
+            <td class="upcomingeventtd"> <a href="ticketorchestra.html"> <button class="buyticketbutton"> Buy tickets</button> </td></a>
             <td class="upcomingeventtd"> <a href="ticketbasketball.html"><button class="buyticketbutton"> Buy tickets</button></a></td>
 
         </tr>
     </table>
-    <p>happy birthday</p>
+  
     
 
 </body>

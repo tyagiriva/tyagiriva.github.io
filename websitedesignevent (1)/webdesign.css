@@ -28,8 +28,10 @@ body {
 .calendar {
     font-family: arial;
     border-collapse: collapse;
-    width: 1200px;
-    height: 300px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    
 }
 
 td {
@@ -43,6 +45,37 @@ td {
     color: darkgray;
     vertical-align: top;
 }
+.tab {
+    overflow: hidden;
+    background-color: darkslateblue;
+}
+.tabclick{
+    background-color:inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color:white;
+    font-size:15px;
+}
+.selectedtab{
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color:white;
+    font-size:15px;
+    background-color:rgb(111, 117, 176);
+}
+.tabclick:hover {
+    background-color:rgb(111, 117, 176);
+}
 
 tr {
     background-color: whitesmoke;
@@ -54,6 +87,7 @@ th {
     font-weight: lighter;
     font-size: 20px;
     color: rgb(111, 117, 176);
+
 }
 
 .eventsport {
@@ -318,7 +352,8 @@ h2 {
     background-image:url("gym.jpg");
     background-repeat:no-repeat;
     background-size:cover;
-    height:auto;
+    padding-bottom: 40px;
+
 }
 #ticketbody{
     background-color:rgb(218, 220, 233);
@@ -329,4 +364,3 @@ h2 {
     text-align:center;
     color:rgb(62, 65, 92)
 }
-#ticket

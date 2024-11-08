@@ -2,9 +2,19 @@
 <html>
     <head>
         <link rel="stylesheet" href="webdesign.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
     </head>
 <body id="ticketbody">
-<h1>Purchase tickets for the volleybal game and view available seats</h1>
+    <div class="tab">
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <button class="tabclick" onclick="openPage(event,'information')">Information</button>
+    <button class="tabclick" onclick="openPage(event,'tickets')">Tickets</button>
+    <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+</div>
+<h1>Voleyball Seats</h1>
 <img src="SeatingChart2.jpg" width="700px" height="400px">
 <div class="availableseats">
 <div class="seatprice">
