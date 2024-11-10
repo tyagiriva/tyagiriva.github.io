@@ -8,13 +8,21 @@
     rel="stylesheet">
     </head>
 <body id="ticketbody">
-    <div class="tab">
+    <div class="tab"></div>
+        <button class="tabclick" onclick="myFunction()" >Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <button class="tabclick" onclick="openPage(event,'information')">Information</button>
-    <button class="tabclick" onclick="openPage(event,'tickets')">Tickets</button>
+    <div class="dropdown">
+  
     <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+</div> 
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><font-color="white">Basketball</a>
+    <a href="ticketvoleyball.html">Voleyball</a>
+    <a href="ticketorchestra.html">Orchestra</a>
+  </div>
 </div>
-<h1>Basketball Tickets</h1>
+<h1 class="ticketheading">Basketball Tickets</h1>
 <p class="bbtext">Listed below are all available seats for this event. Click on the price to purchase the ticket. Refunds are not accepted.</p>
 <img src="SeatingChart3.jpeg" width="700px" height="400px">
 <div class="availableseats">

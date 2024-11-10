@@ -388,9 +388,8 @@ font-size: 20px;
     width:auto;
     height:800px;
     position:absolute;
-    left:71%;
-    top:6%;
-    border-radius:10px;
+    left:74%;
+    top:5.8%;
 }
 #homepage{
     background-image:url("gym.jpg");
@@ -405,6 +404,12 @@ font-size: 20px;
     font-family:'Quicksand';
 }
 .bbtext{
-    text-align:center;
+    text-align:left;
     color:rgb(62, 65, 92)
 }
+.ticketheading{
+    color:white;
+    font-weight:bolder;
+    text-align:left;
+}
+
