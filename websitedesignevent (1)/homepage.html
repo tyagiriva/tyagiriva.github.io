@@ -8,155 +8,73 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
+        <script>
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+              
+            
+              window.onclick = function(event) {
+                if (!event.target.matches('.tabclick')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+            </script>
 </head>
-<script>
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-</script>
-<div class="tab">
+
+<body>
+    
+    <div class="tab">
+        <button class="tabclick" onclick="myFunction()" >Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <button class="tabclick" onclick="openPage(event,'information')">Information</button>
     <div class="dropdown">
-
-    </div><button class="tabclick" onclick="newtickets()" class="dropbtn" >Tickets</button>
-
-    <div id="myDropdown" class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-
+  
     <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+</div> 
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><font-color="white"> </font>Basketball</a>
+    <a href="ticketvoleyball.html">Voleyball</a>
+    <a href="ticketorchestra.html">Orchestra</a>
+  </div>
 </div>
-<body>
-    <div id="homepage">
+<div id="homepage">
     <h1>Westside Gym</h1>
     <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events,including concerts, sports
         events, and club meetings. <br />Book our gym today for your events</p>
     <button class="button" onclick="openPage(event,'rental')">Rent Now</button>
     </div>
-    <div class="contact">
-        <h2>Get in touch</h2>
-        <img class="instagram" src="instagram.png">
-        <p class="instagramtext"><a href="google.com">Instagram</a></p>
-        <img class="tiktok" src="tiktok.png">
-        <p class="tiktoktext"><a href="google.com">Tiktok</a></p>
-        <img class="twitter" src="x.png">
-        <p class="Xtext"><a href="google.com">X</a></p>
-    </div>
-<table class="calendar">
-    <tr>
-        <th>Mon</th>
-        <th>Tues</th>
-        <th>Wed</th>
-        <th>Thurs</th>
-        <th>Fri</th>
-        <th>Sat</th>
-        <th>Sun</th>
+    
+    <h2> Upcoming Events</h2>
+    <table class="upcomingeventtable">
+    <tr> 
+    
+        <td class="upcomingeventtd"><img class="upcomingeventimg" src="Voleyball.jpg"><div class="upcomingeventtext">Voleyball Game</div></td>
+        <td class="upcomingeventtd"><img class="upcomingeventimg" src="Orchestra.jpg"><div class="upcomingeventtext">Orchestra Concert</div></td>
+        <td class="upcomingeventtd"><img class="upcomingeventimg" src="Basketball.jpg"><div class="upcomingeventtext">Basketball Game</div></td>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>2
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-        </td>
-        <td>3</td>
-        <td>4
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-            </div>
-        </td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
+    <tr> 
+    
+        <td class="upcomingeventtd"> <a href="ticketvoleyball.html"> <button class="buyticketbutton"> Buy tickets</button></a></td>
+        <td class="upcomingeventtd"> <a href="ticketorchestra.html"> <button class="buyticketbutton"> Buy tickets</button> </td></a>
+        <td class="upcomingeventtd"> <a href="ticketbasketball.html"><button class="buyticketbutton"> Buy tickets</button></a></td>
+
     </tr>
-    <tr>
-        <td>8</td>
-        <td>9
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-            </div>
-        </td>
-        <td>10</td>
-        <td>11
-            <div class="tooltip">
-                <p class="eventconcert">band concert</p>
-                <span class="tooltiptext">5pm-6pm</span>
-            </div>
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6:30pm-8pm</span>
-            </div>
-        </td>
-        <td>12</td>
-        <td>13</td>
-        <td>14</td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>16
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-        </td>
-        <td>17</td>
-        <td>18
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-        </td>
-        <td>19</td>
-        <td>20</td>
-        <td>21</td>
-    </tr>
-    <tr>
-        <td>22</td>
-        <td>23
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-        </td>
-        <td>24</td>
-        <td>25
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">6pm-8pm</span>
-        </td>
-        <td>26</td>
-        <td>27</td>
-        <td>28</td>
-    </tr>
-    <tr>
-        <td>29</td>
-        <td>30
-            <div class="tooltip">
-                <p class="eventsport">girls basketball practice</p>
-                <span class="tooltiptext">Girls Basketball practice
-                    <br /> Tuesday, October 30, 6pm-8pm
-                </span>
-        </td>
-        <td>31</td>
-    </tr>
-    </table>
+</table>
+<p class="ticketheaders">Online Purchasing</p>
+Tickets can be purchased any time before a game. Discount codes can be redeemed during purchasing. Major credit cards, debit cards, and any mobile payments. Groups of 10 or more are eligible for discouts (Online only).
+
+<p class="ticketheaders">In-person Tickets</p>
+Tickets can be purchased at the stall before games, booths will open an hour before games start. Cash, card, and apple pay can be used at the box office. 
+
+   
     <div id="information">
         <h2>Information</h2>
         <p class="informationtext">Below you will find information relating to gym rentals, including provided
@@ -174,24 +92,16 @@ function myFunction() {
         <p>food and drink will be provided at events if the event coordinater has stated that they would like catering service.</p>
         <h3>Security measures</h3>
         <p>Here at Westside, we pride ourselves in being a safe and accepting school. Bags will be checked upon arrival. weapons of any kind are banned from all events. If we find a weapon in your bag, you are subject to a fine and/or arrest. Depending on the event, police may be stationed outside the school.</p>
-    <h2> Upcoming Events</h2>
-        <table class="upcomingeventtable">
-        <tr> 
-        
-            <td class="upcomingeventtd"><img class="upcomingeventimg" src="Voleyball.jpg"><div class="upcomingeventtext">Voleyball Game</div></td>
-            <td class="upcomingeventtd"><img class="upcomingeventimg" src="Orchestra.jpg"><div class="upcomingeventtext">Orchestra Concert</div></td>
-            <td class="upcomingeventtd"><img class="upcomingeventimg" src="Basketball.jpg"><div class="upcomingeventtext">Basketball Game</div></td>
-        </tr>
-        <tr> 
-        
-            <td class="upcomingeventtd"> <a href="ticketvoleyball.html"> <button class="buyticketbutton"> Buy tickets</button></a></td>
-            <td class="upcomingeventtd"> <a href="ticketorchestra.html"> <button class="buyticketbutton"> Buy tickets</button> </td></a>
-            <td class="upcomingeventtd"> <a href="ticketbasketball.html"><button class="buyticketbutton"> Buy tickets</button></a></td>
-
-        </tr>
-    </table>
-  
-    
+   
+        <div class="contact">
+            <h2>Get in touch</h2>
+            <img class="instagram" src="instagram.png">
+            <p class="instagramtext"><a href="google.com">Instagram</a></p>
+            <img class="tiktok" src="tiktok.png">
+            <p class="tiktoktext"><a href="google.com">Tiktok</a></p>
+            <img class="twitter" src="x.png">
+            <p class="Xtext"><a href="google.com">X</a></p>
+        </div>
 
 </body>
 
