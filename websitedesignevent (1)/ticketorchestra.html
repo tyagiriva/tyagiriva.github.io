@@ -6,27 +6,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
+        <script>
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+              
+            
+              window.onclick = function(event) {
+                if (!event.target.matches('.selectedtab')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+            </script>
     </head>
     <body>
-        <table >
+        <div class="tab">
+        <button class="selectedtab" onclick="myFunction()" >Tickets</button>
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <button class="tabclick" onclick="openPage(event,'information')">Information</button>
+    <div class="dropdown">
+        <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+</div> 
+        </div>
+        <h1 class="ticketheading2">Orchestra Tickets</h1>
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><font-color="white">Basketball</a>
+    <a href="ticketvoleyball.html">Voleyball</a>
+    <a href="ticketorchestra.html">Orchestra</a>
+  </div>
+</div>
+        <table class="orchestratable">
             <tr>
-    <td><img src="SeatingChart3.jpeg" width="700px" height="400px"></td>
-    <td width="400px">
+    <td class="ticketorchestratabletd"><img src="SeatingChart3.PNG" width="600px" height="500px"></td>
+    <td class="ticketorchestratabletd">
         <form name="ticketform">
-        <div>Number of seats: <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+     
         <div>
-        Available Sections:
-       <select id="seatsection" name="seatsection" onChange="getprice()">
-        <option value="0">Choose Section</option>
-        <option value="25">B1</option>
-        <option value="50">B3</option>
-        <option value="13">B4</option>
-        <option value="18">B2</option>
+        <p class="ticketorchestratext">Available Sections:</p>
+       <select size="8"id="seatsection" name="seatsection" onChange="getprice()">
+        <option value="0">Choose a Section</option>
+        <option value="19.99">B1</option>
+        <option value="19.99">B3</option>
+        <option value="19.99">B4</option>
+        <option value="19.99">B6</option>
+        <option value="19.99">B7</option>
+        <option value="19.99">B9</option>
+        <option value="19.99">B10</option>
+        <option value="19.99">B12</option>
+        <option value="19.99">B14</option>
+        <option value="19.99">B15</option>
+        <option value="19.99">B17</option>
+        <option value="19.99">B18</option>
+        <option value="19.99">B20</option>
        </select> 
     </div>
+    <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
     
-    <div>Price: <input type="text" size="5" id="price" name="price"></div>
-    <div>Total: <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+    <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
+    <div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+    <button class="button2" >Purchase Tickets</button>
     
 </td>
 </tr>

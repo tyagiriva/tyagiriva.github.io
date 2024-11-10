@@ -11,6 +11,15 @@ body {
     height: 200px;
     width: 220px;
 }
+.ticketorchestratabletd{
+    width: 300px;
+    background-color: white;
+    border: 0;
+  
+
+}
+
+
 .upcomingeventtd{
     border:none;
     background-color:white;
@@ -285,6 +294,16 @@ font-size: 20px;
     margin-left:46%;
     margin-top:3%;
 }
+.button2{
+    background-color: rgb(111, 117, 176);
+    color: white;
+    border-radius: 3px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    width: 100px;
+    height: 45px;
+    font-size: 15px;
+}
 .buyticketbutton {
     background-color: rgb(111, 117, 176);
     color: white;
@@ -412,4 +431,25 @@ font-size: 20px;
     font-weight:bolder;
     text-align:left;
 }
-
+.ticketheading2{
+    color: rgb(111, 117, 176);
+    font-weight:bolder;
+    text-align:left;
+    text-align: center;
+}
+.orchestratable{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ticketorchestratext{
+    font-size: 20px;
+    color: black;
+}
+.pricedropdown{
+width: 150px;
+height: 100px;
+}
+.new{
+    color:white;
+}
