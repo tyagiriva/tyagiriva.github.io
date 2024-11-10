@@ -8,34 +8,44 @@
         rel="stylesheet">
     </head>
     <body>
-        <table>
+        <table >
             <tr>
     <td><img src="SeatingChart3.jpeg" width="700px" height="400px"></td>
-    <td>
+    <td width="400px">
         <form name="ticketform">
+        <div>Number of seats: <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
         <div>
-        Section:
-       <select id="seatsection" name="seatsection" onchange="getprice()">
+        Available Sections:
+       <select id="seatsection" name="seatsection" onChange="getprice()">
+        <option value="0">Choose Section</option>
         <option value="25">B1</option>
         <option value="50">B3</option>
         <option value="13">B4</option>
         <option value="18">B2</option>
        </select> 
     </div>
-    <div>Number of seats: <input type="text" size="5" name="numberofseats"></div>
-    <div>
-        Price: <span class="output"></span>
-    </div>
+    
+    <div>Price: <input type="text" size="5" id="price" name="price"></div>
+    <div>Total: <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+    
 </td>
 </tr>
 </form>
 </table>
-<script> getprice()
+<script> 
+function getprice()
 {
-    selectElement = 
-                  document.querySelector('#seatsection');
-            output = selectElement.value;
-alert(output);
+   // alert("In getPirce");
+   
+                 // alert(selectElement.value);
+                  document.getElementById("price").value = document.getElementById("seatsection").value;
+                 var seatprice= document.getElementById("seatsection").value;
+                // alert(seatprice);
+                
+                 var noofseats= document.getElementById("numberofseats").value;
+                 var total= parseInt(seatprice) * parseInt(noofseats);
+                    document.getElementById("TotalAmount").value=total;
+                  //  ocument.getElementById("priceoutput").innerHTML = document.getElementById("seatsection").value;
 } 
 </script>
     </body>
