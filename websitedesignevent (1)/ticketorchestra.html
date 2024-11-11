@@ -37,7 +37,7 @@
         </div>
         <h1 class="ticketheading2">Orchestra Tickets</h1>
 <div id="myDropdown" class="dropdown-content">
-    <a href="ticketbasketball.html" ><font-color="white">Basketball</a>
+    <a href="ticketbasketball.html" >Basketball</a>
     <a href="ticketvoleyball.html">Voleyball</a>
     <a href="ticketorchestra.html">Orchestra</a>
   </div>
@@ -50,7 +50,8 @@
      
         <div>
         <p class="ticketorchestratext">Available Sections:</p>
-       <select size="8"id="seatsection" name="seatsection" onChange="getprice()">
+        <div class="pricedropdown">
+       <select size="1"id="seatsection" name="seatsection" onChange="getprice()">
         <option value="0">Choose a Section</option>
         <option value="19.99">B1</option>
         <option value="19.99">B3</option>
@@ -67,6 +68,7 @@
         <option value="19.99">B20</option>
        </select> 
     </div>
+  </div>
     <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
     
     <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
