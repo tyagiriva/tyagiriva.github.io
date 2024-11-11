@@ -239,9 +239,10 @@ li {
     color: rgb(102, 109, 167);
     background-color: whitesmoke;
     font-weight: lighter;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size:medium;
     width: auto;
     height: 200px;
+    margin-top:60px;
 }
 
 .ammenities {
@@ -386,23 +387,6 @@ h2 {
     height: 35%;
     border-radius: 6px;
 }
-
-.gridcontainer {
-    display: grid;
-    grid-template-columns: 700px 700px;
-    grid-template-rows: 500px;
-    background-color: none;
-    border: none;
-}
-
-.sqaures {
-    width: 500px;
-    height: 600px;
-    background-color: none;
-    border: none;
-    color: rgb(102, 109, 167)
-}
-
 .upcomingeventtext {
     color: white;
     font-size: 15px;
@@ -495,21 +479,45 @@ h2 {
 
 .timeheading {
     background-color: rgb(62, 65, 92);
-    color: white;
+    color:rgb(17, 18, 25);
     font-weight: lighter;
-    border: 3px solid rgb(32, 33, 47);
+    border:none;
     height:200px;
 }
 
 .timedata {
     background-color: gainsboro;
-    font-size: medium;
+    font-size:small;
     font-weight: 400;
-    color: rgb(107, 107, 107);
-    border: 3px solid rgb(168, 168, 168);
+    color:rgb(161, 161, 161);
+    border:2px solid rgb(161, 161, 161);
     width: 200px;
     height: 20px;
 }
 #rentalbody{
     background-color:rgb(202, 206, 240);
+}
+.adata{
+    background-color:inherit;
+    color:inherit;
+    font-family:inherit;
+    border:none;
+    padding:30px;
+    width:200px;
+}
+#atable{
+    margin-left:auto;
+    margin-right:auto;
+}
+#contact{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+}
+.contactdata{
+    border:none;
+    background-color:inherit;
+    font-family:inherit;
+    color:inherit;
+    padding:15px;
 }
