@@ -25,6 +25,7 @@
                 }
               }
             </script>
+            
     </head>
 <body id="ticketbody">
     <div class="tab">
@@ -32,6 +33,8 @@
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <button class="tabclick" onclick="openPage(event,'information')">Information</button>
     <div class="dropdown">
+
+    <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
         <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
 </div> 
 <div id="myDropdown" class="dropdown-content">
@@ -42,64 +45,58 @@
 </div>
 <h1 class="ticketheading">Basketball Tickets</h1>
 <p class="bbtext">Listed below are all available seats for this event. Click on the price to purchase the ticket. Refunds are not accepted.</p>
-<img src="SeatingChart3.jpeg" width="700px" height="400px">
-<div class="availableseats">
-    <div class="seatprice">
-        <p>B1</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B3</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B4</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B6</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B7</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B9</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B10</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B12</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B13</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B14</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B15</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B17</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B18</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
-    <div class="seatprice">
-        <p>B20</p>
-        <a href="www.google.com" class="prictext">$19.99</a>
-    </div>
+<table class="orchestratable">
+    <tr>
+<td class="ticketorchestratabletd"><img src="SeatingChart3.PNG" width="600px" height="500px"></td>
+<td class="ticketorchestratabletd">
+<form name="ticketform">
+
+<div>
+<p class="ticketorchestratext">Available Sections:</p>
+<div class="pricedropdown">
+<select size="1"id="seatsection" name="seatsection" onChange="getprice()">
+<option value="0">Choose a Section</option>
+<option value="19.99">B1</option>
+<option value="19.99">B3</option>
+<option value="19.99">B4</option>
+<option value="19.99">B6</option>
+<option value="19.99">B7</option>
+<option value="19.99">B9</option>
+<option value="19.99">B10</option>
+<option value="19.99">B12</option>
+<option value="19.99">B14</option>
+<option value="19.99">B15</option>
+<option value="19.99">B17</option>
+<option value="19.99">B18</option>
+<option value="19.99">B20</option>
+</select> 
 </div>
+</div>
+<div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+
+<div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
+<div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+<button class="button2" >Purchase Tickets</button>
+
+</td>
+</tr>
+</form>
+</table>
+<script>
+function getprice()
+{
+   // alert("In getPirce");
+   
+                 // alert(selectElement.value);
+                  document.getElementById("price").value = document.getElementById("seatsection").value;
+                 var seatprice= document.getElementById("seatsection").value;
+                // alert(seatprice);
+                
+                 var noofseats= document.getElementById("numberofseats").value;
+                 var total= parseInt(seatprice) * parseInt(noofseats);
+                    document.getElementById("TotalAmount").value=total;
+                  //  ocument.getElementById("priceoutput").innerHTML = document.getElementById("seatsection").value;
+} 
+</script>
 </body>
 </html>
