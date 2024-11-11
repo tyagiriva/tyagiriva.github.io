@@ -1,46 +1,49 @@
 * {
     margin: 0px;
-    font-family:'Quicksand';
+    font-family: 'Quicksand';
 }
 
 body {
     background-color: white;
 }
-.upcomingeventimg{
+
+.upcomingeventimg {
 
     height: 200px;
     width: 220px;
 }
-.ticketorchestratabletd{
+
+.ticketorchestratabletd {
     width: 300px;
     background-color: white;
     border: 0;
-  
+
 
 }
 
 
-.upcomingeventtd{
-    border:none;
-    background-color:white;
-   vertical-align: top;
-   padding-bottom:0 ;
-   text-align: center;
-   padding-right: 50px;
-  }
-  .upcomingeventtable{
-    margin-left:auto;
-    margin-right:auto;
+.upcomingeventtd {
+    border: none;
+    background-color: white;
+    vertical-align: top;
+    padding-bottom: 0;
+    text-align: center;
+    padding-right: 50px;
+}
+
+.upcomingeventtable {
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 30px;
-  }
+}
 
 .calendar {
     font-family: arial;
     border-collapse: collapse;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 80%;
-    
+
 }
 
 td {
@@ -54,12 +57,14 @@ td {
     color: darkgray;
     vertical-align: top;
 }
+
 .tab {
     overflow: hidden;
     background-color: darkslateblue;
 }
-.tabclick{
-    background-color:inherit;
+
+.tabclick {
+    background-color: inherit;
     float: left;
     border: none;
     outline: none;
@@ -67,10 +72,11 @@ td {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-    color:white;
-    font-size:15px;
+    color: white;
+    font-size: 15px;
 }
-.selectedtab{
+
+.selectedtab {
     float: left;
     border: none;
     outline: none;
@@ -78,53 +84,59 @@ td {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-    color:white;
-    font-size:15px;
-    background-color:rgb(111, 117, 176);
+    color: white;
+    font-size: 15px;
+    background-color: rgb(111, 117, 176);
 }
+
 .tabclick:hover {
-    background-color:rgb(111, 117, 176);
+    background-color: rgb(111, 117, 176);
 }
 
 
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #2980B9;
 }
 
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-background-color: darkslateblue;
-  min-width: 160px;
-  z-index: 2;
-  color:white;
-  text-align: center;
-  height: 140px;
+    display: none;
+    position: absolute;
+    background-color: darkslateblue;
+    min-width: 160px;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    height: 140px;
 
 }
 
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 
-.dropdown-content a:hover {background-color:rgb(111, 117, 176);}
+.dropdown-content a:hover {
+    background-color: rgb(111, 117, 176);
+}
 
-.show {display:block;}
+.show {
+    display: block;
+}
 
-tr{
+tr {
     background-color: whitesmoke;
 }
 
@@ -171,8 +183,8 @@ th {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width:200px;
-    height:auto;
+    width: 200px;
+    height: auto;
     background-color: white;
     color: black;
     text-align: center;
@@ -187,12 +199,13 @@ th {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
 h1 {
     font-size: 50px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
-    text-align:center;
-  
+    text-align: center;
+
 
 }
 
@@ -200,8 +213,8 @@ h1 {
     color: white;
     font-size: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align:center;
-    margin-top:7%;
+    text-align: center;
+    margin-top: 7%;
 }
 
 ul {
@@ -227,8 +240,8 @@ li {
     background-color: whitesmoke;
     font-weight: lighter;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width:auto;
-    height:200px;
+    width: auto;
+    height: 200px;
 }
 
 .ammenities {
@@ -250,19 +263,21 @@ h2 {
     color: rgb(111, 117, 176);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
-    text-align:center;
+    text-align: center;
 }
-.ticketheaders{
-color: rgb(111, 117, 176);
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-font-weight: 500;
-font-size: 20px;
+
+.ticketheaders {
+    color: rgb(111, 117, 176);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
 }
+
 .instagram {
     width: 50px;
     height: 50px;
     position: absolute;
-    left:550px;
+    left: 550px;
 
 }
 
@@ -270,7 +285,7 @@ font-size: 20px;
     width: 50px;
     height: 50px;
     position: absolute;
-    left:650px;
+    left: 650px;
 
 }
 
@@ -278,7 +293,7 @@ font-size: 20px;
     width: 50px;
     height: 50px;
     position: absolute;
-    left:750px;
+    left: 750px;
 
 }
 
@@ -291,10 +306,11 @@ font-size: 20px;
     width: 100px;
     height: 45px;
     font-size: 15px;
-    margin-left:46%;
-    margin-top:3%;
+    margin-left: 46%;
+    margin-top: 3%;
 }
-.button2{
+
+.button2 {
     background-color: rgb(111, 117, 176);
     color: white;
     border-radius: 3px;
@@ -303,7 +319,9 @@ font-size: 20px;
     width: 100px;
     height: 45px;
     font-size: 15px;
+    margin-top: 5%;
 }
+
 .buyticketbutton {
     background-color: rgb(111, 117, 176);
     color: white;
@@ -314,13 +332,15 @@ font-size: 20px;
     height: 45px;
     font-size: 15px;
 }
-.buyticketbutton:hover{
-    background-color:rgb(82, 87, 130)
+
+.buyticketbutton:hover {
+    background-color: rgb(82, 87, 130)
 }
 
 .button:hover {
     background-color: rgb(102, 109, 167);
 }
+
 .calendardown {
     margin-top: 60px;
 }
@@ -366,94 +386,130 @@ font-size: 20px;
     height: 35%;
     border-radius: 6px;
 }
-.gridcontainer{
-    display:grid;
-    grid-template-columns:700px 700px;
-    grid-template-rows:500px;
-    background-color:none;
-    border:none;
+
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 700px 700px;
+    grid-template-rows: 500px;
+    background-color: none;
+    border: none;
 }
-.sqaures{
-    width:500px;
-    height:600px;
-    background-color:none;
-    border:none;
-    color:rgb(102, 109, 167)
+
+.sqaures {
+    width: 500px;
+    height: 600px;
+    background-color: none;
+    border: none;
+    color: rgb(102, 109, 167)
 }
-.upcomingeventtext{
-    color:white;
+
+.upcomingeventtext {
+    color: white;
     font-size: 15px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.seatprice{
-    background-color:white;
-    border:1px solid gray;
-    color:gray;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight:400;
-    width:400px;
-    height:100px;  
+
+.seatprice {
+    background-color: white;
+    border: 1px solid gray;
+    color: gray;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    width: 400px;
+    height: 100px;
 }
-.pricetext{
-    color:rgb(94, 108, 237);
-    font-weight:lighter;
+
+.pricetext {
+    color: rgb(94, 108, 237);
+    font-weight: lighter;
 }
-.pricetext:hover{
-    color:rgb(85, 90, 138)
+
+.pricetext:hover {
+    color: rgb(85, 90, 138)
 }
-.availableseats{
-    padding-top:0px;
-    overflow:scroll;
-    width:auto;
-    height:800px;
-    position:absolute;
-    left:74%;
-    top:5.8%;
+
+.availableseats {
+    padding-top: 0px;
+    overflow: scroll;
+    width: auto;
+    height: 800px;
+    position: absolute;
+    left: 74%;
+    top: 5.8%;
 }
-#homepage{
-    background-image:url("gym.jpg");
-    background-repeat:no-repeat;
-    background-size:cover;
+
+#homepage {
+    background-image: url("gym.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-bottom: 40px;
 
 }
-#ticketbody{
-    background-color:rgb(218, 220, 233);
-    margin:0px;
-    font-family:'Quicksand';
+
+#ticketbody {
+    background-color: rgb(218, 220, 233);
+    margin: 0px;
+    font-family: 'Quicksand';
 }
-.bbtext{
-    text-align:left;
-    color:rgb(62, 65, 92)
+
+.bbtext {
+    text-align: left;
+    color: rgb(62, 65, 92)
 }
-.ticketheading{
-    color:white;
-    font-weight:bolder;
-    text-align:left;
+
+.ticketheading {
+    color: white;
+    font-weight: bolder;
+    text-align: left;
 }
-.ticketheading2{
+
+.ticketheading2 {
     color: rgb(111, 117, 176);
-    font-weight:bolder;
-    text-align:left;
+    font-weight: bolder;
+    text-align: left;
     text-align: center;
 }
-.orchestratable{
+
+.orchestratable {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
-.ticketorchestratext{
+
+.ticketorchestratext {
     font-size: 20px;
     color: black;
 }
-.pricedropdown{
-width: 150px;
-height: 100px;
-background-color:white;
-font-family:'QuickSand';
-color:black;
-}
-.new{
-    color:white;
+
+.pricedropdown {
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    font-family: 'QuickSand';
+    color: black;
 }
 
+.new {
+    color: white;
+}
+
+.timeheading {
+    background-color: rgb(62, 65, 92);
+    color: white;
+    font-weight: lighter;
+    border: 3px solid rgb(32, 33, 47);
+    height:200px;
+}
+
+.timedata {
+    background-color: gainsboro;
+    font-size: medium;
+    font-weight: 400;
+    color: rgb(107, 107, 107);
+    border: 3px solid rgb(168, 168, 168);
+    width: 200px;
+    height: 20px;
+}
+#rentalbody{
+    background-color:rgb(202, 206, 240);
+}

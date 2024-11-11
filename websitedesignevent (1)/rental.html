@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+          
+        
+          window.onclick = function(event) {
+            if (!event.target.matches('.tabclick')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+                }
+              }
+            }
+          }
+        </script>
+</head>
+<body id="rentalbody">
+    <div class="tab">
+        <button class="tabclick" onclick="myFunction()" >Tickets</button>
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>
+    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+    <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+</div> 
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
+    <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
+  </div>
+</div>
+<h1>Rental</h1>
+<p>Below you will find a list of slots and timings that are currently available for rental. Fill out the form below to apply for rental. you will receive an email when your application has been reviewed and accepted.</p>
+<table>
+    <tr>
+        <th class="timeheading">Week of November 8th</th>
+        <td class="timedata">November 9th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 9th<br/><p>4pm-5pm: open slot<br/>5pm-6pm: open slot<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 10th<br/><p>4pm-5pm: open slot <br/> 5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 11th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: Band Concert<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 12th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 13th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 14th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+    </tr>
+    <tr>
+        <th class="timeheading">Week of November 15th</th>
+        <td class="timedata">November 15th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 16th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 17th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 18th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 19th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 20th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 21st<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+    </tr>
+    <tr>
+        <th class="timeheading">Week of November 22th</th>
+        <td class="timedata">November 22th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 23th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 24th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 25th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: Girls Basketball Practice <br/>7pm-8pm: Girls Basketball Practice</p></td>
+        <td class="timedata">November 26th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 27th<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+        <td class="timedata">November 28st<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
+    </tr>
+</table>
+</body>
+</html>
