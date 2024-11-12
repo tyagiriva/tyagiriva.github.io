@@ -27,14 +27,14 @@
             </script>
             
     </head>
-<body id="ticketbody">
+<body class="background">
     <div class="tab">
         <button class="selectedtab" onclick="myFunction()" >Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-    <a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>
+   <!---<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
     <div class="dropdown">
 
-    <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+    <a href="rental.html"> <button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
         <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'home')">Home</button></a>
 </div> 
 <div id="myDropdown" class="dropdown-content">
@@ -43,46 +43,82 @@
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
   </div>
 </div>
-<h1 class="ticketheading">Basketball Tickets</h1>
-<p class="bbtext">Listed below are all available seats for this event. Click on the price to purchase the ticket. Refunds are not accepted.</p>
-<table class="orchestratable">
-    <tr>
-<td class="ticketorchestratabletd"><img src="SeatingChart3.PNG" width="600px" height="500px"></td>
-<td class="ticketorchestratabletd">
-<form name="ticketform">
-
-<div>
-<p class="ticketorchestratext">Available Sections:</p>
-<div class="pricedropdown">
-<select size="1"id="seatsection" name="seatsection" onChange="getprice()">
-<option value="0">Choose a Section</option>
-<option value="19.99">B1</option>
-<option value="19.99">B3</option>
-<option value="19.99">B4</option>
-<option value="19.99">B6</option>
-<option value="19.99">B7</option>
-<option value="19.99">B9</option>
-<option value="19.99">B10</option>
-<option value="19.99">B12</option>
-<option value="19.99">B14</option>
-<option value="19.99">B15</option>
-<option value="19.99">B17</option>
-<option value="19.99">B18</option>
-<option value="19.99">B20</option>
-</select> 
-</div>
-</div>
-<div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
-
-<div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
-<div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
-<button class="button2" >Purchase Tickets</button>
-
-</td>
-</tr>
-</form>
-</table>
-<script>
+<div class="background2">
+  <h1 class="ticketheading2">Basketball Tickets</h1>
+  </div>
+  
+          <table class="orchestratable">
+              <tr>
+                <td class="orchestra2"> <p class="ticketorchestratext"> Upcoming Games: </p> <p class="concertext">
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Feb 7<div> 6PM </div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Feb 14<div> 6:30PM </div> </p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Feb 21<div> 6PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Feb 28<div>6PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Mar 7<div> 6:30PM </div> </p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Mar 14<div>6PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Mar 21<div>6PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Mar 28<div>6:30PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Apr 4<div>6:30PM</div></p>
+                  <div class="extraspace2"></div>
+                  <p class="concertext">Fri, Apr 11<div>6:30PM</div></p>
+                  <div class="extraspace2"></div>
+                </td>
+      <td class="ticketorchestratabletd"><img class="seatingchartnew" src="SeatingChart3.PNG" width="600px" height="500px"></td>
+      <td class="newtd"></td>
+      <td class="ticketorchestratabletd3">
+   
+          <form name="ticketform">
+       
+          <div>
+          <p class="ticketorchestratext">Available Sections:</p>
+          <div class="pricedropdown">
+         <select size="13"id="seatsection" name="seatsection" onChange="getprice()">
+          <option value="0">Choose a Section</option>
+          <option value="19.99">B1</option>
+          <option value="19.99">B3</option>
+          <option value="19.99">B4</option>
+          <option value="19.99">B6</option>
+          <option value="19.99">B7</option>
+          <option value="19.99">B9</option>
+          <option value="19.99">B10</option>
+          <option value="19.99">B12</option>
+          <option value="19.99">B14</option>
+          <option value="19.99">B15</option>
+          <option value="19.99">B17</option>
+          <option value="19.99">B18</option>
+          <option value="19.99">B20</option>
+         </select> 
+      </div>
+    </div>
+    <div class="extraspace"></div>
+    <div class="extraspace"></div>
+    <div class="extraspace"></div>
+    <div class="extraspace"></div>
+      <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+      <div class="extraspace"></div>
+      
+      <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
+      <div class="extraspace"></div>
+      <div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+      <div class="extraspace"></div>
+      <button class="button2" >Purchase Tickets</button>
+    
+      
+  </td>
+  
+  </tr>
+  </form>
+  </table>
+  <script>
 function getprice()
 {
    // alert("In getPirce");

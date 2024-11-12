@@ -26,22 +26,22 @@
           }
         </script>
 </head>
-<body id="rentalbody">
+<body class="background">
     <div class="tab">
         <button class="tabclick" onclick="myFunction()" >Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-    <a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>
-    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+    <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+    <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
 </div> 
 <div id="myDropdown" class="dropdown-content">
     <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
-    <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
   </div>
 </div>
-<h1>Rental</h1>
-<p>Below you will find a list of slots and timings that are currently available for rental. Fill out the form below to apply for rental. you will receive an email when your application has been reviewed and accepted.</p>
+<h1 class="newh1">Rental</h1>
+<div class="extraspace"></div>
 <table>
     <tr>
         <th class="timeheading">Week of November 8th</th>
@@ -74,5 +74,16 @@
         <td class="timedata">November 28st<br/><p>4pm-5pm: open slot <br/>5pm-6pm: open slot<br/>6pm-7pm: open slot <br/>7pm-8pm: open slot</p></td>
     </tr>
 </table>
+<div class="extraspace"></div>
+<div class="textcenter">
+  <p>Below you will find a list of slots and timings that are currently available for rental. Fill out the form below to apply for rental. You will receive an email when your application has been reviewed and accepted. Ammenities included with the rental are: sound system, stage area, seating, parking lot, and locker rooms.</p>
+  <p class="ticketheaders">Multiple Days: Contact us to to receive pricing</p>
+  <p class="ticketheaders">Half Day: 350$</p>
+  <p class="ticketheaders">Full Day: 700$</p>
+  <p class="ticketheaders">Hourly: 75$</p>
+  <div class="extraspace"></div>
+
+
+</div>
 </body>
 </html>

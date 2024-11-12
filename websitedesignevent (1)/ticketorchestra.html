@@ -26,33 +26,51 @@
               }
             </script>
     </head>
-    <body>
+    <body class="background">
         <div class="tab">
         <button class="selectedtab" onclick="myFunction()" >Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-    <button class="tabclick" onclick="openPage(event,'information')">Information</button>
+    <!--<button class="tabclick" onclick="openPage(event,'information')">Information</button>-->
     <div class="dropdown">
-    <button class="tabclick" onclick="openPage(event,'rental')">Rental</button>
+    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
         <a href="homepage.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
 </div>   
 
 <div id="myDropdown" class="dropdown-content">
     <a href="ticketbasketball.html" ><p class="new">Basketball </p></a>
-    <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
   </div>
 </div>
+<div class="background2">
 <h1 class="ticketheading2">Orchestra Tickets</h1>
+</div>
+
         <table class="orchestratable">
             <tr>
-    <td class="ticketorchestratabletd"><img src="SeatingChart3.PNG" width="600px" height="500px"></td>
-    <td class="ticketorchestratabletd">
+              <td class="orchestra2"> <p class="ticketorchestratext"> Upcoming Concerts: </p> <p class="concertext">
+                <div class="extraspace2"></div>
+                 <p class="concertext">Winter concert<div>12/20/24 3:30-4PM</div></p>
+                 <div class="extraspace2"></div>
+                 <p class="concertext">Spring Concert<div> 4/31/25 5:30-6PM </div> </p>
+                 <div class="extraspace2"></div>
+                 <p class="concertext">Fall Concert<div> 9/25/25 4:30-5PM</div></p>
+                 <div class="extraspace2"></div>
+                 <p class="concertext">Winter concert<div>12/20/25 3:30-4PM</div></p>
+                 <div class="extraspace2"></div>
+                 <p class="concertext">Spring Concert<div> 4/31/26 5:30-6PM </div> </p>
+                 <div class="extraspace2"></div>
+              </td>
+    <td class="ticketorchestratabletd"><img class="seatingchartnew" src="SeatingChart3.PNG" width="600px" height="500px"></td>
+    <td class="newtd"></td>
+    <td class="ticketorchestratabletd3">
+ 
         <form name="ticketform">
      
         <div>
         <p class="ticketorchestratext">Available Sections:</p>
         <div class="pricedropdown">
-       <select size="1"id="seatsection" name="seatsection" onChange="getprice()">
+       <select size="13"id="seatsection" name="seatsection" onChange="getprice()">
         <option value="0">Choose a Section</option>
         <option value="19.99">B1</option>
         <option value="19.99">B3</option>
@@ -70,13 +88,23 @@
        </select> 
     </div>
   </div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  
     <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+    <div class="extraspace"></div>
     
     <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
+    <div class="extraspace"></div>
     <div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
+    <div class="extraspace"></div>
     <button class="button2" >Purchase Tickets</button>
+  
     
 </td>
+
 </tr>
 </form>
 </table>
