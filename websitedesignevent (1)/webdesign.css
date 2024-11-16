@@ -650,3 +650,14 @@ color: white;
 .contacttext{
     font-weight: 500;
 }
+#form{
+    background-color:gainsboro;
+    color:rgb(102, 109, 167);
+    margin:0px;
+    border: 3px solid gray;
+}
+#formtext{
+    color:rgb(102, 109, 167);
+    font-weight:bolder;
+    padding-bottom:20px;
+}
