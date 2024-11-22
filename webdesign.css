@@ -161,30 +161,17 @@ background-color: rgb(63, 46, 42);
     color: rgb(255, 252, 252);
 
 }
-
-.eventsport {
-    background-color: rgb(182, 182, 186);
-    color: black;
-    border: 5px solid rgb(182, 182, 186);
-    border-radius: 3px;
-    font-size: 12px;
-    font-family: arial;
-    text-align: center;
-}
-.eventsport2{
-    background-color: rgb(171, 141, 135);
-    color: black; 
-    
-    border: 5px solid rgb(171, 141, 135);
+.eventsport{
+    background-color:#5a5330;
+    color:white; 
     border-radius: 3px;
     font-size: 12px;
     font-family: arial;
     text-align: center;
 }
 .eventconcert {
-    background-color: rgb(223, 187, 174);
-    color: black;
-    border: 5px solid rgb(223, 187, 174);
+    background-color:#615c40;
+    color:white;
     border-radius: 5px;
     font-size: 12px;
     font-family: arial;
@@ -193,11 +180,10 @@ background-color: rgb(63, 46, 42);
 }
 
 .eventsport:hover {
-    background-color: rgb(182, 182, 186);
+    background-color:#504c36;
 }
-
-.eventconcert:hover {
-    background-color: rgb(223, 187, 174);
+.eventconcert:hover{
+    background-color:#545038;
 }
 
 .tooltip {
