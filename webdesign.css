@@ -730,6 +730,13 @@ color: white;
     background-color:whitesmoke;
     border:0px;
 }
+.very5{
+    height:auto;
+    width:auto;
+    background-color:white;
+    border:0px;
+    padding-top: 50px;
+}
 .labels{
     color:rgb(63, 46, 42);
     font-family:'Taviraj'
