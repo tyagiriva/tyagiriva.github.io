@@ -727,7 +727,7 @@ color: white;
 .very1{
     height:auto;
     width:auto;
-    background-color:white;
+    background-color:whitesmoke;
     border:0px;
 }
 .labels{
@@ -740,6 +740,9 @@ color: white;
 #big{
     width:300px;
     height:150px;
+}
+.formcolor{
+    background-color: whitesmoke;
 }
 
 
