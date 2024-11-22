@@ -737,6 +737,14 @@ color: white;
     border:0px;
     padding-top: 50px;
 }
+.very6{
+    height:auto;
+    width:450px;
+    background-color:white;
+    border:0px;
+    padding-top: 50px;
+    padding-right: 25px;
+}
 .labels{
     color:rgb(63, 46, 42);
     font-family:'Taviraj'
