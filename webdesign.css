@@ -162,30 +162,46 @@ background-color: rgb(63, 46, 42);
 
 }
 .eventsport{
-    background-color:#5a5330;
-    color:white; 
+    background-color: rgb(135, 116, 102);
+    color: black; 
     border-radius: 3px;
     font-size: 12px;
+    border: 3px solid  rgb(135, 116, 102);
     font-family: arial;
     text-align: center;
 }
-.eventconcert {
-    background-color:#615c40;
-    color:white;
-    border-radius: 5px;
+.eventsport2{
+    background-color: #E7D6C6;
+    color: black; 
+    border-radius: 3px;
+    border: 3px solid #E7D6C6;
     font-size: 12px;
     font-family: arial;
     text-align: center;
-    border-radius: 3px;
 }
 
+.eventconcert {
+    background-color:#aa8974;
+    color: black;
+    border-radius: 3px;
+    font-size: 12px;
+border: 3px solid #aa8974;
+    font-family: arial;
+    text-align: center;
+    border-radius: 3px;
+}
+.eventsport2:hover{
+    background-color: #c7aa8f;
+    border: solid #c7aa8f;
+}
 .eventsport:hover {
-    background-color:#504c36;
+    background-color: rgb(91, 78, 69);
+    border: solid  rgb(91, 78, 69);
 }
 .eventconcert:hover{
-    background-color:#545038;
+    background-color: #705a4d;
+    border: solid #705a4d;
 }
-
 .tooltip {
     position: relative;
     display: inline-block;
