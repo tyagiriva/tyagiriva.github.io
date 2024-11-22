@@ -728,3 +728,16 @@ color: white;
     background-color:white;
     border:0px;
 }
+.labels{
+    color:rgb(63, 46, 42);
+    font-family:'Taviraj'
+}
+.very2{
+    padding-right:70px;
+}
+#big{
+    width:300px;
+    height:150px;
+}
+
+
