@@ -405,6 +405,7 @@ h2 {
 .buyticketbutton:hover {
     transition: 0.3s;
     background-color: rgb(60, 45, 38);
+    color:white;
 }
 .button:hover {
     background-color: rgb(60, 45, 38);
