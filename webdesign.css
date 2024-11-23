@@ -771,4 +771,28 @@ color: white;
     margin-top:105px;
     font-weight:lighter;
 }
+.pricing{
+    background-color:white;
+    border:0px;
+    margin-right:100px;
+    width:100px;
+    height:auto;
+    color:rgb(63, 46, 42);
+    font-family:'Quicksand';
+    font-size:15px;
+    text-align:center;
+}
+.timeyes{
+    width:auto;
+    height:fit-content;
+    background-color:rgb(63, 46, 42);
+    color:white;
+}
+h3{
+    color:rgb(63, 46, 42);
+    font-family:'Taviraj';
+    font-weight:lighter;
+    text-align:center;
+    font-size:30px;
+}
 
