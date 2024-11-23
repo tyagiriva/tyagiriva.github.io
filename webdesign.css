@@ -759,5 +759,16 @@ color: white;
 .formcolor{
     background-color: whitesmoke;
 }
-
+#thanks{
+    font-size:70px;
+    font-weight:lighter;
+    text-align:center;
+    margin-top:100px;
+}
+#yap{
+    font-family:'Taviraj';
+    text-align:center;
+    margin-top:105px;
+    font-weight:lighter;
+}
 
