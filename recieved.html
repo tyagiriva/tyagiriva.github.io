@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<link rel="stylesheet" href="webdesign.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+    <script>
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+              
+            
+              window.onclick = function(event) {
+                if (!event.target.matches('.selectedtab')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+            </script>
+            
+    </head>
+<body class="background">
+    <div class="tab">
+        <button class="selectedtab" onclick="myFunction()" >Tickets</button>
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+   <!---<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+    <div class="dropdown">
+
+    <a href="rental.html"> <button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+        <a href="index.html"> <button class="tabclick" onclick="openPage(event,'home')">Home</button></a>
+</div> 
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
+    <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
+  </div>
+</div>
+<h2>Thank you!</h2>
+<p>your submission has been recieved and is being processed. Once it is processed, you will recieve an email with further instructions or information. Thank you for choosing Westside gym.</p>
+  <a href=index.html><button class=button>OK</button></a>
+</body>
+</html>
