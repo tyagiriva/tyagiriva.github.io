@@ -164,7 +164,7 @@ background-color: rgb(63, 46, 42);
 .eventsport{
     background-color: rgb(135, 116, 102);
     color:rgb(98, 84, 74); 
-    font-family:'Taviraj';
+    font-family:'Quicksand';
     font-weight:lighter;
     border-radius: 3px;
     font-size: 12px;
@@ -173,7 +173,7 @@ background-color: rgb(63, 46, 42);
 }
 .sport2{
     background-color:rgb(147, 107, 79);
-    font-family:'Taviraj';
+    font-family:'Quicksand';
     font-weight:lighter;
     text-align:center;
     border: 3px solid rgb(105, 75, 54);
@@ -182,29 +182,30 @@ background-color: rgb(63, 46, 42);
     font-size:12px;
 }
 .eventconcert {
-    background-color:#aa8974;
-    color:#997b68;
+    background-color:rgb(170, 137, 116);
+    color:rgb(121, 97, 82);
     border-radius: 3px;
     font-size: 12px;
-    border: 3px solid #997b68;
-    font-family:'Taviraj';
+    border: 3px solid rgb(121, 97, 82);
+    font-family:'Quicksand';
     font-weight:lighter;
     text-align: center;
     border-radius: 3px;
 }
 .eventsport:hover {
     background-color: rgb(91, 78, 69);
-    border: solid  rgb(112, 97, 85);
-    color:white;
+    border: solid rgb(45, 39, 34);
+    color:rgb(45, 39, 34);
 }
 .sport2:hover{
     background-color:rgb(115, 84, 62);
-    border:3px solid rgb(105, 75, 54);
-    color:white;
+    border:3px solid rgb(63, 46, 34);
+    color:rgb(63, 46, 34);
 }
 .eventconcert:hover{
-    background-color: #705a4d;
-    border: solid #705a4d;
+    background-color:rgb(149, 119, 100);
+    border: 3px solid rgb(110, 85, 70);
+    color:rgb(110, 85, 70);
 }
 .tooltip {
     position: relative;
