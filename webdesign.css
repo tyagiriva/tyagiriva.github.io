@@ -778,16 +778,18 @@ color: white;
    
 }
 .very5{
+     font-size: 15px;
+    color: black;
     height:auto;
     width:auto;
-    background-color:white;
+    background-color:whitesmoke;
     border:0px;
     padding-top: 50px;
 }
 .very6{
     height:auto;
     width:450px;
-    background-color:white;
+    background-color:whitesmoke;
     border:0px;
     padding-top: 50px;
     padding-right: 25px;
@@ -801,7 +803,7 @@ color: white;
 }
 #big{
     width:300px;
-    height:150px;
+    height:100px;
 }
 .formcolor{
     background-color: whitesmoke;
@@ -841,5 +843,8 @@ color: white;
     font-weight:lighter;
     text-align:center;
     font-size:30px;
+}
+.formcolornew{
+    background-color: whitesmoke;
 }
 
