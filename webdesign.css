@@ -836,13 +836,20 @@ color: white;
 .pricing{
     background-color:white;
     border:0px;
-    margin-right:100px;
-    width:100px;
+ 
+    width: 400px;
     height:auto;
     color:rgb(63, 46, 42);
     font-family:'Quicksand';
     font-size:15px;
+    text-align:left;
+}
+.yes{
+    color:rgb(63, 46, 42);
+    font-family:'Taviraj';
+    font-weight:lighter;
     text-align:center;
+    font-size:25px;
 }
 .timeyes{
     width:auto;
@@ -855,7 +862,7 @@ color: white;
     font-family:'Taviraj';
     font-weight:lighter;
     text-align:center;
-    font-size:30px;
+    font-size:50px;
 }
 .formcolornew{
     background-color: whitesmoke;
