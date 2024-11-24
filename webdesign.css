@@ -658,7 +658,11 @@ color: white;
    padding-left: 180px;
    width: 650px;
    height: 550px;
+   transition: transform 2s;
    
+}
+.seatingchartnew:hover{
+    transform: scale(1.25);
 }
 .orchestra2{
     margin-bottom: 30px;
