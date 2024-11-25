@@ -194,7 +194,7 @@ background-color: rgb(63, 46, 42);
 }
 .eventsport:hover {
     background-color: rgb(91, 78, 69);
-    border: solid rgb(45, 39, 34);
+    border: 3px solid rgb(45, 39, 34);
     color:black;
 }
 .sport2:hover{
