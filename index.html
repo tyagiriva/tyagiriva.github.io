@@ -1,178 +1,272 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href="webdesign.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+  <link rel="stylesheet" href="webdesign.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
-    <script>
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.tabclick')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
           }
-          
-        
-          window.onclick = function(event) {
-            if (!event.target.matches('.tabclick')) {
-              var dropdowns = document.getElementsByClassName("dropdown-content");
-              var i;
-              for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                  openDropdown.classList.remove('show');
-                }
-              }
-            }
-          }
-        </script>
+        }
+      }
+    }
+  </script>
 </head>
+
 <body>
-    <div class="tab">
-        <button class="tabclick" onclick="myFunction()" >Tickets</button>
+  <div class="tab">
+    <button class="tabclick" onclick="myFunction()">Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="index.html"> <button class="selectedtab" onclick="openPage(event,'rental')">Home</button></a>
-</div> 
-<div id="myDropdown" class="dropdown-content">
-    <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
-    <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
-    <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
+  </div>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html">
+      <p class="new">Basketball</p>
+    </a>
+    <a href="ticketvoleyball.html">
+      <p class="new">Volleyball</p>
+    </a>
+    <a href="ticketorchestra.html">
+      <p class="new">Orchestra</p>
+    </a>
   </div>
   <div id="homepage">
     <h1 class="h11">Westside Gym</h1>
     <div class="width">
-    <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events including concerts, sports
-        events, and club meetings. Book our gym today for your events.<br>All images are from unsplash.com and Canva.</p>
-      </div>
-    <a href ="rental.html"> <button class="button" onclick="openPage(event,'rental')">Rent Now</button></a>
+      <p class="text">Our school's gym doubles as a 3500 seat arena for a variety of events including concerts, sports
+        events, and club meetings. Book our gym today for your events.<br>All images are from unsplash.com and Canva.
+      </p>
     </div>
-    <div class="extraspace"></div>
-    <div class="extraspace"></div>
-    <div class="extraspace"></div>
-    <div class="extraspace"></div>
-    <h2> Upcoming Events</h2>
-    <div class="extraspace"></div>
-    <table class="upcomingeventtable">
-    <tr> 
-    
-        <td class="upcomingeventtd"><img class="upcomingeventimg" src="volleyball2.jpg"> <div class="ammenitiestext">Volleyball Game</div><div class="upcomingeventtext">Voleyball Game</div></td>
-        <td class="upcomingeventtd"><img class="upcomingeventimg" src="orchestra2.jpg"> <div class="ammenitiestext">Orchestra Concert</div><div class="upcomingeventtext">Orchestra Concert</div></td>
-        <td class="upcomingeventtd"><img class="upcomingeventimg" src="basketball3.jpg"> <div class="ammenitiestext">Basketball Game</div><div class="upcomingeventtext">Basketball Game</div></td>
+    <a href="rental.html"> <button class="button" onclick="openPage(event,'rental')">Rent Now</button></a>
+  </div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <h2> Upcoming Events</h2>
+  <div class="extraspace"></div>
+  <table class="upcomingeventtable">
+    <tr>
+
+      <td class="upcomingeventtd"><img class="upcomingeventimg" src="volleyball2.jpg">
+        <div class="ammenitiestext">Volleyball Game</div>
+        <div class="upcomingeventtext">Voleyball Game</div>
+      </td>
+      <td class="upcomingeventtd"><img class="upcomingeventimg" src="orchestra2.jpg">
+        <div class="ammenitiestext">Orchestra Concert</div>
+        <div class="upcomingeventtext">Orchestra Concert</div>
+      </td>
+      <td class="upcomingeventtd"><img class="upcomingeventimg" src="basketball3.jpg">
+        <div class="ammenitiestext">Basketball Game</div>
+        <div class="upcomingeventtext">Basketball Game</div>
+      </td>
     </tr>
-    <tr> 
-    
-        <td class="upcomingeventtd"> <a href="ticketvoleyball.html"> <button class="buyticketbutton"> Buy tickets</button></a></td>
-        <td class="upcomingeventtd"> <a href="ticketorchestra.html"> <button class="buyticketbutton"> Buy tickets</button> </td></a>
-        <td class="upcomingeventtd"> <a href="ticketbasketball.html"><button class="buyticketbutton"> Buy tickets</button></a></td>
+    <tr>
+
+      <td class="upcomingeventtd"> <a href="ticketvoleyball.html"> <button class="buyticketbutton"> Buy
+            tickets</button></a></td>
+      <td class="upcomingeventtd"> <a href="ticketorchestra.html"> <button class="buyticketbutton"> Buy tickets</button>
+      </td></a>
+      <td class="upcomingeventtd"> <a href="ticketbasketball.html"><button class="buyticketbutton"> Buy
+            tickets</button></a></td>
 
     </tr>
-</table>
-</div>
-<!--<div class="textcenter">
+  </table>
+  </div>
+  <!--<div class="textcenter">
 <p class="ticketheaders">Online Purchasing:</p>
 <p>Tickets can be purchased any time before a game. Discount codes can be redeemed during purchasing. Major credit cards, debit cards, and any mobile payments. Groups of 10 or more are eligible for discouts (Online only).</p>
 
 <p class="ticketheaders">In-person Tickets:</p>
 <p>Tickets can be purchased at the stall before games, booths will open an hour before games start. Cash, card, and apple pay can be used at the box office.</p>
 </div> -->
-<div class="extraspace"></div>
-<div class="extraspace"></div>
-<div class="extraspace"></div>
-<div class="ammenities">
   <div class="extraspace"></div>
-  <h2>Amenities</h2>
   <div class="extraspace"></div>
-  <table id="atable">
+  <div class="extraspace"></div>
+  <div class="ammenities">
+    <div class="extraspace"></div>
+    <h2>Amenities</h2>
+    <div class="extraspace"></div>
+    <table id="atable">
       <tr>
-  <td class="adata">
-      <img src="park.png" width="50px" height="60px">
-  <h3>Parking</h3>
+        <td class="adata">
+          <img src="park.png" width="50px" height="60px">
+          <h3>Parking</h3>
 
-<p class="ammenitiestext">The back parking lots of the school will be the only area in which those attending events hosted at the gym can park. Parking anywhere else will likely result in towing. </p>
-  </td>
-  <td class="adata">
-      <img src="food.png" width="50px" height="60px">
-  <h3>Foods and Beverages</h3>
-  <p class="ammenitiestext">Food and drink will be provided at events if the event coordinater has stated that they would like catering service.</p>
-  </td>
-  <td class="adata">
-      <img src="security.png" width="50px"height="60px">
-  <h3>Security measures</h3>
-  <p class="ammenitiestext">Here at Westside, we pride ourselves in being a safe and accepting school. Bags will be checked upon arrival. Weapons of any kind are banned from all events. If we find a weapon in your bag, you are subject to a fine and/or arrest. Depending on the event, police may be stationed outside the school.</p>
-  </td>
-  </tr>
-  </table>
+          <p class="ammenitiestext">The back parking lots of the school will be the only area in which those attending
+            events hosted at the gym can park. Parking anywhere else will likely result in towing. </p>
+        </td>
+        <td class="adata">
+          <img src="food.png" width="50px" height="60px">
+          <h3>Foods and Beverages</h3>
+          <p class="ammenitiestext">Food and drink will be provided at events if the event coordinater has stated that
+            they would like catering service.</p>
+        </td>
+        <td class="adata">
+          <img src="security.png" width="50px" height="60px">
+          <h3>Security measures</h3>
+          <p class="ammenitiestext">Here at Westside, we pride ourselves in being a safe and accepting school. Bags will
+            be checked upon arrival. Weapons of any kind are banned from all events. If we find a weapon in your bag,
+            you are subject to a fine and/or arrest. Depending on the event, police may be stationed outside the school.
+          </p>
+        </td>
+      </tr>
+    </table>
   </div>
-<div id="information">
-  <div class="extraspace"></div><div class="extraspace"></div><div class="extraspace"></div>
-    
-     
-      <table class="newtable2">
-    <tr>
+  <div id="information">
+    <div class="extraspace"></div>
+    <div class="extraspace"></div>
+    <div class="extraspace"></div>
 
-        
-      <td class="newtd2"><h2>Location</h2> <br>  Address: 5575 State Bridge Rd, Johns Creek, GA 30022. Parking is available for all events and during school hours.</td>
 
-       <td class="newtd3">  <iframe class="location" width="400px" height="400px"
+    <table class="newtable2">
+      <tr>
+
+
+        <td class="newtd2">
+          <h2>Location</h2> <br> Address: 5575 State Bridge Rd, Johns Creek, GA 30022. Parking is available for all
+          events and during school hours.
+        </td>
+
+        <td class="newtd3"> <iframe class="location" width="400px" height="400px"
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d108408.89099646032!2d-84.24871968787716!3d34.028991743668826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1729356896799!5m2!1sen!2sus"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div class="grid-item">    
-</div></td>
-          </tr>
-          
-   
-          </table>
-    
-<div class="extraspace"></div>
-  
-    <div class="formcolor">
-      <h2 id="formtext">Contact us</h2>
-      <div>
-          <div class="extraspace"></div>
-    <table id="formtable">
-        <tr>
-        <td class="very1">
-      <label for="name">
-        First Name:
-      </label>
-    </br>
-      <input type="text">
-      <br/>
-      
-      </td>
-      <td class="very1">
-       <label>
-        Last Name:
-      </label>
-    </br>
-      <input type="text">
-      <br/>
-      </td>
-      </tr>
-    
-  </table>
-  <div class="extraspace"></div>
-  <div class="very10">
-<label> Email: </label> </br><input type="text" class="very11">
-</div>
-
-<div class="extraspace"></div>
-    <div class="very10">
-      <label>Message:</label>
-      <br/>
-      <input id="big" type="text">
-      <div class="extraspace"></div>
-      <div class="very10">
-          <a href=recieved.html><button class="button3">Submit Form</button></a>
-    </div>
-
-  
-    </div>
-          <div class="extraspace"></div>
   </div>
-    </html>
+  <div class="grid-item">
+  </div>
+  </td>
+  </tr>
+
+
+  </table>
+
+  <div class="extraspace"></div>
+
+  <div class="formcolor">
+    <h2 id="formtext">Contact us</h2>
+    <div>
+      <div class="extraspace"></div>
+
+      <div id="form_contactus">
+        <table id="formtable">
+          <tr>
+            <td class="very1">
+              <label for="name">
+                First Name:
+              </label>
+              </br>
+              <input id="fname" type="text">
+              <br />
+
+            </td>
+            <td class="very1">
+              <label>
+                Last Name:
+              </label>
+              </br>
+              <input id="lname" type="text">
+              <br />
+            </td>
+          </tr>
+
+        </table>
+        <div class="extraspace"></div>
+        <div class="very10">
+          <label> Email: </label> </br><input id="emailid" type="text" class="very11">
+        </div>
+
+        <div class="extraspace"></div>
+        <div class="very10">
+          <label>Message:</label>
+          <br />
+          <input id="big" type="text">
+          <div class="extraspace"></div>
+          <div class="very10">
+            <button class="button3" id="submit2">
+            <!--- onclick="save()"-->
+            Submit Form</button></a>
+          </div>
+
+
+        </div>
+      </div><!--form closing-->
+      <div class="extraspace"></div>
+    </div>
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCa0o0MjnMPPOFpvh7iB6wZV4cPPqJ8vVw",
+    authDomain: "westside-new.firebaseapp.com",
+    projectId: "westside-new",
+    storageBucket: "westside-new.firebasestorage.app",
+    messagingSenderId: "315876085818",
+    appId: "1:315876085818:web:242d37a62847e26f7a6503"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  import {getDatabase, ref, set, child, update, remove}
+  from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; 
+const db= getDatabase();
+
+
+
+function InsertContactData(){
+
+  var fname = document.getElementById('fname').value;
+var lname = document.getElementById('lname').value;
+var emailid = document.getElementById('emailid').value;
+var  big = document.getElementById('big').value;
+
+
+  set(ref(db, "Contacts/" + fname),{
+    FirstName: fname,
+    LastName: lname,
+        EmailId: emailid,
+        Message:big
+        
+  })
+
+.then(()=>{
+alert("Message Sent Successfully");
+})
+.catch((error)=>{
+  alert("error");
+})
+}
+submit2.addEventListener('click', InsertContactData);
+</script>
+
+
 </body>
+</html>
