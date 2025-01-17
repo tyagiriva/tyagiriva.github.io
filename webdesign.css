@@ -2,7 +2,6 @@
     margin: 0px;
     font-family: 'Quicksand';
 }
-
 body {
     background-color: white;
 }
@@ -13,6 +12,10 @@ body {
     width: 347px;
 }
 
+.bc{
+background-color: rgb(161, 161, 161);
+    
+}
 .ticketorchestratabletd {
     background-color: gainsboro;
     border: 10px;
