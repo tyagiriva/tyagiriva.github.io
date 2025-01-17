@@ -543,11 +543,36 @@ h2 {
     font-family: 'Taviraj', serif;
     font-weight: 400;
     text-align: center;
-    background-color:rgb(96, 86, 83);
+    background-image: url("basketballbanner.PNG");
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
     height: 83px;
 }
 
+.ticketheading5 {
+    color:white;
+    font-family: 'Taviraj', serif;
+    font-weight: 400;
+    text-align: center;
+    background-image: url("orchestrabanner2.PNG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 83px;
+}
+
+.ticketheading6 {
+    color:white;
+    font-family: 'Taviraj', serif;
+    font-weight: 400;
+    text-align: center;
+    background-image: url("volleyballbanner.PNG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 83px;
+}
 .orchestratable {
   width:100%
  
