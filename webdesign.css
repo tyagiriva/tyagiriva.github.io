@@ -12,6 +12,12 @@ body {
     width: 1425px;
     height: 138px; 
 }
+.z{
+    font-size: 15px;
+    font-weight: 450;
+    color:black;
+    margin-top: 5px;
+}
 .upcomingeventimg {
 
     height: 315px;
@@ -48,7 +54,10 @@ background-color: rgb(161, 161, 161);
     vertical-align: top;
     padding-bottom: 0;
     text-align: center;
-    padding-right: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
     
 }
 
