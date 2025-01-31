@@ -93,9 +93,9 @@
     <button class="tabclick" onclick="myFunction()">Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
-    <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
+    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="workscited.html"><button class="tabclick">Sources</button></a>
-    <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+    <a href="index.html"> <button class="selectedtab" onclick="openPage(event,'rental')">Home</button></a>
     
   </div>
   <div id="myDropdown" class="dropdown-content">
@@ -173,40 +173,44 @@
 <div id="form_rentals">
 
   <div class=formcolornew>
-<table id="formtable">
+    <h1 id="rentaltext">Rent Out the Gym</h1>
+    <p>Fill out the form below to submit a request to rent the gym. We will get back to you shortly.</p>
+    <form>
+      <table id="rentaltable">
+        <tr>
+       <td class="tds"><label for="fname">First name:</label>
+        <input type="text" class="rentalinputs" name="fname"><br><br></td>
+        <td class="tds"><label for="date">Date of Event:</label>
+  <input type="date" class="rentalinputs"name="date"><br><br>
+  </td>
+  </tr>
   <tr>
-      
-  <td class="very6"><h2 id="formtext">Form For Renting</h2></td>
-    <td class="very5">
-  <label for="name">
-    Full Name:
-  </label>
-  <input type="text" id="fullname">
-  <br/>
-  <div class="extraspace"></div>
-  <div class="extraspace"></div>
-  <div class="extraspace"></div>
-   <label for="email">
-    Email Address:
-  </label>
-  <input type="email" id="emailid">
-  <br/>
-  <div class="extraspace"></div>
-  <div class="extraspace"></div>
-  <div class="extraspace"></div>
-  <label>Type of event:</label>
-  <select name="choose an event" id="event">
+    <td class="tds">
+  <label for="lname">Last name:</label>
+  <input type="text" class="rentalinputs"name="lname"><br><br>
+  </td>
+  <td class="tds">
+  <label for="event" id="event" name="event">Event type:</label>
+  <select name="choose an event" class="rentalinputs">
+    <div id="dropdowns">
     <option value="choose an event">Choose an Event</option>
     <option value="club">Club</option>
     <option value="sports practice">Sports Practice</option>
     <option value="sports game">Sports Game</option>
     <option value="other">Other</option>
-  </select>
+    </div>
+  </select><br><br>
   </td>
- <td class="very5" ><button id="submit3" class="button10">Submit Form</button></a></td>
-      </div>
-</tr>
+  </tr>
+  <tr>
+    <td class="tds">
+      <label for="email">Email:</label>
+      <input type="text" class="rentalinputs" name="email"><br><br>
+      </td>
+  </tr>
 </table>
+</form>
+<button class="button">submit</button>
 
 </div>
 </div>
