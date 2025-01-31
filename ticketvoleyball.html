@@ -36,12 +36,81 @@
             </script>
     </head>
 <body class="background">
-    <div class="tab">
-        <button class="selectedtab" onclick="myFunction()" >Tickets</button>
+    <!DOCTYPE html>
+<html>
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPXMCL5ELR');
+</script>
+<title> Westside Gym </title>
+  <meta name="description" content="Welcome to Westside Gym. Book events or purchase tickets for games today!">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPXMCL5ELR');
+</script>
+<title> Westside Gym </title>
+  
+  <link rel="stylesheet" href="webdesign.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.tabclick')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="tab">
+    <button class="tabclick" onclick="myFunction()">Tickets</button>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
-    <div class="dropdown">
+    <a href="workscited.html"> <button class="tabclick" onclick="openPage(event,'rental')">Sources</button></a>
+    <a href="index.html"> <button class="selectedtab" onclick="openPage(event,'rental')">Home</button></a>
+    
+  </div>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html">
+      <p class="new">Basketball</p>
+    </a>
+    <a href="ticketvoleyball.html">
+      <p class="new">Volleyball</p>
+    </a>
+    <a href="ticketorchestra.html">
+      <p class="new">Orchestra</p>
+    </a>
+  </div>
+  <h2>Works cited</h2>
+  <p>This lists the copyright information for all the images we used in our website.</p>
   
         <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
 </div> 
