@@ -932,4 +932,15 @@ color: white;
 .formcolornew{
     background-color: whitesmoke;
 }
+#sources{
+    text-align:center;
+    background-color: whitesmoke;
+    font-weight:medium;
+    font-size:15px;
+    color:#4A332D;
+}
+#sourceshead{
+    font-family:monospace;
+    color:#4A332D;
+}
 
