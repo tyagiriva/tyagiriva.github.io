@@ -942,4 +942,23 @@ color: white;
 #sourceshead{
     color:#4A332D;
 }
+#rentaltable{
+    margin-left:auto;
+    margin-right:auto;
+}
+.tds{
+    background-color:whitesmoke;
+    border:none;
+    padding:30px;
+}
+#rentaltext{
+    color:#4A332D;
+}
+.rentalinputs{
+    width:350px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border:none;
+    border-bottom:2px #4A332D solid;
+}
 
