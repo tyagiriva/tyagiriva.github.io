@@ -670,8 +670,9 @@ h2 {
     color:  rgb(24, 10, 4);
     font-family:inherit;
     border:none;
-    padding:30px;
+    padding:45px;
     width:200px;
+    text-align: center;
 }
 #atable{
     margin-left:auto;
