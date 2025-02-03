@@ -423,7 +423,7 @@ h2 {
 }
 .button30 {
 
-    background-color:rgb(60, 45, 38);
+    background-color:  rgb(24, 10, 4);
     color: white;
     border-radius: 3px;
     font-family: 'Quicksand';
@@ -451,7 +451,7 @@ h2 {
    
 }
 .button2 {
-    background-color:  rgb(24, 10, 4);
+    background-color:rgb(60, 45, 38);
     color: white;
     border-radius: 3px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -483,7 +483,9 @@ h2 {
 .button:hover {
     background-color:  rgb(24, 10, 4);
 }
-
+button2:hover{
+    rgb(24, 10, 4);
+}
 .calendardown {
     margin-top: 60px;
 }
