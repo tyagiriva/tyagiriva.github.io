@@ -683,13 +683,17 @@ button2:hover{
     background-color:rgb(202, 206, 240);
 }
 .adata{
-    background-color:inherit;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    background-color:whitesmoke;
     color:  rgb(24, 10, 4);
     font-family:inherit;
     border:none;
-    padding:45px;
-    width:200px;
+    padding-left: 5%;
+    padding-right: 5%;
+    width:300px;
     text-align: center;
+
 }
 #atable{
     margin-left:auto;
