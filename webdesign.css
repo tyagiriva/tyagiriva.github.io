@@ -693,6 +693,8 @@ button2:hover{
     padding-right: 5%;
     width:300px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 #atable{
