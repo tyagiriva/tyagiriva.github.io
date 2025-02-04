@@ -572,7 +572,7 @@ button2:hover{
     background-size: cover;
     height: 650px;
     padding-bottom: 40px;
-    width: auto;
+    width: 100%;
 
 }
 
