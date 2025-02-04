@@ -758,12 +758,10 @@ color: white;
     height: 1px;
 }
 .seatingchartnew{
-    margin-top: 50px;
-   padding-left: 180px;
-   width: 650px;
-   height: 550px;
-   transition: transform 2s;
-   
+ padding-left: 20%;
+ padding-top: 7%;
+transition: transform 2s;   
+}
 }
 .seatingchartnew:hover{
     transform: scale(1.25);
