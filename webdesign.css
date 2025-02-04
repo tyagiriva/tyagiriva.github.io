@@ -37,6 +37,7 @@ background-color: rgb(161, 161, 161);
     border: 10px;
     border-color: gray;
     width:72%
+    height: 100%;
 
 }
 .ticketorchestratabletd3 {
@@ -44,6 +45,7 @@ background-color: rgb(161, 161, 161);
     border: 0;
     width:13%;
     padding-top: 30px;
+    height: 100%;
 }
 .newtd{
     width: 4%;
@@ -753,6 +755,7 @@ color: white;
     border: 2px;
     height: auto;
     width:100%;
+
 
 }
 .ticketborder{
