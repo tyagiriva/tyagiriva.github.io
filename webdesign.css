@@ -12,7 +12,10 @@ body {
     animation: autoshowanimation;
     animation-timeline: view(70% 5%);
 }
-
+.fade{
+      animation: fadeanimation;
+    animation-timeline: view(70% 5%);
+}
 @keyframes autoshowanimation{
     from{
         opacity: 0;
@@ -51,8 +54,6 @@ body {
 
     height: 315px;
     width: 347px;
-    animation: fadeanimation;
-    animation-timeline: view(70% 5%);
 }
 
 .bc{
