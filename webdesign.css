@@ -758,6 +758,9 @@ button2:hover{
     margin-left: auto;
     margin-right: auto;
     display: block;
+    animation: autoshowanimation;
+    animation-timeline: view(70% 5%);
+    
 }
 .textcenter{
     width:80%;
