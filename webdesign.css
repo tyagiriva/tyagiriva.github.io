@@ -22,6 +22,22 @@ body {
     transform: translateY(0) scale(1);
     }
 }
+.zoomeffect{
+animation: zoomimage linear;
+animation-timeline: view(70% 5%);
+object-fit: cover;
+
+}
+@keyframes zoomimage{
+
+    from{ 
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.1);
+    }
+
+}
 .a{
     width:100%;
     height:25%; 
@@ -40,6 +56,8 @@ body {
 
     height: 315px;
     width: 347px;
+    position: fixed;
+    overflow: hidden;
 }
 
 .bc{
