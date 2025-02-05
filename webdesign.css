@@ -23,11 +23,6 @@ body {
     }
 }
 
-.fade{
-animation: fadeanimation;
-animation-timeline: view(70% 5%);
-
-}
 @keyframes fadeanimation{
 
     from{ 
@@ -56,6 +51,8 @@ animation-timeline: view(70% 5%);
 
     height: 315px;
     width: 347px;
+    animation: fadeanimation;
+    animation-timeline: view(70% 5%);
 }
 
 .bc{
