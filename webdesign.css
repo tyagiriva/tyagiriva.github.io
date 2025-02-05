@@ -45,6 +45,8 @@ body {
     font-weight: 450;
     color:black;
     margin-top: 5px;
+    animation: fadeanimation;
+    animation-timeline: view(70% 5%); 
 }
 .extraspace4{
     width:100%;
@@ -504,8 +506,9 @@ h2 {
     border: 1px solid rgb(84, 37, 27);
     width: 120px;
     height: 45px;
-    
     font-size: 15px;
+    animation: fadeanimation;
+    animation-timeline: view(70% 5%); 
 }
 
 .buyticketbutton:hover {
