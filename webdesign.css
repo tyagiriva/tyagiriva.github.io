@@ -1053,7 +1053,7 @@ transition: transform 2s;
 .tds{
     background-color:whitesmoke;
     border:none;
-    padding:30px;
+    padding:15px;
 }
 #rentaltext{
     color:#4A332D;
@@ -1080,7 +1080,7 @@ transition: transform 2s;
     top:400px;
 }
 #rheafart{
-    width:1200px;
+    width:1400px;
     height:800px;
     background-color:whitesmoke;
     border: 30px solid white;
