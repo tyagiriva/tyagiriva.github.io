@@ -507,8 +507,6 @@ h2 {
     width: 120px;
     height: 45px;
     font-size: 15px;
-    animation: fadeanimation;
-    animation-timeline: view(70% 5%); 
 }
 
 .buyticketbutton:hover {
