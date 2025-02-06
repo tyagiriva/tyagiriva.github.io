@@ -1070,6 +1070,11 @@ transition: transform 2s;
     border:0px;
     padding:60px;
 }
+.td23{
+    background-color: whitesmoke;
+    border:0px;
+    padding:10px;
+}
 #table3{
     margin-right:auto
 }
