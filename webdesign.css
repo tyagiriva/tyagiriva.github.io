@@ -1071,7 +1071,7 @@ transition: transform 2s;
     padding:15px;
     padding:60px;
 }
-#table3{
+.table3{
     margin-right:auto
 }
 .image{
@@ -1080,7 +1080,7 @@ transition: transform 2s;
     right:200px;
     top:400px;
 }
-#rheafart{
+.rheafart{
     width:1500px;
     height:800px;
     background-color: whitesmoke;
