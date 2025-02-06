@@ -1017,6 +1017,8 @@ transition: transform 2s;
     font-weight:lighter;
     text-align:center;
     font-size:25px;
+    animation: autoshowanimation;
+    animation-timeline: view(70% 5%);
 }
 .timeyes{
     width:auto;
