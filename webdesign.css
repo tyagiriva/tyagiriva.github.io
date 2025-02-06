@@ -1066,7 +1066,7 @@ transition: transform 2s;
     border-bottom:2px #4A332D solid;
 }
 .td2s{
-    background-color:#bbb3b1;
+    background-color: whitesmoke;
     border:0px;
     padding:15px;
     padding:60px;
@@ -1074,16 +1074,16 @@ transition: transform 2s;
 #table3{
     margin-right:auto
 }
-#image{
+.image{
     display:block;
     position:absolute;
     right:200px;
     top:400px;
 }
-#rheafart{
+.rheafart{
     width:1500px;
     height:800px;
-    background-color:#bbb3b1;
+    background-color: whitesmoke;
     border: 30px solid white;
 }
 
