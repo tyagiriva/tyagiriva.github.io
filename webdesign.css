@@ -1101,8 +1101,8 @@ transition: transform 2s;
 #image{
     display:block;
     position:absolute;
-    width: 50%;
-    height: 50%;
+    left: 30%;
+    bottom: 10%;
 }
 #rheafart{
     width:1200px;
