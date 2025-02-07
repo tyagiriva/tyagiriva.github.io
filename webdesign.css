@@ -1101,8 +1101,6 @@ transition: transform 2s;
 #image{
     display:block;
     position:absolute;
-    right:200px;
-    top:400px;
     width: 50%;
     height: 50%;
 }
