@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -8,36 +10,33 @@
   gtag('config', 'G-KPXMCL5ELR');
 </script>
 <title> Westside Gym </title>
-<html>
-<head>
-<link rel="stylesheet" href="webdesign.css"/>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
     rel="stylesheet">
     <script>
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-              }
-              
-            
-              window.onclick = function(event) {
-                if (!event.target.matches('.selectedtab')) {
-                  var dropdowns = document.getElementsByClassName("dropdown-content");
-                  var i;
-                  for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                      openDropdown.classList.remove('show');
-                    }
-                  }
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+          
+        
+          window.onclick = function(event) {
+            if (!event.target.matches('.tabclick')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
                 }
               }
-            </script>
-            
-    </head>
+            }
+          }
+        </script>
+</head>
 <body class="background">
-   <!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 
 <head>
@@ -91,11 +90,12 @@
 
 <body>
   <div class="tab">
-    <button class="selectedtab" onclick="myFunction()">Tickets</button>
-        <a href="workscited.html"><button class="tabclick">Sources</button></a>
+    <button class="tabclick" onclick="myFunction()">Tickets</button>
+      <a href="workscited.html"><button class="tabclick">Sources</button></a>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
-    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+    <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
+    
     <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
     
   </div>
@@ -112,9 +112,9 @@
   </div>
 <div id="myDropdown" class="dropdown-content">
     <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
-    <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
-  </div>
+  </div> 
 </div>
   <div class="background2">
     <h1 class="ticketheading6">Volleyball Tickets</h1>
