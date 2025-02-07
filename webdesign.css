@@ -819,6 +819,8 @@ color: white;
  padding-left: 20%;
  padding-top: 7%;
 transition: transform 2s;   
+width: 600px;
+height: 500px;
 }
 .seatingchartnew:hover{
     transform: scale(1.2);
