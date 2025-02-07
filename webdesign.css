@@ -458,6 +458,20 @@ h2 {
     margin-top: 50px;
    
 }
+.button40 {
+    background-color:rgb(60, 45, 38);
+    color: white;
+    border-radius: 3px;
+    font-family: 'Quicksand';
+    border: none;
+    width: 125px;
+    height: 45px;
+    font-weight: 100;
+    font-size: 15px;
+    margin-left: 46%;
+    margin-top: 50px;
+   
+}
 .button30 {
 
     background-color:  rgb(24, 10, 4);
