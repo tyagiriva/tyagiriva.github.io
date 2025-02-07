@@ -472,6 +472,11 @@ h2 {
     margin-top: 50px;
    
 }
+.button40:hover{
+ transition: 0.3s;
+    background-color: rgb(60, 45, 38);
+    color:white;
+}
 .button30 {
 
     background-color:  rgb(24, 10, 4);
