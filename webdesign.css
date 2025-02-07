@@ -820,9 +820,8 @@ color: white;
  padding-top: 7%;
 transition: transform 2s;   
 }
-}
 .seatingchartnew:hover{
-    transform: scale(1.25);
+    transform: scale(1.2);
 }
 .orchestra2{
     margin-bottom: 30px;
