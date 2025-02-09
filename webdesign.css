@@ -178,16 +178,16 @@ td {
     display: inline-block;
 }
 
-
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: rgb(24, 10, 4);
-    min-width: 160px;
+    min-width: 120px;
     z-index: 2;
     color: white;
     text-align: center;
-    height: 140px;
+    height: 132px;
+    left: 235px;
 
 }
 
