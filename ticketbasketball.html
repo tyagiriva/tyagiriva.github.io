@@ -178,7 +178,7 @@
     <div class="extraspace"></div>
     <div class="extraspace"></div>
     <div class="extraspace"></div>
-      <div> <p class="ticketorchestratext">Number of seats:</p> <div id="pricetext"></div> <input type="hidden" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+      <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
       <div class="extraspace"></div>
       
       <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
@@ -200,7 +200,7 @@ function getprice()
    
                  // alert(selectElement.value);
                   document.getElementById("price").value = document.getElementById("seatsection").value;
-                      document.getElementById("pricetext").value = document.getElementById("seatsection").value;
+                     
 
                  var seatprice= document.getElementById("seatsection").value;
                 // alert(seatprice);
