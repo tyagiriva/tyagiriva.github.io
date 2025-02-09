@@ -84,7 +84,10 @@ background-color: rgb(161, 161, 161);
     height:100%;
 }
 
-
+.grey{
+    background-color: whitesmoke;
+    width: 100%;
+}
 
 .upcomingeventtd {
     border: none;
