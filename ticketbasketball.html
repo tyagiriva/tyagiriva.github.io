@@ -89,13 +89,13 @@
 </head>
 
 <body>
-  <div class="tab">
+    <div class="tab">
     <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
-    <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
+    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
 
-    <button class="tabclick" onclick="myFunction()">Tickets</button>
+    <button class="selectedtab" onclick="myFunction()">Tickets</button>
     <a href="workscited.html"><button class="tabclick">Sources</button></a>
   
     
@@ -156,7 +156,7 @@
           <p class="ticketorchestratext">Available Sections:</p>
           <div class="pricedropdown">
          <select size="13"id="seatsection" name="seatsection" onChange="getprice()">
-             <option value="0">Choose a Section</option>
+          <option value="0">Choose a Section</option>
           <option value="30">A1</option>
           <option value="20">A4</option>
           <option value="20">A6</option>
@@ -183,10 +183,10 @@
     <div class="extraspace"></div>
     <div class="extraspace"></div>
     <div class="extraspace"></div>
-      <div> <p class="ticketorchestratext">Number of seats:</p> <input type="text" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
+      <div> <p class="ticketorchestratext">Number of seats:</p> <input type="hidden" size="5" name="numberofseats" id="numberofseats" value="1" onChange="getprice()"></div>
       <div class="extraspace"></div>
       
-      <div><p class="ticketorchestratext">Price:</p> <input type="text" size="5" id="price" name="price"></div>
+      <div><p class="ticketorchestratext">Price:</p>  <div id="pricetext"></div> <input type="text" size="5" id="price" name="price"></div>
       <div class="extraspace"></div>
       <div><p class="ticketorchestratext">Total:</p> <input type="text"  size="10" name="TotalAmount" id="TotalAmount"></div>
       <div class="extraspace"></div>
@@ -205,7 +205,7 @@ function getprice()
    
                  // alert(selectElement.value);
                   document.getElementById("price").value = document.getElementById("seatsection").value;
-                     
+                      document.getElementById("pricetext").value = document.getElementById("seatsection").value;
 
                  var seatprice= document.getElementById("seatsection").value;
                 // alert(seatprice);
@@ -218,3 +218,4 @@ function getprice()
 </script>
 </body>
 </html>
+
