@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPXMCL5ELR');
+</script>
+<title> Westside Gym </title>
+    <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+          }
+          
+        
+          window.onclick = function(event) {
+            if (!event.target.matches('.tabclick')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+                }
+              }
+            }
+          }
+        </script>
+</head>
+<body class="background">
+    <!DOCTYPE html>
+<html>
 
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
@@ -73,6 +111,11 @@
       <p class="new">Orchestra</p>
     </a>
   </div>
+<div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html" ><p class="new">Basketball</p></a>
+    <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
+    <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
+  </div>  
 </div>
 <div class="background2">
   <h1 class="ticketheading2">Basketball Tickets</h1>
@@ -175,4 +218,3 @@ function getprice()
 </script>
 </body>
 </html>
-
