@@ -117,73 +117,102 @@
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
   </div> 
   <div class="extraspace"></div>
+  <div id="rheafart">
   <h2>Rental</h2>
-<div class="extraspace"></div>
-
-</div>
-<div id="rheafart">
-<table id="table3"> 
-  <tr>
-<td class="td2s"><img src="" id="image"> </td>
-<td class="td23">
-<button id="button"class="button40" onclick="show()">Week 1</button> <br>
-<button id="button"class="button40" onclick="show2()">Week 2</button>
-<button id="button"class="button40" onclick="show3()">Week 3</button>
-<button id="button"class="button40" onclick="show4()">Week 4</button>
-</td>
-    <script>
-      function show() {
-          /* Get image and change value 
-          of src attribute */
-          let image = document.getElementById("image");
-          image.src =
-"yes1.png"
-          document.getElementById("btnID")
-              .style.display = "none";
-      }
-  </script>
-    <script>
-      function show2() {
-          /* Get image and change value 
-          of src attribute */
-          let image = document.getElementById("image");
-          image.src =
-"yes2.png"
-          document.getElementById("btnID")
-              .style.display = "none";
-      }
-  </script>
-     <script>
-      function show3() {
-          /* Get image and change value 
-          of src attribute */
-          let image = document.getElementById("image");
-          image.src =
-"yes3.png"
-          document.getElementById("btnID")
-              .style.display = "none";
-      }
-  </script>
-     <script>
-      function show4() {
-          /* Get image and change value 
-          of src attribute */
-          let image = document.getElementById("image");
-          image.src =
-"yes4.png"
-          document.getElementById("btnID")
-              .style.display = "none";
-      }
-  </script>
+  <div id="left">
+<label for="eventtype">Event Type:</label><br/>
+  <select class="rentalinputs">
+    <option value="club">Club meeting</option>
+    <option value="sport">Sport</option>
+    <option value="other">Other</option>
+    <option value="concert">Concert</option>
+  </select> <br/>
   <div class="extraspace"></div>
-  </tr>
- </table>
+  <div class="extraspace"></div>
+  <label for="ammenties">Ammenties needed</label><br/>
+  <select class="rentalinputs"name="ammenties">
+    <option value="parking">Parking</option>
+    <option value="food">Food and Drink</option>
+    <option value="security">Security</option>
+  </select>
+  <div class="extraspace"></div>
+  <div class="extraspace"></div>
+  <label for="time">Start Time</label><br/>
+  <input type="time" class="rentalinputs2"name="time">
+  <button class="wiege" onclick="displayInputs()">Submit</button>
+  <script>
+   function displayInputs() {
+    let today = new Date();
+    
+    // Generate random dates for the next month
+    let numSlots = 3; // Number of random dates
+    let dateSlots = [];
+
+    for (let i = 0; i < numSlots; i++) {
+        let randomDays = Math.floor(Math.random() * 30) + 1;
+        let futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + randomDays);
+
+        let formattedDate = futureDate.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        });
+
+        dateSlots.push(formattedDate);
+    }
+
+    // Create or update output div
+    let outputDiv = document.getElementById("timeSlots");
+    if (!outputDiv) {
+        outputDiv = document.createElement("div");
+        outputDiv.id = "timeSlots";
+        document.body.appendChild(outputDiv);
+    } else {
+        outputDiv.innerHTML = ""; // Clear previous content
+    }
+
+    // Check if heading exists, if not, create it
+    let heading = document.getElementById("timeSlotsHeading");
+    if (!heading) {
+        heading = document.createElement("h3");
+        heading.textContent = "Available Dates";
+        heading.id = "timeSlotsHeading";
+        outputDiv.appendChild(heading);
+    }
+
+    // Append new date slots
+    dateSlots.forEach(date => {
+        let dateElement = document.createElement("p");
+        dateElement.textContent = date;
+        dateElement.className = "slot-box";
+        outputDiv.appendChild(dateElement);
+    });
+
+    // Add "Book Now" button
+    let bookNowButton = document.createElement("button");
+    bookNowButton.textContent = "Book Now";
+    bookNowButton.className = "book-now-btn";
+    bookNowButton.onclick = function() {
+        document.getElementById("form_rentals").scrollIntoView({ behavior: "smooth" });
+    };
+
+    outputDiv.appendChild(bookNowButton);
+}
+
+   
+  </script>
+  </div>
+</div>
  </div>
- <div class="extraspace"></div>
+</table>
+<div class="extraspace"></div>
 <div class="autoshow"  >
 <table class="newtable2">
   <tr>
     <td class="newtd12"> <h2 class="autoShow" >Pricing</h2> </br> <p class="yes">Full day:</p><p class="autoShow">The price for a full day is 600$, which accounts for 12 hours.</p><div class="extraspace"></div>
+     
+    <p class="yes">Hourly:</p> <p class="autoShow"> The price The price hourly is 75$. Amenities are not included and will cost extra.</p> <div class="extraspace"></div> <p class="yes">Multiple days</p> <p class="autoShow"> The amount of days depends on the price and event. Amenities are given with multiple days. </p>
      
     <p class="yes">Hourly:</p> <p class="autoShow"> The price The price hourly is 75$. Amenities are not included and will cost extra.</p> <div class="extraspace"></div> <p class="yes">Multiple days</p> <p class="autoShow"> The amount of days depends on the price and event. Amenities are given with multiple days. </p>
     </td>
@@ -204,19 +233,19 @@
       <table  class="fade" id="rentaltable">
         <tr>
        <td class="tds"><label for="fname">First name:</label>
-        <input type="text" class="rentalinputs" name="fname" id="fname"><br><br></td>
+        <input type="text" class="rentalinputs" name="fname"><br><br></td>
         <td class="tds"><label for="date">Date of Event:</label>
-  <input id=date type="date" class="rentalinputs"name="date"><br><br>
+  <input type="date" class="rentalinputs"name="date"><br><br>
   </td>
   </tr>
   <tr>
     <td class="tds">
   <label for="lname">Last name:</label>
-  <input type="text" class="rentalinputs"name="lname" id="lname"><br><br>
+  <input type="text" class="rentalinputs"name="lname"><br><br>
   </td>
   <td class="tds">
-  <label for="event" name="event">Event type:</label>
-  <select id=eventtype name="choose an event" class="rentalinputs">
+  <label for="event" id="event" name="event">Event type:</label>
+  <select name="choose an event" class="rentalinputs">
     <div id="dropdowns">
     <option value="choose an event">Choose an Event</option>
     <option value="club">Club</option>
@@ -235,7 +264,7 @@
   </tr>
 </table>
 </form>
-<button onclick="alert('Request Submited')" id=submit3 class="button">Submit</button>
+<button onclick="alert('Request Submited')" class="button">Submit</button>
       <div class="extraspace"></div>
             <div class="extraspace"></div>
 
@@ -272,20 +301,16 @@ const db= getDatabase();
 
 function InsertRentalData(){
 
-var fname = document.getElementById('fname').value;
-var lname = document.getElementById('lname').value;
+var fullname = document.getElementById('fullname').value;
+var event = document.getElementById('event').value;
 var emailid = document.getElementById('emailid').value;
-var date = document.getElementById('date').value;
-var eventtype = document.getElementById('eventtype').value;
 
 
 
-  set(ref(db, "Rentals/" + fname),{
-    fname: fname,
-    lname: lname,
-    emailId: emailid,
-    date: date,
-    eventtype: eventtype
+  set(ref(db, "Rentals/" + fullname),{
+    FullName: fullname,
+        EmailId: emailid,
+        Event:event
         
   })
 
