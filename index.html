@@ -281,7 +281,11 @@ var emailid = document.getElementById('emailid').value;
 var  big = document.getElementById('big').value;
 
 
-  set(ref(db, "Contacts/" + fname),{
+ import { push } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+const newContactRef = push(ref(db, "Contacts"));
+set(newContactRef, {
+
     FirstName: fname,
     LastName: lname,
         EmailId: emailid,
