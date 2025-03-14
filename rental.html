@@ -204,19 +204,19 @@
       <table  class="fade" id="rentaltable">
         <tr>
        <td class="tds"><label for="fname">First name:</label>
-        <input type="text" class="rentalinputs" name="fname"><br><br></td>
+        <input type="text" class="rentalinputs" name="fname" id="fname"><br><br></td>
         <td class="tds"><label for="date">Date of Event:</label>
-  <input type="date" class="rentalinputs"name="date"><br><br>
+  <input id=date type="date" class="rentalinputs"name="date"><br><br>
   </td>
   </tr>
   <tr>
     <td class="tds">
   <label for="lname">Last name:</label>
-  <input type="text" class="rentalinputs"name="lname"><br><br>
+  <input type="text" class="rentalinputs"name="lname" id="lname"><br><br>
   </td>
   <td class="tds">
-  <label for="event" id="event" name="event">Event type:</label>
-  <select name="choose an event" class="rentalinputs">
+  <label for="event" name="event">Event type:</label>
+  <select id=eventtype name="choose an event" class="rentalinputs">
     <div id="dropdowns">
     <option value="choose an event">Choose an Event</option>
     <option value="club">Club</option>
@@ -235,7 +235,7 @@
   </tr>
 </table>
 </form>
-<button onclick="alert('Request Submited')" class="button">Submit</button>
+<button onclick="alert('Request Submited')" id=submit3 class="button">Submit</button>
       <div class="extraspace"></div>
             <div class="extraspace"></div>
 
@@ -272,16 +272,20 @@ const db= getDatabase();
 
 function InsertRentalData(){
 
-var fullname = document.getElementById('fullname').value;
-var event = document.getElementById('event').value;
+var fname = document.getElementById('fname').value;
+var lname = document.getElementById('lname').value;
 var emailid = document.getElementById('emailid').value;
+var date = document.getElementById('date').value;
+var eventtype = document.getElementById('eventtype').value;
 
 
 
-  set(ref(db, "Rentals/" + fullname),{
-    FullName: fullname,
-        EmailId: emailid,
-        Event:event
+  set(ref(db, "Rentals/" + fname),{
+    fname: fname,
+    lname: lname,
+    emailId: emailid,
+    date: date,
+    eventtype: eventtype
         
   })
 
