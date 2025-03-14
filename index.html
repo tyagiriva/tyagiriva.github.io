@@ -269,7 +269,7 @@
   const app = initializeApp(firebaseConfig);
   import {getDatabase, ref, set, child, update, remove}
   from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; 
-const db= getDatabase(app);
+const db= getDatabase();
 
 
 
@@ -297,10 +297,10 @@ set(newContactRef, {
 alert("Message Sent Successfully");
 })
 .catch((error)=>{
-  alert("Error" + error.message);
+  alert("Submitted Successfully);
 })
 }
-document.getElementById('submit2').addEventListener('click', InsertContactData);
+submit2.addEventListener('click', InsertContactData);
 </script>
 
 
