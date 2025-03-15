@@ -264,7 +264,7 @@
     messagingSenderId: "315876085818",
     appId: "1:315876085818:web:242d37a62847e26f7a6503"
   };
-
+ alert("1");
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   import {getDatabase, ref, set, child, update, remove}
@@ -272,7 +272,7 @@
 const db= getDatabase();
 
 
-
+ alert("2");
 function InsertContactData(){
 
   var fname = document.getElementById('fname').value;
@@ -287,7 +287,7 @@ set(ref(db, "Contacts/" + fname),{
         Message:big
         
   })
-
+ alert("3");
 .then(()=>{
 alert("Message Sent Successfully");
 })
