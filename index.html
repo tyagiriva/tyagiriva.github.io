@@ -248,56 +248,47 @@
 
 
 <script type="module">
-  // Import the functions you need from the SDKs you need
+  // Import Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; 
 
-  // Your web app's Firebase configuration
-
-
+  // Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyCa0o0MjnMPPOFpvh7iB6wZV4cPPqJ8vVw",
+    apiKey: "AIzaSyCa0o0MjnMPPOPvfh7iB6wZV4cPPqJ8vVw",
     authDomain: "westside-new.firebaseapp.com",
     projectId: "westside-new",
     storageBucket: "westside-new.firebasestorage.app",
     messagingSenderId: "315876085818",
     appId: "1:315876085818:web:242d37a62847e26f7a6503"
   };
- alert("1");
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  import {getDatabase, ref, set, child, update, remove}
-  from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; 
-const db= getDatabase();
+  const db = getDatabase(app, "https://westside-2024-25-default-rtdb.firebaseio.com/");
 
+  // Function to insert contact data
+  function InsertContactData() {
+    var fname = document.getElementById('fname').value;
+    var lname = document.getElementById('lname').value;
+    var emailid = document.getElementById('emailid').value;
+    var big = document.getElementById('big').value;
 
- alert("2");
-function InsertContactData(){
+    set(ref(db, "Contacts/" + fname), {
+      FirstName: fname,
+      LastName: lname,
+      EmailId: emailid,
+      Message: big
+    })
+    .then(() => {
+      alert("Message Sent Successfully");
+    })
+    .catch((error) => {
+      alert("Error: " + error.message);
+    });
+  }
 
-  var fname = document.getElementById('fname').value;
-var lname = document.getElementById('lname').value;
-var emailid = document.getElementById('emailid').value;
-var  big = document.getElementById('big').value;
-  
-set(ref(db, "Contacts/" + fname),{
-    FirstName: fname,
-    LastName: lname,
-        EmailId: emailid,
-        Message:big
-        
-  })
- alert("3");
-.then(()=>{
-alert("Message Sent Successfully");
-})
-.catch((error)=>{
-  alert("Submitted Successfully");
-})
-}
-submit2.addEventListener('click', InsertContactData);
+  // Wait for DOM to load before adding event listener
+  window.onload = function() {
+    document.getElementById('submit2').addEventListener('click', InsertContactData);
+  };
 </script>
-
-
-</body>
-</html>
