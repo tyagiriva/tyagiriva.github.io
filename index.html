@@ -228,7 +228,7 @@
           <input id="big" type="text">
           <div class="extraspace"></div>
           <div class="very10">
-            <button class="button3" onclick="alert('Message Sent Successfully')" id="submit2">
+            <button class="button3" id="submit2">
             <!--- onclick="save()"-->
             Submit Form</button></a>
           </div>
@@ -279,13 +279,8 @@ function InsertContactData(){
 var lname = document.getElementById('lname').value;
 var emailid = document.getElementById('emailid').value;
 var  big = document.getElementById('big').value;
-
-
- import { push } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
-
-const newContactRef = push(ref(db, "Contacts"));
-set(newContactRef, {
-
+  
+set(ref(db, "Contacts/" + fname),{
     FirstName: fname,
     LastName: lname,
         EmailId: emailid,
