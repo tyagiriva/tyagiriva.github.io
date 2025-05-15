@@ -1258,6 +1258,73 @@ height: 500px;
     margin-top:20px;
 }
 
+.arrows1{
+    background-color:white;
+    border:white;
+    position:absolute;
+    left:20%;
+    top:10%;
+}
+.arrows2{
+    background-color:white;
+    border:white;
+    position:absolute;
+    right:20%;
+    top:10%;
+}
+.arrowimage{
+    width:25px;
+    height:25px;
+}
+.arrows1:hover{
+    background-color:rgb(189, 184, 184);
+    border:rgb(189, 184, 184);
+}
+.arrows2:hover{
+    background-color:rgb(189, 184, 184);
+    border:rgb(189, 184, 184);
+}
+.days{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .calendar-month {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .calendar-month {
+    border: none; /* Remove outer border */
+    padding: 10px;
+  }
+  
+  .calendar {
+    border: none; /* Remove table border */
+    width: 90%;
+    border-collapse: collapse;
+  }
+  
+  .calendar th{
+    height:60%;
+  }
+  .calendar td {
+    border: 2px solid #ccc; /* Keep borders for cells */
+    text-align: center;
+    vertical-align: top;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+  }
+  
+  .calendar td strong {
+    display: block;
+    font-size: 1.2em;
+    text-align: left;
+    margin-bottom: 5px;
+  }
 
 
 
