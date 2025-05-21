@@ -1325,6 +1325,73 @@ height: 500px;
     text-align: left;
     margin-bottom: 5px;
   }
+ .center-buttons {
+    text-align: center; 
+  }
+  
+  .button-container {
+    display: inline-flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+    justify-content: center;
+  }
+  
+  .ticketbutton {
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    background-color:white;
+    border:0px;
+  }
+  
+  .ticketbutton:hover{
+    background-color:rgb(192, 191, 191);
+  }
+  .submitbutton{
+    background-color:#4A332D;
+    color:white;
+    font-family:'Quicksand';
+    border:0px;
+    width:80px;
+    height:50px;
+    display:block;
+    margin:auto;
+    margin-bottom:60%;
+    border-radius:5px;
+
+  }
+  .submitbutton:hover{
+    background-color:#31211c;
+  }
+  .sophie{
+    padding:50px;
+    background-color:rgb(247, 244, 244);
+    border-radius:10px;
+    width:250px;
+    height:330px;
+    display:block;
+    margin: 100px auto;
+  }
+  .logininputs{
+    width:240px;
+    height:30px;
+  }
+  .loginbg {
+    background-image: url("loginbg.jpg"); /* Don't use /static/ here */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+
+
+
+
+
+
 
 
 
