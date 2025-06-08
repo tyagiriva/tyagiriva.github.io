@@ -66,15 +66,15 @@ background-color: rgb(161, 161, 161);
     background-color: gainsboro;
     border: 10px;
     border-color: gray;
-    width:72%
+    width:72%;
     height: 100%;
 
 }
 .ticketorchestratabletd3 {
     background-color: white;
     border: 0;
-    width:13%;
-    padding-top: 30px;
+    width:17%;
+    padding-top: 10px; /*change made */
     height: 100%;
 }
 .newtd{
@@ -543,7 +543,7 @@ h2 {
     background-color:  rgb(24, 10, 4);
 }
 button2:hover{
-    rgb(24, 10, 4);
+     background-color: rgb(24, 10, 4); 
 }
 .calendardown {
     margin-top: 60px;
@@ -694,7 +694,7 @@ button2:hover{
 
 
 .ticketorchestratext {
-    font-size: 20px;
+    font-size: 13px;
     color: black;
 }
 .ticketorchestratext2 {
@@ -820,15 +820,13 @@ color: white;
     height: 1px;
 }
 .seatingchartnew{
- padding-left: 20%;
- padding-top: 7%;
-transition: transform 2s;   
-width: 600px;
-height: 500px;
+ padding-left: 12.5%;
+ padding-top: 3%;
+/*transition: transform 2s;  */ 
 }
-.seatingchartnew:hover{
+/*.seatingchartnew:hover{
     transform: scale(1.2);
-}
+} */
 .orchestra2{
     margin-bottom: 30px;
     background-color: white;
@@ -1385,7 +1383,287 @@ height: 500px;
     width: 100vw;
 }
 
+.eventTicketButton {
+    background-color: #283E65;
+    color: white;
+    border-radius: 3px;
+    font-family: 'Quicksand';
+    border: none;
+    width: 100px;
+    height: 45px;
+    font-weight: 100;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
 
+/* Hover effect only when not selected */
+.eventTicketButton:not(.selected):hover {
+    background-color: #162338;
+}
+
+/* Selected button style */
+.eventTicketButton.selected {
+    background-color:  #18253c;;
+}
+
+.chart {
+    position: relative;
+    width: 760px;
+    height: 600px;
+    /*background: url('newChart.png') no-repeat;
+    #background-size: cover;*/
+    margin-left: 125px;
+    margin-top: 43px;
+     
+  }
+
+  .section {
+    position: absolute;
+    cursor: pointer;
+    transition: filter 0.2s;
+    image-rendering: auto;
+   
+  
+  }
+
+  .section:hover {
+    filter: brightness(60%);
+  }
+
+  .section.clicked {
+    filter: brightness(30%);
+    
+  }
+
+  .court {
+    position: absolute;
+    image-rendering: auto;
+  
+  }
+
+ 
+.sectionText{
+
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    cursor: pointer;
+    font-weight: 200;
+}
+  .zoom-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevents zoom from overlapping */
+    position: relative;
+  }
+  
+  .zoom-target {
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+  }
+  
+  .zoom {
+    width: 41px;
+    height: 41px;
+    border-radius: 0px;
+    box-shadow: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(193, 193, 193);
+    font-size: 25px;
+    font-weight: 100;
+    color: gray;
+    top: 30px;
+  }
+
+  .button2 {
+    background-color:rgb(60, 45, 38);
+    color: white;
+    border-radius: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    width: 252px;
+    height: 45px;
+    font-size: 15px;
+    margin-right: 2px;
+
+
+}
+
+.filler {
+
+    border: none;
+    background-color: white;
+    padding-bottom: none;
+    height: 50px;
+    width:15px;
+}
+.ticketAmount {
+   width: 223px; 
+   height: 50px; 
+   font-size: 30px;
+}
+
+
+  .orchestratable td.priceTd {
+    padding-bottom: 0 !important;
+    height: 70px;
+    background-color: green;
+    border: none;
+    color: black;
+    vertical-align: top;
+    width: 50px;
+  }
+  .priceWrapper {
+    background-color: green;
+    color: black;
+    padding-bottom: 0 !important;
+    margin-bottom: 0;
+    height: 70px;
+    vertical-align: top;
+    width: 50px;
+  }
+  
+.ticket-label {
+    display: block;
+    font-size: 15px;
+    color: black;
+    margin-left: 10px;
+    padding-bottom: 10px;
+  
+    }
+    
+ .ticket-input {
+ width: 212px;
+ margin-left: 4px;
+ margin-bottom: 15px;
+ height: 23px;
+
+    }
+    .reset {
+        background-color:white;
+        color: gray;
+        margin-top: 20px;
+        width: 74px;
+        height: 40px;
+        border: 1px solid rgb(175, 175, 175);
+        box-shadow: 0px 0px 0px;
+        border-radius: 3px;
+        font-size:17px;
+        font-weight: 200;
+    }
+    .trialText{
+
+        font-size: 20px;
+        color: black
+    }
+    .trialText2{
+        text-align: center;
+        font-size: 15px;
+        color: black
+    }
+    .extraspace7{
+        width: 100%;
+        height: 30px;
+    }
+    .extraspace8{
+        width: 100%;
+        height: 10px;
+    }
+    .trialText3{
+        text-align: center;
+        font-size: 15px;
+        color: black;
+        padding-left: 76px;
+    }
+
+    .fixed-purchase-button {
+        position: fixed;
+        bottom: 0;
+        left: 82.7%;
+        text-align: center;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        background-color:rgb(60, 45, 38);
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        border: none;
+        width: 250px;
+        height: 50px;
+        font-size: 17px;
+        font-weight: 200;
+     
+        
+      }
+      .ticket {
+        background-color: white; 
+    
+        }
+
+        .container {
+            background-color: white;
+            width: 960px;
+            max-height: 600px;
+            height: 600px;
+            margin-top: 5%;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            margin-left: auto; 
+             margin-right: auto;
+
+        }
+        .ticket2 {
+            margin-bottom: 10px; 
+            padding: 10px; 
+            border-bottom: 1px solid #ddd;
+        }
+       
+        .cartButton {
+            background-color:rgb(60, 45, 38);
+            color: white;
+            border-radius: 3px;
+            font-family: 'Quicksand';
+            border: none;
+            width: 100px;
+            height: 45px;
+            font-weight: 100;
+            font-size: 15px;
+            margin-top: 22px;
+        }
+   
+        .fixed-buttons {
+              
+            left: 15.27%;
+            top: 81.6%;
+            width: 984px;
+            background-color: white;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            height: 90px;
+            position: fixed;
+            z-index: 1000;
+            bottom: 0;
+         
+        }
+   .extraspace30{
+
+    height: 90px;
+    background-color: white;
+    width: 100%;
+   }
+.cartimg{
+
+margin-left: 67%;
+margin-top: 0.5%;
+width: 30px;
+height: 30px;
+}
+  
+
+  
 
 
 
