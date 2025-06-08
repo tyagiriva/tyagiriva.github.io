@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KPXMCL5ELR');
+    </script>
+    <title>Westside Gym</title>
+    <meta name="description" content="Welcome to Westside Gym. Book events or purchase tickets for games today!">
+    <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.tabclick')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: Arial; 
+            background-image: url(cartBackground.png); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            margin: 0;
+            ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+        }
+      
+       
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <a href="index.html"><button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+        <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+        <a href="calendar.html"><button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button></a>
+        <button class="tabclick" onclick="myFunction()">Tickets</button>
+        <a href="workscited.html"><button class="tabclick">Sources</button></a>
+        <a href="cart.html"><img class="cartimg" src="cart new.svg"></a>
+    </div>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="ticketbasketball.html"><p class="new">Basketball</p></a>
+        <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
+        <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
+    </div>
+    <div class="container">
+        <p style="font-size: 45px; font-family: taviraj;">Cart Summary</p>
+        <div id="cartDetails"></div>
+        <div class="fixed-buttons">
+            <button style="margin-left: 375px; bottom: 30px;" class="cartButton" onclick="clearCart()">Clear Cart</button>
+            <button style="margin-left: 30px; margin-bottom: 60px;" class="cartButton" onclick="alert('This is a demo. Purchase not implemented.')">Purchase</button>
+        </div>
+    </div>
+    <script>
+        const cart = JSON.parse(localStorage.getItem("cartData"));
+        const container = document.getElementById("cartDetails");
+
+        if (cart) {
+        
+            cart.tickets.forEach(ticket => {
+                container.innerHTML += `
+                    <div class="ticket2">
+                        <p><strong>Date:</strong> ${cart.date}</p>
+                        <p><strong>Type:</strong> ${ticket.type}</p>
+                        <p><strong>Section:</strong> ${ticket.section}</p>
+                        <p><strong>Price:</strong> \$${ticket.price}</p>
+                        <p><strong>Quantity:</strong> ${ticket.quantity}</p>
+                    </div>`;
+            });
+            container.innerHTML += `<h3>Total: \$${cart.total}</h3> <div class="extraspace30"> </div>`;
+        } else {
+            container.innerHTML = "<p>No items in cart.</p>";
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cartData");
+            location.reload();
+        }
+    </script>
+</body>
+</html>
