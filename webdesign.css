@@ -1662,7 +1662,77 @@ width: 30px;
 height: 30px;
 }
   
+.rentalPricingTd{
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 3px;
+    margin-right: 30px; /* space between cells */
+    padding-bottom: 0px;
+    width: 247px;
+    height: 318px; 
 
+  }
+
+  .dayTypes{
+    font-size: 17px;
+    font-weight: 200;
+    color: black;
+
+  }
+
+
+
+
+
+.bookNow{
+    width: 210px; 
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(159, 159, 159);
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 3px;
+    transition: .3s;
+
+}
+
+.bookNow:hover{
+    background-color: #345285;
+    color: white;
+
+}
+.dotted{
+    width: 100px;
+}
+/* CSS */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  
+  .divider-line {
+    width: 75px;             /* each line stretches to fill available space */
+    border: none;
+    border-top: 1px solid #ccc;  /* adjust color/thickness as needed */
+  }
+  
+  .divider-text {
+    padding: 0 10px;       /* space around the word */
+    font-weight: 300;     /* optional: make the text stand out */
+  }
+  .checkbox{
+    height: 15px;
+    width: 15px;
+    margin-left: 20px;
+     margin-right: 8px;
+  }
+.verticalSpace{
+
+    width: 30px;
+}
   
 
 
