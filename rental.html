@@ -86,6 +86,85 @@
       }
     }
   </script>
+  <style>
+  @media (max-width: 768px) {
+    .autoshow table {
+      display: block;
+      width: 100%;
+      background-color: transparent;
+      border-spacing: 0;
+    }
+
+    .autoshow tr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: transparent;
+    }
+
+    .autoshow td {
+      display: block;
+      width: 90%;
+      margin: 20px auto;
+      height: auto;
+      background-color: whitesmoke;
+      border: none;
+      border-radius: 3px;
+      box-shadow: rgba(65, 65, 65, 0.48) 6px 2px 16px 0px, rgba(60, 60, 60, 0.8) -6px -2px 16px 0px;
+    }
+
+    .rentalinputs,
+    .rentalinputs2 {
+      width: 90% !important;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .bookNow {
+      width: 90%;
+      margin: 10px auto;
+      display: block;
+    }
+
+    #rentaltable {
+      width: 100%;
+      display: block;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .tds {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .button {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    #timeSlots {
+      position: static;
+      width: 90%;
+      margin: 20px auto;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .autoshow table {
+      table-layout: fixed;
+    }
+
+    .autoshow td {
+      height: 350px;
+    }
+  }
+</style>
+
+  
 </head>
 
 <body>
