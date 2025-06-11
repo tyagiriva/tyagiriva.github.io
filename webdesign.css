@@ -1680,22 +1680,18 @@ height: 30px;
 
   }
 
-
-
-
-
 .bookNow{
     width: 210px; 
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(159, 159, 159);
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 5px;
     font-size: 15px;
     border-radius: 3px;
     transition: .3s;
 
 }
-
 .bookNow:hover{
     background-color: #345285;
     color: white;
@@ -1710,7 +1706,8 @@ height: 30px;
     align-items: center;
     text-align: center;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .divider-line {
