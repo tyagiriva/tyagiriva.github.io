@@ -1280,6 +1280,8 @@ color: white;
     position:absolute;
     left:20%;
     top:10%;
+    transition: 1.1s;
+
 }
 .arrows2{
     background-color:white;
@@ -1287,19 +1289,18 @@ color: white;
     position:absolute;
     right:20%;
     top:10%;
+    transition: 1.1s;
 }
 .arrowimage{
     width:25px;
     height:25px;
 }
 .arrows1:hover{
-    background-color:rgb(189, 184, 184);
-    border:rgb(189, 184, 184);
+    scale: 1.4;
+
 }
 .arrows2:hover{
-    background-color:rgb(189, 184, 184);
-    border:rgb(189, 184, 184);
-}
+    scale: 1.4;
 .days{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
