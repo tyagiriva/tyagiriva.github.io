@@ -640,15 +640,20 @@ button2:hover{
     top: 5.8%;
 }
 
-#homepage {
+
+#homepage { /*change made */
     background-image: url("gym2.JPG");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed; /* This is the key line */
     height: 650px;
     padding-bottom: 40px;
     width: 100%;
-
-}
+  }
+  
+html {
+     scroll-behavior: smooth;
+    }
 
 #ticketbody {
     background-color: rgb(218, 220, 233);
