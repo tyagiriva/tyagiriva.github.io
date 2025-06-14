@@ -183,7 +183,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding-bottom: 50px;   /* adds “a bit” more image below the cards */
+  background-attachment: fixed;
+  padding-bottom: 50px;
+}
+
+/* Disable parallax on small screens */
+@media (max-width: 768px) {
+  .rental-bg {
+    background-attachment: scroll;
+  }
 }
 .z{
 color:gray;
