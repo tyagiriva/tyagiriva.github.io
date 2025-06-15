@@ -247,17 +247,29 @@ color:gray;
 </head>
 
 <body>
-  <div class="tab">
-    <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
-    <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
-    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-    <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+  <div class="uppertab">
+      <button class="UTbutton2"><img src="login.png" width="20px" height="23"></button>
+      <button class="UTbutton" id="authButton">Log In</button>
 
-    <button class="tabclick" onclick="myFunction()">Tickets</button>
-    <a href="workscited.html"><button class="tabclick">Sources</button></a>
-  
-    
-  </div>
+    </div>
+    <div class="tab">
+      <button class="tabclick"><img src="s.png" width="40px" height="23px"></button>
+      <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+      <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
+      <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+      <a href="cart.html"><img class="cartimg" src="cart.png"></a>
+
+      <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+
+      <button class="tabclick" onclick="myFunction()">Tickets</button>
+      <a href="workscited.html"><button class="tabclick">Sources</button></a>
+      <a href="bookings.html" id="bookingsTab" style="display: none;">
+        <button class="tabclick">Bookings</button>
+      </a>
+
+
+
+    </div>
   <div id="myDropdown" class="dropdown-content">
     <a href="ticketbasketball.html">
       <p class="new">Basketball</p>
@@ -524,78 +536,104 @@ color:gray;
 </div>
 </div><!--form closed-->
 
-<script>
-  // Get all "Book Now" buttons
-  const bookNowButtons = document.querySelectorAll(".bookNow");
-
-  // Map button index to rental type
-  const rentalTypes = ["Hourly", "Full Day", "Multiple Days"];
-
-  bookNowButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
-      // Scroll to form
-      document.getElementById("form_rentals").scrollIntoView({ behavior: "smooth" });
-
-      // Set the dropdown value
-      const select = document.querySelector("select[name='choose an event']");
-      if (select) {
-        select.value = rentalTypes[index];
-      }
-    });
-  });
-</script>
-
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+      import { auth } from "./auth.js";
+      import {
+        signOut,
+        onAuthStateChanged
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  // Your web app's Firebase configuration
+      onAuthStateChanged(auth, (user) => {
+        const authBtn = document.querySelector("#authButton");
+        const profileIcon = document.querySelector("#profileIcon");
+        const bookingsTab = document.querySelector("#bookingsTab");
+
+        if (user) {
+          authBtn.textContent = "Sign Out";
+          authBtn.onclick = async () => {
+            await signOut(auth);
+            alert("You have been signed out.");
+            location.reload();
+          };
+
+          // Show profile icon and bookings tab only if they exist
+          if (profileIcon) profileIcon.style.display = "inline-block";
+          if (bookingsTab) bookingsTab.style.display = "inline-block";
+        } else {
+          authBtn.textContent = "Log In";
+          authBtn.onclick = () => {
+            window.location.href = "login.html";
+          };
+
+          // Hide profile icon and bookings tab if visible
+          if (profileIcon) profileIcon.style.display = "none";
+          if (bookingsTab) bookingsTab.style.display = "none";
+        }
+      });
+    </script>
+    <script type="module">
+      import { firebaseApp, auth } from "./auth.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const db = getFirestore(firebaseApp);
+
+      document.querySelector("#rentalForm")?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const date = document.querySelector("[name='date']")?.value;
+        const event = document.querySelector("[name='choose an event']")?.value; // ✅ Ensure correct event field
+
+        const user = auth.currentUser;
+        if (!user) {
+          alert("Please log in first.");
+          return;
+        }
+
+        console.log("📤 Booking Data Before Submit:", { uid: user.uid, date, event }); // Debugging log
+
+        try {
+          await addDoc(collection(db, "bookings"), {
+            uid: user.uid,
+            date,
+            event,  // ✅ Store event type in Firestore
+            timestamp: new Date().toISOString()
+          });
+
+          console.log("✅ Booking saved!");
+          alert("✅ Booking submitted!");
+          window.location.href = "bookings.html";
+        } catch (err) {
+          console.error("❌ Firestore error:", err.message);
+          alert("Something went wrong when saving your booking.");
+        }
+      });
 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCa0o0MjnMPPOFpvh7iB6wZV4cPPqJ8vVw",
-    authDomain: "westside-new.firebaseapp.com",
-    projectId: "westside-new",
-    storageBucket: "westside-new.firebasestorage.app",
-    messagingSenderId: "315876085818",
-    appId: "1:315876085818:web:242d37a62847e26f7a6503"
-  };
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("✅ Page fully loaded!");
+        const form = document.querySelector("#rentalForm");
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  import {getDatabase, ref, set, child, update, remove}
-  from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js"; 
-const db= getDatabase();
+        if (!form) {
+          console.error("❌ Form with id 'rentalForm' not found!");
+          return;
+        }
 
+        console.log("✅ Form detected. Listening for submit event...");
 
-
-function InsertRentalData(){
-
-var fullname = document.getElementById('fullname').value;
-var event = document.getElementById('event').value;
-var emailid = document.getElementById('emailid').value;
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          console.log("🚀 Form submitted!");
+        });
+      });
+    </script>
 
 
+  </body>
 
-  set(ref(db, "Rentals/" + fullname),{
-    FullName: fullname,
-        EmailId: emailid,
-        Event:event
-        
-  })
-
-.then(()=>{
-alert("Information Sent Successfully");
-})
-.catch((error)=>{
-  alert("Error");
-})
-}
-submit3.addEventListener('click', InsertRentalData);
-</script>
-
-</body>
-
-</html>
+  </html>
