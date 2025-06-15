@@ -37,13 +37,25 @@
             </script>
     </head>
     <body>
+      <div class="uppertab">
+        <a href="profile.html" id="profileIcon" style="display: none;">
+          <button class="UTbutton"><img src="login.png" width="20" height="23"></button>
+        </a>
+        <button class="UTbutton" id="authButton">Log In</button>
+
+      </div>
      <div class="tab">
     <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="calendar.html"> <button class="selectedtab" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <a href="cart.html"><img class="cartimg" src="cart.png"></a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
     <button class="tabclick" onclick="myFunction()">Tickets</button>
     <a href="workscited.html"><button class="tabclick">Sources</button></a>
+    <a href="bookings.html" id="bookingsTab" style="display: none;">
+      <button class="tabclick">Bookings</button>
+    </a>
+    
   
     
   </div>
@@ -52,7 +64,6 @@
         <a href="ticketvoleyball.html"><p class="new">Voleyball</p></a>
         <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
       </div>
-    </div>
     <h2> Calendar</h2>
     <button class="arrows1" onclick="back()"><img src="left.png" class="arrowimage"></button>
     <button class="arrows2"onclick="next()"><img src="right.png"class="arrowimage"></button>
@@ -209,6 +220,41 @@
       
         document.addEventListener("DOMContentLoaded", () => {
           showMonth(visualMonthIndex);
+        });
+      </script>
+       <script type="module">
+        import { auth } from "./auth.js";
+        import {
+          signOut,
+          onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      
+        onAuthStateChanged(auth, (user) => {
+          const authBtn = document.querySelector("#authButton");
+          const profileIcon = document.querySelector("#profileIcon");
+          const bookingsTab = document.querySelector("#bookingsTab");
+      
+          if (user) {
+            authBtn.textContent = "Sign Out";
+            authBtn.onclick = async () => {
+              await signOut(auth);
+              alert("You have been signed out.");
+              location.reload();
+            };
+      
+            // Show profile icon and bookings tab only if they exist
+            if (profileIcon) profileIcon.style.display = "inline-block";
+            if (bookingsTab) bookingsTab.style.display = "inline-block";
+          } else {
+            authBtn.textContent = "Log In";
+            authBtn.onclick = () => {
+              window.location.href = "login.html";
+            };
+      
+            // Hide profile icon and bookings tab if visible
+            if (profileIcon) profileIcon.style.display = "none";
+            if (bookingsTab) bookingsTab.style.display = "none";
+          }
         });
       </script>
       
