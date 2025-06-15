@@ -34,17 +34,28 @@
         }
       }
     </script>
+    <script type="module">
+      // Optional if you're not bundling and want quick setup
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    </script>
+    
 </head>
-
+  
 <body class="loginbg">
-
+  <div class="uppertab">
+    <button class="UTbutton2"><img src="login.png" width="20px" height="23"></button>
+    <a href="login.html"><button class="UTbutton">Log In</button></a>
+  </div>
   <div class="tab">
+    <button class="tabclick"><img src="s.png" width="40px"height="23px"></button>
     <a href="index.html"><button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="calendar.html"><button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button></a>
 
     <button class="selectedtab" onclick="myFunction()">Tickets</button>
     <a href="workscited.html"><button class="tabclick">Sources</button></a>
+    <a href="cart.html"><img class="cartimg" src="cart.png"></a>
   </div>
 
   <div id="myDropdown" class="dropdown-content">
@@ -53,16 +64,16 @@
     <a href="ticketorchestra.html"><p class="new">Orchestra</p></a>
   </div>
 
-  <form class="sophie">
+  <form class="sophie" id="loginForm">
     <h2>Login</h2>
     
     <label for="email">Email:</label><br />
-    <input class="logininputs" type="text" name="email" required /><br />
+    <input class="logininputs" type="email" id="email" required /><br />
     
     <div class="extraspace"></div>
     
     <label for="password">Password:</label><br />
-    <input class="logininputs" type="password" name="password" required /><br />
+    <input class="logininputs" id="password" type="password" name="password" required /><br />
     
     <div class="extraspace"></div>
     
@@ -72,6 +83,35 @@
     
     <button class="submitbutton" type="submit">Submit</button>
   </form>
+  <script type="module" src="auth.js"></script>
+  <script type="module">
+    import { auth, loginUser } from './auth.js';
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  
+    document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  try {
+    await loginUser(email, password);
+    console.log("✅ Login successful"); // <– See if this logs
+    window.location.href = "index.html";
+  } catch (err) {
+    console.error("❌ Login failed:", err.message);
+  }
+});
+
+  
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("✅ Firebase sees logged-in user:", user.email);
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+  
+  
   
 </body>
 </html>
