@@ -64,14 +64,28 @@
     </style>
 </head>
 <body>
-    <div class="tab">
-        <a href="index.html"><button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
-        <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
-        <a href="calendar.html"><button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button></a>
-        <button class="tabclick" onclick="myFunction()">Tickets</button>
-        <a href="workscited.html"><button class="tabclick">Sources</button></a>
-        <a href="cart.html"><img class="cartimg" src="cart new.svg"></a>
-    </div>
+    <div class="uppertab">
+    <a href="profile.html" id="profileIcon" style="display: none;">
+      <button class="UTbutton"><img src="login.png" width="20" height="23"></button>
+    </a>
+    <button class="UTbutton" id="authButton">Log In</button>
+
+  </div>
+ <div class="tab">
+<a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+<a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+<a href="calendar.html"> <button class="selectedtab" onclick="openPage(event,'calendar')">Calendar</button> </a>
+<a href="cart.html"><img class="cartimg" src="cart.png"></a>
+<!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+<button class="tabclick" onclick="myFunction()">Tickets</button>
+<a href="workscited.html"><button class="tabclick">Sources</button></a>
+<a href="bookings.html" id="bookingsTab" style="display: none;">
+  <button class="tabclick">Bookings</button>
+</a>
+
+
+
+</div>
     <div id="myDropdown" class="dropdown-content">
         <a href="ticketbasketball.html"><p class="new">Basketball</p></a>
         <a href="ticketvoleyball.html"><p class="new">Volleyball</p></a>
