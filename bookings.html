@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KPXMCL5ELR');
+  </script>
+  <title> Westside Gym </title>
+  <meta name="description" content="Welcome to Westside Gym. Book events or purchase tickets for games today!">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-KPXMCL5ELR');
+  </script>
+  <link rel="stylesheet" href="webdesign.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.tabclick')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bookbg">
+  <div class="uppertab">
+    <a href="profile.html" id="profileIcon" style="display: none;">
+      <button class="UTbutton"><img src="login.png" width="20" height="23"></button>
+    </a>
+    <button class="UTbutton" id="authButton">Log In</button>
+
+  </div>
+  <div class="tab">
+    <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+    <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+    <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+    <a href="cart.html"><img class="cartimg" src="cart.png"></a>
+    <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+    <button class="tabclick" onclick="myFunction()">Tickets</button>
+    <a href="workscited.html"><button class="tabclick">Sources</button></a>
+    <a href="bookings.html" id="bookingsTab" style="display: none;">
+      <button class="selectedtab">Bookings</button>
+    </a>
+
+
+
+  </div>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html">
+      <p class="new">Basketball</p>
+    </a>
+    <a href="ticketvoleyball.html">
+      <p class="new">Volleyball</p>
+    </a>
+    <a href="ticketorchestra.html">
+      <p class="new">Orchestra</p>
+    </a>
+  </div>
+  <div class="bookings-container">
+    <div class="bookbox">
+      <h4 class="bookhead">Previous Bookings</h4>
+    </div>
+    <div class="bookbox">
+      <h4 class="bookhead">Current Bookings</h4>
+    </div>
+  </div>
+  <script type="module">
+    import { auth } from "./auth.js";
+    import {
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    onAuthStateChanged(auth, (user) => {
+      const authBtn = document.querySelector("#authButton");
+      const profileIcon = document.querySelector("#profileIcon");
+      const bookingsTab = document.querySelector("#bookingsTab");
+
+      if (user) {
+        authBtn.textContent = "Sign Out";
+        authBtn.onclick = async () => {
+          await signOut(auth);
+          alert("You have been signed out.");
+          location.reload();
+        };
+
+        // Show profile icon and bookings tab only if they exist
+        if (profileIcon) profileIcon.style.display = "inline-block";
+        if (bookingsTab) bookingsTab.style.display = "inline-block";
+      } else {
+        authBtn.textContent = "Log In";
+        authBtn.onclick = () => {
+          window.location.href = "login.html";
+        };
+
+        // Hide profile icon and bookings tab if visible
+        if (profileIcon) profileIcon.style.display = "none";
+        if (bookingsTab) bookingsTab.style.display = "none";
+      }
+    });
+  </script>
+  <script type="module">
+    import { auth } from "./auth.js";
+    import {
+      getFirestore,
+      collection,
+      query,
+      where,
+      getDocs
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const db = getFirestore();
+
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        console.warn("❌ No user detected—bookings won't load.");
+        return;
+      }
+
+      console.log("📢 Logged-in user UID:", user.uid); // Debug log
+
+      const q = query(collection(db, "bookings"), where("uid", "==", user.uid));
+
+      try {
+        const querySnapshot = await getDocs(q);
+        console.log("📄 Bookings found:", querySnapshot.docs.length); // Log number of bookings
+
+        querySnapshot.forEach((doc) => {
+          console.log("🔍 Full Booking Data:", doc.data()); // Debug log
+
+          const { date, event } = doc.data(); // Get only date & event type
+
+          if (!event) {
+            console.warn("⚠️ Event type is missing or undefined in Firestore!");
+          }
+
+          const isPast = new Date(date) < new Date();
+          const div = document.createElement("div");
+          div.textContent = `${date} - ${event || "Unknown Event"}`;
+
+          // ✅ Apply class correctly
+          div.classList.add("booking", isPast ? "past" : "current");
+
+          (isPast ? document.querySelectorAll(".bookbox")[0] : document.querySelectorAll(".bookbox")[1])
+            .appendChild(div);
+        });
+
+
+      } catch (error) {
+        console.error("❌ Firestore query error:", error.message);
+      }
+    });
+  </script>
