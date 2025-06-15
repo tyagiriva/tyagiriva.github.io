@@ -1755,7 +1755,54 @@ height: 30px;
 
     width: 30px;
 }
+  .footerPreImage {
+    background-image: url('footerPreImage.jpg');
+    background-color: #533933; /* Tint color */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: multiply; /* This applies the tint */
+    
+    height: 360px;
+    width: 100%;
+    padding-bottom: 50px;
+  }
   
+
+.footer{
+
+    background-color: #97796f;
+    height: 260px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+  
+}
+.footerHeader{
+
+    color: white;
+    font-family: 'Taviraj';
+    font-size: 70px;
+    font-weight: 100;
+    position: relative;
+    top: 50px;
+    left: 80px;
+    letter-spacing: 3px;
+
+}
+.footerLinks{
+    text-decoration: underline solid white;
+    color: white;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+
+
+
+
 
 
 
