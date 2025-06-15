@@ -89,6 +89,11 @@
   </head>
 
   <body style="max-height: 818px; background-color: rgb(191, 191, 191);">
+   <div class="uppertab">
+      <button class="UTbutton2"><img src="login.png" width="20px" height="23"></button>
+      <button class="UTbutton" id="authButton">Log In</button>
+
+    </div>
     <div class="tab">
       <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
       <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
@@ -96,7 +101,10 @@
       <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
       <button class="selectedtab" onclick="myFunction()">Tickets</button>
       <a href="workscited.html"><button class="tabclick">Sources</button></a>
-      <a href="cart.html"><img class="cartimg" src="cart new.svg"></a>
+      <a href="bookings.html" id="bookingsTab" style="display: none;"></a> 
+      <button class="tabclick">Bookings</button> 
+    </a>
+      <a href="cart.html"><img class="cartimg" src="cart.png"></a>
 
 
     </div>
@@ -565,6 +573,41 @@
       window.location.href = "cart.html";
   }
   
+    </script>
+    <script type="module">
+      import { auth } from "./auth.js";
+      import {
+        signOut,
+        onAuthStateChanged
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
+      onAuthStateChanged(auth, (user) => {
+        const authBtn = document.querySelector("#authButton");
+        const profileIcon = document.querySelector("#profileIcon");
+        const bookingsTab = document.querySelector("#bookingsTab");
+    
+        if (user) {
+          authBtn.textContent = "Sign Out";
+          authBtn.onclick = async () => {
+            await signOut(auth);
+            alert("You have been signed out.");
+            location.reload();
+          };
+    
+          // Show profile icon and bookings tab only if they exist
+          if (profileIcon) profileIcon.style.display = "inline-block";
+          if (bookingsTab) bookingsTab.style.display = "inline-block";
+        } else {
+          authBtn.textContent = "Log In";
+          authBtn.onclick = () => {
+            window.location.href = "login.html";
+          };
+    
+          // Hide profile icon and bookings tab if visible
+          if (profileIcon) profileIcon.style.display = "none";
+          if (bookingsTab) bookingsTab.style.display = "none";
+        }
+      });
     </script>
     
   </body>
