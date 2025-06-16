@@ -1970,7 +1970,20 @@ font-size: 20px;
     background-color: #402d27;
 }
 
+.videoContainer{
 
+display: flex;
+justify-content: space-evenly;
+}
+
+.videoText{
+width: 500px;
+text-align: center;
+font-size: 17px;
+margin-top: 50px;
+
+
+}
 
 
 
