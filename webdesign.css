@@ -957,7 +957,7 @@ color: white;
 .very1{
     height:auto;
     width:auto;
-    background-color: whitesmoke;
+    background-color:white; /*change made*/
     border:0px;
     padding-bottom: 0px;
     padding-right: 0px;
@@ -968,7 +968,7 @@ color: white;
 }
 .very10{
    font-size: 15px;
-    background-color:whitesmoke;
+   background-color:white; /*change made*/
     border:0px;
     height: auto;
     width: auto;
