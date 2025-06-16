@@ -1284,7 +1284,7 @@ color: white;
     border:white;
     position:absolute;
     left:20%;
-    top:10%;
+    top:20%;
     transition: 1.1s;
 
 }
@@ -1293,7 +1293,7 @@ color: white;
     border:white;
     position:absolute;
     right:20%;
-    top:10%;
+    top:20%;
     transition: 1.1s;
 }
 .arrowimage{
