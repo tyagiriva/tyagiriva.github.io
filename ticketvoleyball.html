@@ -87,14 +87,21 @@
     }
   </script>
 </head>
+ <div class="uppertab">
+      <button class="UTbutton2"><img src="login.png" width="20px" height="23"></button>
+      <button class="UTbutton" id="authButton">Log In</button>
 
+    </div>
 <body style="max-height: 818px; background-color: rgb(191, 191, 191);">
    <div class="tab">
     <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
     <button class="selectedtab" onclick="myFunction()">Tickets</button>
-    <a href="cart.html"><img class="cartimg" src="cart new.svg"></a>
+       <a href="bookings.html" id="bookingsTab" style="display: none;"></a>
+      <button class="tabclick">Bookings</button>
+      </a>
+    <a href="cart.html"><img class="cartimg" src="cart.png"></a>
   
     
   </div>
