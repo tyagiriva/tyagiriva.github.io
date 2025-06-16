@@ -493,48 +493,46 @@ color:gray;
       <div class="extraspace"></div>
  <h2 class="fade" >Form</h2>
  <div class="extraspace4"></div>
-    <form>
-      <table  class="fade" id="rentaltable">
-        <tr>
-       <td class="tds"><label for="fname" style="color: gray; font-size: 12px; font-weight: 600; margin: 0;"> First name:</label> <div class="verticalSpace"></div>
-        <input type="text" class="rentalinputs" name="fname"><br><br></td>
-        <td class="tds"><label for="date" style="color: gray; font-size: 12px; font-weight: 600; margin: 0;">Date of Event:</label>
-  <input type="date" class="rentalinputs"name="date"><br><br>
-  </td>
-  </tr>
-  <tr>
-    <td class="tds">
-  <label for="lname" style="color: gray; font-size: 12px; font-weight: 600; margin: 0;">Last name:</label>
-  <input type="text" class="rentalinputs"name="lname"><br><br>
-  </td>
-  <td class="tds">
-  <label for="event" id="event" name="event" style="color: gray; font-size: 12px; font-weight: 600; margin: 0;">Event type:</label>
-  <select name="choose an event" class="rentalinputs">
-    <div id="dropdowns">
-  
-    <option value="Hourly">Hourly</option>
-    <option value="Full Day">Full Day</option>
-    <option value="Multiple Days">Multiple Days</option>
-    <option value="other">Other</option>
-    </div>
-  </select><br><br>
-  </td>
-  </tr>
-  <tr>
-    <td class="tds">
-      <label for="email" style="color: gray; font-size: 12px; font-weight: 600; margin: 0;">Email:</label>
-      <input type="email" class="rentalinputs" name="email"><br><br><br>
-      </td>
-  </tr>
-</table>
-</form>
-<button onclick="alert('Request Submited')" class="buttonRental">Submit</button>
-      <div class="extraspace"></div>
-            <div class="extraspace"></div>
+     <form id="rentalForm">
+          <table class="fade" id="rentaltable">
+            <tr>
+              <td class="tds">
+                <label for="fname">First name:</label>
+                <input type="text" class="rentalinputs" name="fname"><br><br>
+              </td>
+              <td class="tds">
+                <label for="date">Date of Event:</label>
+                <input type="date" class="rentalinputs" name="date"><br><br>
+              </td>
+            </tr>
+            <tr>
+              <td class="tds">
+                <label for="lname">Last name:</label>
+                <input type="text" class="rentalinputs" name="lname"><br><br>
+              </td>
+              <td class="tds">
+                <label for="event">Event type:</label>
+                <select name="choose an event" class="rentalinputs">
+                  <option value="choose an event">Choose an Event</option>
+                  <option value="club">Club</option>
+                  <option value="sports practice">Sports Practice</option>
+                  <option value="sports game">Sports Game</option>
+                  <option value="other">Other</option>
+                </select><br><br>
+              </td>
+            </tr>
+            <tr>
+              <td class="tds">
+                <label for="email">Email:</label>
+                <input type="text" class="rentalinputs" name="email"><br><br>
+              </td>
+            </tr>
+          </table>
 
-</div>
-</div>
-</div><!--form closed-->
+          <!-- ✅ Move the submit button INSIDE the form -->
+          <button type="submit" class="button">Submit</button>
+        </form>
+
 
 <script type="module">
       import { auth } from "./auth.js";
