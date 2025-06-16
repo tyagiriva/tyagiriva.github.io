@@ -1918,6 +1918,57 @@ height: 30px;
 
 
 
+.testimonial {
+    background-color: whitesmoke;
+    font-weight: lighter;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+.quote{
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.quoteText {
+    font-family: 'Taviraj', serif;
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4; 
+}
+.quoteContainer{
+
+    display: flex;
+    justify-content: space-evenly;
+}
+.peopleText{
+
+    text-align: center;
+color:#473833;
+font-size: 20px;
+}
+.maps {
+    background-color:rgb(86, 70, 62);
+    color: white;
+    border-radius: 3px;
+    font-family: 'Quicksand';
+    border: none;
+    width: 100px;
+    height: 45px;
+    font-weight: 100;
+    font-size: 15px;
+    margin-left: 97px;
+    margin-top: 20px;
+    transition: .3s;
+
+}
+.maps:hover{
+    background-color: #402d27;
+}
 
 
 
