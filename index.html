@@ -93,10 +93,27 @@
     </div>
     <a href="rental.html"> <button class="button30" onclick="openPage(event,'rental')">Rent Now</button></a>
   </div>
+<div class="extraspace"></div>
   <div class="extraspace"></div>
   <div class="extraspace"></div>
-  <div class="extraspace"></div>
-  <div class="extraspace"></div>
+<div class="autoShow">
+  <div class="videoContainer">
+    <div class="video">
+      <video width="506" height="503" autoplay muted loop playsinline>
+        <source src="hands.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="videoText">
+    <h2 class="autoShow">About Us</h2> <br> <img style="filter: brightness(0%); height: 10%;"src="s.png"> <div class="extraspace4"> </div> <div class="extraspace4"> </div>
+    <p class="autoShow">
+      We prioritize community involvement and health more than anything, creating a space that brings people together through fitness, fun, and shared experiences. 
+      <div class="extraspace4"> </div> <div class="extraspace4"> </div> <div class="extraspace4"> </div>
+      From thrilling basketball games and high-energy concerts to local trade shows and school functions, we've designed our facility to meet the diverse needs of our community. Our staff is dedicated to making every visit enjoyable, safe, and memorable.
+    </p>
+  </div>
+  </div>
+</div>
 
 <div class="fade">
   <h2 class="fade"> Upcoming Events</h2>
@@ -196,10 +213,37 @@
 
 
   </table>
-
+<div class="autoShow">
+ <div class="testimonial">
+    <img src="quotation.svg" style="margin-left: auto; margin-right: auto; display: block;">
+  
   <div class="extraspace"></div>
-  <div class="grey">
-  <div class="formcolor">
+  
+  <div class="quoteContainer">
+    <div>
+      <img id="arrowLeft" src="arrowLeft.svg" width="60px" style="margin-top: 75px; margin-left: 120px; cursor: pointer;">
+    </div>
+  
+    <div class="quoteText" id="quoteText">
+      The services were splendid! The gym was spotless during our son's basketball game.
+    </div>
+  
+    <div>
+      <img id="arrowRight" src="arrowright.svg" width="60px" style="margin-top: 75px; margin-right: 120px; cursor: pointer;">
+    </div>
+  </div>
+  
+  <div class="extraspace"></div>
+  
+  <p class="peopleText" id="peopleText">
+    Sarah Kim
+  </p>
+  
+  </div>
+</div>
+  <div class="extraspace"></div>
+<div class="fade">
+<div style="background-color: white;">
     <h2 id="formtext" class="fade">Contact us</h2>
     <div>
       <div class="extraspace"></div>
@@ -247,11 +291,13 @@
 
         </div>
       </div><!--form closing-->
+    </div>
       <div class="extraspace"></div>
         <div class="extraspace"></div>
         <div class="extraspace"></div>
     </div>
   </div>
+</div>
 <div class="footerPreImage">
    </div>
    <div class="footer">
@@ -315,3 +361,43 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
         }
       });
     </script>
+    <script>
+    const testimonials = [
+      {
+        quote: "The services were splendid! The gym was spotless during our son's basketball game.",
+        name: "Sarah Kim"
+      },
+      {
+        quote: "I hosted my yoga class here and everything from lighting to cleanliness was perfect.",
+        name: "Marcus Thompson"
+      },
+      {
+        quote: "We held a charity concert and the arena handled the crowd with great professionalism, I was impressed.",
+        name: "Janelle Rivera"
+      }
+    ];
+  
+    let currentIndex = 0;
+  
+    const quoteText = document.getElementById("quoteText");
+    const peopleText = document.getElementById("peopleText");
+    const arrowLeft = document.getElementById("arrowLeft");
+    const arrowRight = document.getElementById("arrowRight");
+  
+    arrowLeft.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+      updateTestimonial();
+    });
+  
+    arrowRight.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % testimonials.length;
+      updateTestimonial();
+    });
+  
+    function updateTestimonial() {
+      quoteText.textContent = testimonials[currentIndex].quote;
+      peopleText.textContent = testimonials[currentIndex].name;
+    }
+  </script>
+    
+</body>
