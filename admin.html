@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("6IHLrqGFdwPLrKG-6"); // 🔁 Replace with your actual public key
+  })();
+</script>
+
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="webdesign.css" />
+  <style>
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 40px);
+      gap: 5px;
+      margin: 20px 0;
+    }
+    .calendar-day {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #e1e1e1;
+    }
+    .calendar-day:hover{
+      background-color: #e1e1e1;
+
+    }
+    .calendar-day.blocked {
+  background-color:rgb(109, 95, 87);
+  color: white;
+  cursor: pointer;
+}
+.calendar-day.blocked:hover {
+  background-color:rgb(84, 68, 59);
+
+}
+  </style>
+  <link rel="stylesheet" href="webdesign.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+</head>
+<body style=" background-attachment: fixed;
+  padding-bottom: 50px;overflow-x: hidden; background-image: url(adminbg.svg); background-repeat: no-repeat; background-size: cover; background-position: center;">
+
+  <div class="uppertab">
+    <a href="profile.html" id="profileIcon" style="display: none;">
+      <button class="UTbutton"><img src="login.png" width="20" height="23"></button>
+    </a>
+    <button class="UTbutton" id="authButton">Log In</button>
+
+  </div>
+</div>
+<div class="tab">
+  <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+  <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+  <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+  <a href="cart.html"><img class="cartimg" id="cartIcon" src="cart.png"></a>
+  <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+
+  <button class="tabclick" onclick="myFunction()">Tickets</button>
+  <a href="bookings.html" id="bookingsTab" style="display: none;">
+    <button class="tabclick">Bookings</button>
+  </a>
+<a href="admin.html"><button class="selectedtab">Admin Panel</button></a>
+
+</div>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="ticketbasketball.html">
+      <p class="new">Basketball</p>
+    </a>
+    <a href="ticketvoleyball.html">
+      <p class="new">Volleyball</p>
+    </a>
+    <a href="ticketorchestra.html">
+      <p class="new">Orchestra</p>
+    </a>
+  </div>
+  <div class="extraspace"></div>
+  <h2 style="color: white">Admin Panel</h2>
+  <div class="extraspace"></div>
+  <p style="color:white; font-size: 20px; position: relative; left: 280px; top: 50px;"> Block/Unblock Dates </p>
+<div style="display: flex; justify-content: space-evenly;">
+  <div style="padding-top: 30px; background-color: whitesmoke; height: 300px; padding-left: 20px; padding-top: 24px; width: 370px; margin-top: 60px; border-radius: 15px;  box-shadow:6px 6px 15px rgba(0, 0, 0, 0.1); margin-left: 80px;">
+  <div id="calendarContainer"></div>
+  </div>
+  <div style=" border-radius: 15px; position: relative;  background-color: whitesmoke; width: 640px; height: 455px; padding-left: 20px;">
+   <p style="font-size: 20px; padding-top: 10px;"> Bookings </p>
+  <div id="adminContainer" >
+  <div id="bookingScrollBox" style="position: absolute;overflow-x: hidden; width:600px; height: 360px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 8px; background: white; margin-top: 20px;"></div>
+</div>
+</div>
+</div>
+
+<div style="height: 50px;"></div>
+<div style="display: flex; justify-content: space-evenly;">
+
+  <div style=" border-radius: 15px; position: relative;  background-color: whitesmoke; width: 710px; height: 475px; padding-left: 20px; margin-left: 80px;">
+    <p style="font-size: 20px; padding-top: 10px;">  Ticket Purchases </p>
+  <div id="orders"style="position: absolute; overflow-x: hidden; width:670px; height: 380px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 8px; background: white; margin-top: 20px;"></div>
+  </div>
+<div style="margin-right: 30px; border-radius: 15px; background-color: whitesmoke; width: 335px; height: 475px; padding-left: 15px; position: relative;">
+  <p style="font-size: 20px; padding-top: 10px;"> Deleted Bookings </p>
+<div id="deleted" style="position: absolute; overflow-x: hidden; width:300px; height: 380px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 8px; background: white; margin-top: 20px; margin-right:90px;"></div>
+</div>
+</div>
+<div style="height: 100px;"></div>
+  <script type="module">
+    import { firebaseApp, auth } from './auth.js';
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      updateDoc,
+      doc,
+      addDoc,
+      setDoc
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    import {
+      onAuthStateChanged
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+    import { deleteDoc } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+
+    const db = getFirestore(firebaseApp);
+    const container = document.getElementById("adminContainer");
+
+    window.switchTab = function(id) {
+  document.querySelectorAll(".tab-section").forEach(el => el.style.display = "none");
+  document.getElementById(id).style.display = "block";
+};
+
+
+let currentMonthOffset = 0;
+
+function renderCalendar(blockedDates) {
+  const container = document.getElementById("calendarContainer");
+
+  const today = new Date();
+  const targetDate = new Date(today.getFullYear(), today.getMonth() + currentMonthOffset, 1);
+  const year = targetDate.getFullYear();
+  const month = targetDate.getMonth();
+
+  const monthName = targetDate.toLocaleString('default', { month: 'long' });
+
+  container.innerHTML = `
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+      <button  style=" color: rgb(123, 98, 85);  font-size: 25px;border: none; background-color: whitesmoke;" id="prevMonthBtn">←</button>    
+      <h3 style="margin: 0;">${monthName} ${year}</h3>
+      <button  style=" color: rgb(123, 98, 85);  font-size: 25px;border: none; background-color: whitesmoke;" id="nextMonthBtn">→</button>
+    </div>
+  `;
+
+  const calendar = document.createElement("div");
+  calendar.classList.add("calendar");
+
+  const firstDay = new Date(year, month, 1).getDay(); // 0 = Sun
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Empty cells before 1st
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement("div");
+    calendar.appendChild(empty);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const div = document.createElement("div");
+    div.classList.add("calendar-day");
+    div.textContent = day;
+
+    if (blockedDates.includes(dateStr)) {
+      div.classList.add("blocked");
+      div.onclick = async () => {
+        await deleteDoc(doc(db, "blockedDates", dateStr));
+        alert(`✅ Unblocked ${dateStr}`);
+        location.reload();
+      };
+    } else {
+      div.onclick = async () => {
+        await setDoc(doc(db, "blockedDates", dateStr), { reason: "Manually blocked from calendar" });
+        alert(`✅ Blocked ${dateStr}`);
+        location.reload();
+      };
+    }
+
+    calendar.appendChild(div);
+  }
+
+  container.appendChild(calendar);
+
+  // Month navigation buttons
+  document.getElementById("prevMonthBtn").onclick = () => {
+    currentMonthOffset--;
+    reloadCalendar();
+  };
+  document.getElementById("nextMonthBtn").onclick = () => {
+    currentMonthOffset++;
+    reloadCalendar();
+  };
+}
+
+// Helper to reload the calendar with blockedDates
+function reloadCalendar() {
+  getDocs(collection(db, "blockedDates")).then((snapshot) => {
+    const blockedDates = snapshot.docs.map(doc => doc.id);
+    renderCalendar(blockedDates);
+  });
+}
+
+
+function sendBookingEmail(data, status) {
+  return emailjs.send("service_ujoqgzq", "template_2ugqsss", {
+    email: data.email,
+    fname: data.fname || "",
+    lname: data.lname || "",
+    event: data.event,
+    date: data.date,
+    status: status
+  });
+}
+
+
+
+    // Admin-only booking approval
+    onAuthStateChanged(auth, async (user) => {
+      if (!user || user.email !== "westsidegym25@gmail.com") {
+        alert("Access denied. You must be the Admin.");
+        window.location.href = "index.html";
+        return;
+      }
+
+      const blockedSnapshot = await getDocs(collection(db, "blockedDates"));
+const blockedDates = blockedSnapshot.docs.map(doc => doc.id);
+
+reloadCalendar();
+
+
+
+
+      const snapshot = await getDocs(collection(db, "pendingBookings"));
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        const div = document.createElement("div");
+        div.innerHTML = div.innerHTML = `
+        <div style="width: 600px; overflow-y: auto;"> 
+        <p><b>Date:</b> ${data.date} | <b>Event:</b> ${data.event}</p>
+          <div style="height:5px;"></div>
+        <p><b>Name:</b> ${data.fname || ""} ${data.lname || ""}</p>
+   <div style="height:5px;"></div>
+        <p><b>Email:</b> ${data.email || ""}</p>
+            <div style="height:5px;"></div>
+        <label><input type="checkbox" class="blockCheckbox"> Block this date</label><br><br>
+        <button id="adminButton">Approve</button> <button id="adminButton">Reject</button>  <button id="adminButton"class="delete">Delete</button>
+        <div class="extraspace4"></div>
+        <hr>
+        </div>
+`;
+
+
+
+        // Approve button
+        div.querySelectorAll("button")[0].onclick = async () => {
+          await addDoc(collection(db, "bookings"), {
+  uid: data.uid,
+  date: data.date,
+  event: data.event,
+  email: data.email,
+  timestamp: new Date().toISOString()
+});
+
+const shouldBlock = div.querySelector(".blockCheckbox").checked;
+if (shouldBlock) {
+  await setDoc(doc(db, "blockedDates", data.date), { reason: "Blocked by admin during approval" });
+}
+
+          await updateDoc(doc(db, "pendingBookings", docSnap.id), { approved: true });
+          alert("Booking approved.");
+          await sendBookingEmail(data, "approved").then(() => {
+            console.log("✅ Email sent (approved)");
+          }).catch((err) => {
+            console.error("❌ Email error (approved):", err);
+          });
+          location.reload();
+        };
+
+        // Reject button
+        div.querySelectorAll("button")[1].onclick = async () => {
+          await updateDoc(doc(db, "pendingBookings", docSnap.id), { approved: false });
+          alert("Booking rejected.");
+          await sendBookingEmail(data, "rejected").then(() => {
+            console.log("✅ Email sent (rejected)");
+          }).catch((err) => {
+            console.error("❌ Email error (rejected):", err);
+          });
+          location.reload();
+        };
+
+              // Delete button
+      div.querySelectorAll("button")[2].onclick = async () => {
+        try {
+          // Move booking to deletedBookings
+          await setDoc(doc(db, "deletedBookings", docSnap.id), data);
+          // Delete from pendingBookings
+          await deleteDoc(doc(db, "pendingBookings", docSnap.id));
+
+          alert("Booking deleted and moved to Deleted Bookings.");
+          location.reload();
+        } catch (err) {
+          console.error("❌ Error deleting booking:", err);
+          alert("Failed to delete booking.");
+        }
+      };
+
+
+      const scrollBox = document.getElementById("bookingScrollBox");
+scrollBox.appendChild(div);
+
+      });
+
+     
+ 
+let total = 0;
+const ordersSnap = await getDocs(collection(db, "ticketOrders"));
+const deletedSnap = await getDocs(collection(db, "deletedBookings"));
+
+ordersSnap.forEach(docSnap => {
+  const data = docSnap.data();
+  const orderDiv = document.createElement("div");
+  const ticketsHtml = data.tickets.map(t =>
+  `
+  <div style="padding: 8px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 5px;">
+    <b>${t.type}</b> - Section ${t.section}<br>
+     <div style="height: 5px;"></div>
+    Quantity: ${t.quantity}<br>
+     <div style="height: 5px;"></div>
+    Price: $${t.price}
+     <div style="height: 5px;"></div>
+  </div>
+   <div style="height: 5px;"></div>
+  `
+).join("");
+
+
+  total += data.total;
+
+  orderDiv.innerHTML = `
+   <div style="height: 5px;"></div>
+    <p><b>Email:</b> ${data.email}</p>
+     <div style="height: 5px;"></div>
+    <div style="background-color: #e1e1e1; border-radius: 5px; padding:5px;"> ${data.date}</div>
+     <div style="height: 5px;"></div>
+    ${ticketsHtml}
+    <p><b>Total:</b> $${data.total}</p>
+     <div style="height: 5px;"></div>
+    <hr>
+     <div style="height: 5px;"></div>
+  `;
+  document.getElementById("orders").appendChild(orderDiv);
+});
+
+
+
+const summary = document.createElement("h4");
+summary.textContent = `Total Earnings: $${total}`;
+document.getElementById("orders").prepend(summary);
+
+deletedSnap.forEach((docSnap) => {
+  const data = docSnap.data();
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <p><b>Date:</b> ${data.date} | <b>Event:</b> ${data.event}</p>
+    <div style="height: 5px;"></div>
+    <p><b>Name:</b> ${data.fname || ""} ${data.lname || ""}</p>
+     <div style="height: 5px;"></div>
+    <p><b>Email:</b> ${data.email || ""}</p>
+     <div style="height: 5px;"></div>
+    <button  id="adminButton"class="recover">Recover</button>
+    <div class="extraspace4"></div>
+    <hr>
+  `;
+  document.getElementById("deleted").appendChild(div);
+
+
+
+  div.querySelector(".recover").onclick = async () => {
+    try {
+      await setDoc(doc(db, "pendingBookings", docSnap.id), data);
+      await deleteDoc(doc(db, "deletedBookings", docSnap.id));
+      alert("Booking recovered to Pending Requests.");
+      location.reload();
+    } catch (err) {
+      console.error(" Error recovering booking:", err);
+      alert("Failed to recover booking.");
+    }
+  };
+
+
+});
+
+    });
+  </script>
+  <script type="module">
+    import { auth } from "./auth.js";
+    import {
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  
+    onAuthStateChanged(auth, (user) => {
+      const authBtn = document.querySelector("#authButton");
+      const profileIcon = document.querySelector("#profileIcon");
+      const bookingsTab = document.querySelector("#bookingsTab");
+  
+      if (user) {
+        authBtn.textContent = "Sign Out";
+        authBtn.onclick = async () => {
+          await signOut(auth);
+          alert("You have been signed out.");
+          location.reload();
+        };
+  
+        // Show profile icon and bookings tab only if they exist
+        if (profileIcon) profileIcon.style.display = "inline-block";
+        if (bookingsTab) bookingsTab.style.display = "inline-block";
+      } else {
+        authBtn.textContent = "Log In";
+        authBtn.onclick = () => {
+          window.location.href = "login.html";
+        };
+  
+        // Hide profile icon and bookings tab if visible
+        if (profileIcon) profileIcon.style.display = "none";
+        if (bookingsTab) bookingsTab.style.display = "none";
+      }
+    });
+  </script>
+  <script>
+    function updateCartIcon() {
+      const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
+      let count = 0;
+  
+      cart.tickets.forEach(t => count += t.quantity);
+  
+      const img = document.getElementById("cartIcon");
+      if (img) {
+        if (count >= 1 && count <= 9) {
+          img.src = `cart${count}.png`;
+        } else {
+          img.src = "cart.png";
+        }
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartIcon);
+  </script><script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.tabclick')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
+  
+</body>
+</html>
