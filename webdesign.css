@@ -1407,8 +1407,6 @@ margin-left: 3000px;
     background-image: url("gym2.jpg"); /* Don't use /static/ here */
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100vw;
 }
 
 .eventTicketButton {
