@@ -86,32 +86,40 @@
   </form>
   <script type="module" src="auth.js"></script>
   <script type="module">
-    import { signUpUser } from './auth.js';
-  
-    document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-  
-      const email = document.getElementById("signupEmail").value.trim();
-      const password = document.getElementById("signupPassword").value.trim();
-      const confirmPassword = document.getElementById("confirmPassword").value.trim();
-  
-      if (password !== confirmPassword) {
-        alert("Passwords do not match!");
-        return;
-      }
-  
-      try {
-        await signUpUser(email, password);
-        alert("✅ Account created! You can now log in.");
-        window.location.href = "login.html";
-      } catch (error) {
-        console.error("❌ Sign-up error:", error.message);
-        alert("Sign-up failed: " + error.message);
-      }
-    });
-  </script>
-  
-  
+      import { auth } from "./auth.js";
+      import {
+        signOut,
+        onAuthStateChanged
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
+      onAuthStateChanged(auth, (user) => {
+        const authBtn = document.querySelector("#authButton");
+        const profileIcon = document.querySelector("#profileIcon");
+        const bookingsTab = document.querySelector("#bookingsTab");
+    
+        if (user) {
+          authBtn.textContent = "Sign Out";
+          authBtn.onclick = async () => {
+            await signOut(auth);
+            alert("You have been signed out.");
+            location.reload();
+          };
+    
+          // Show profile icon and bookings tab only if they exist
+          if (profileIcon) profileIcon.style.display = "inline-block";
+          if (bookingsTab) bookingsTab.style.display = "inline-block";
+        } else {
+          authBtn.textContent = "Log In";
+          authBtn.onclick = () => {
+            window.location.href = "login.html";
+          };
+    
+          // Hide profile icon and bookings tab if visible
+          if (profileIcon) profileIcon.style.display = "none";
+          if (bookingsTab) bookingsTab.style.display = "none";
+        }
+      });
+    </script>
 
   
 </body>
