@@ -2037,7 +2037,138 @@ background-color:rgb(109, 97, 90);;
  
     }
 
-
+.accBg{
+    background-color:whitesmoke;
+    color:#4A332D;
+    width:700px;
+    height:200px;
+    margin:50px;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.6); /* ✅ Stronger, darker shadow */
+}
+.accInputs{
+    background-color:white;
+    color: #4A332D;
+    border: 1px solid #4A332D;
+    margin-top:10px;
+    margin-bottom:10px;;
+    border-radius:50px;
+    height:30px;
+    width:250px;
+    text-align:center;
+    box-shadow:6px 6px 15px rgba(0, 0, 0, 0.6);
+    
+}
+.accButton{
+    align-self: flex-start; 
+    background-color:#4A332D;
+    cursor:pointer;
+    border:0px;
+    color:white;
+    padding:6px;
+    border-radius:15px;
+    width:67px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+}
+.accButton:hover{
+    background-color:#392621
+}
+.formColumns {
+    display: flex;
+    justify-content: center;
+    gap:40px;
+    margin:20px;
+  }
+  
+  .containFlex {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+  .bgAcc {
+    background-image: url("accBg.png"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-color: #d2988a; /* Tint color */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: multiply; /* This applies the tint */
+    
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: whitesmoke;
+    border: 3px solid #4A332D;
+    color:#4A332D;
+    font-family:'Quicksand';
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cancel {
+    background: #5b1310; /* Red for cancel */
+  }
+  .verifyStyle{
+    margin:70px;
+    display:none;
+  }
+.custom-alert {
+    background-color: whitesmoke;
+    color: #4A332D;
+    padding: 20px 40px 20px 20px;
+    border: 2px solid #4A332D;
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    z-index: 1000;
+    max-width: 90vw;
+    width: 300px;
+    text-align: center;
+  }
+  
+  
+  .custom-alert.visible {
+    opacity: 1;
+  }
+  
+  .custom-alert.hidden {
+    opacity: 0;
+  }
+  
+  .close-alert {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4A332D;
+  }
 
 
 
