@@ -627,7 +627,7 @@
           authBtn.textContent = "Sign Out";
           authBtn.onclick = async () => {
             await signOut(auth);
-            alert("You have been signed out.");
+            showCustomAlert("You have been signed out.");
             location.reload();
           };
           if (user.email === "westsidegym25@gmail.com") {
