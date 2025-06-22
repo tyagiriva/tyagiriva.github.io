@@ -39,7 +39,29 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
     </script>
-    
+     <script>
+        function showCustomAlert(message) {
+            const alert = document.createElement("div");
+            alert.classList.add("custom-alert", "visible");
+
+            const messageSpan = document.createElement("span");
+            messageSpan.textContent = message;
+
+            const closeBtn = document.createElement("span");
+            closeBtn.textContent = "✖";
+            closeBtn.classList.add("close-alert");
+            closeBtn.onclick = () => {
+                alert.classList.remove("visible");
+                alert.classList.add("hidden");
+                setTimeout(() => alert.remove(), 400);
+            };
+
+            alert.appendChild(messageSpan);
+            alert.appendChild(closeBtn);
+            document.body.appendChild(alert);
+        }
+
+    </script>
 </head>
 
 <body class="loginbg">
@@ -100,7 +122,7 @@
           authBtn.textContent = "Sign Out";
           authBtn.onclick = async () => {
             await signOut(auth);
-            alert("You have been signed out.");
+            showCustomAlert("You have been signed out.");
             location.reload();
           };
     
@@ -132,16 +154,16 @@
     const confirmPassword = document.getElementById("confirmPassword").value;
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+      showCustomAlert("Passwords do not match.");
       return;
     }
 
     try {
       await signUpUser(email, password);
-      alert("Account created and logged in!");
+      showCustomAlert("Account created and logged in!");
       window.location.href = "index.html";
     } catch (error) {
-      alert("Signup error: " + error.message);
+      showCustomAlert("Signup error: " + error.message);
     }
   });
 </script>
