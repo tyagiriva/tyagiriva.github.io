@@ -40,7 +40,7 @@
             background-size: cover; 
             background-repeat: no-repeat; 
             margin: 0;
-            ::-webkit-scrollbar: width: 12px;
+            -webkit-scrollbar: 12px;
                   overflow-y: hidden;
   }
   
@@ -58,7 +58,7 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-        }
+        
       
        
     </style>
@@ -77,7 +77,7 @@
         <a href="calendar.html"><button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button></a>
         <button class="tabclick" onclick="myFunction()">Tickets</button>
         <a href="workscited.html"><button class="tabclick">Sources</button></a>
-        <a href="cart.html"><img class="cartimg" src="cart new.svg"></a>
+        <a href="cart.html"><img class="cartimg" id="cartIcon" src="cart.png"></a>
 <a href="bookings.html" id="bookingsTab" style="display: none;">
   <button class="tabclick">Bookings</button>
 </a>
@@ -92,7 +92,7 @@
         <div id="cartDetails"></div>
         <div class="fixed-buttons">
             <button style="margin-left: 375px; bottom: 30px;" class="cartButton" onclick="clearCart()">Clear Cart</button>
-            <button style="margin-left: 30px; margin-bottom: 60px;" class="cartButton" onclick="alert('This is a demo. Purchase not implemented.')">Purchase</button>
+            <button style="margin-left: 30px; margin-bottom: 60px;" class="cartButton" onclick="submitOrder()">Purchase</button>
         </div>
     </div>
     <script>
@@ -124,5 +124,115 @@
     <div class="extraspace"> </div>
     <div class="extraspace"> </div>
     <div class="extraspace"> </div>
+    <script type="module">
+        import { firebaseApp, auth } from "./auth.js";
+        import {
+          getFirestore,
+          collection,
+          addDoc
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+      
+        const db = getFirestore(firebaseApp);
+      
+        window.submitOrder = async () => {
+          const cart = JSON.parse(localStorage.getItem("cartData"));
+          if (!cart || !cart.tickets.length) {
+            alert("Cart is empty.");
+            return;
+          }
+      
+          const user = auth.currentUser;
+          const email = user?.email || "guest";
+      
+          try {
+            await addDoc(collection(db, "ticketOrders"), {
+              email,
+              ...cart,
+              timestamp: new Date().toISOString()
+            });
+      
+            alert("✅ Order placed!");
+            localStorage.removeItem("cartData");
+            location.reload();
+          } catch (err) {
+            console.error("❌ Error saving ticket order:", err);
+            alert("Error saving your order.");
+          }
+        };
+      </script>
+        <script>
+          function updateCartIcon() {
+            const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
+            let count = 0;
+        
+            cart.tickets.forEach(t => count += t.quantity);
+        
+            const img = document.getElementById("cartIcon");
+            if (img) {
+              if (count >= 1 && count <= 9) {
+                img.src = `cart${count}.png`;
+              } else {
+                img.src = "cart.png";
+              }
+            }
+          }
+        
+          document.addEventListener("DOMContentLoaded", updateCartIcon);
+        </script>
+        <script type="module">
+          import { auth } from "./auth.js";
+          import {
+            signOut,
+            onAuthStateChanged
+          } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        
+          onAuthStateChanged(auth, (user) => {
+            const authBtn = document.querySelector("#authButton");
+            const profileIcon = document.querySelector("#profileIcon");
+            const bookingsTab = document.querySelector("#bookingsTab");
+        
+            if (user) {
+              authBtn.textContent = "Sign Out";
+              authBtn.onclick = async () => {
+                await signOut(auth);
+                alert("You have been signed out.");
+                location.reload();
+              };
+              if (user.email === "westsidegym25@gmail.com") {
+  const tabBar = document.querySelector(".tab");
+  const bookingsTab = tabBar.querySelector("a[href='bookings.html']");
+
+  if (!tabBar.querySelector("#adminTab")) {
+    const adminTab = document.createElement("a");
+    adminTab.href = "admin.html";
+    adminTab.id = "adminTab";
+    adminTab.innerHTML = `<button class="tabclick">Admin Panel</button>`;
+
+    if (bookingsTab && bookingsTab.nextSibling) {
+      tabBar.insertBefore(adminTab, bookingsTab.nextSibling);
+    } else {
+      tabBar.appendChild(adminTab);
+    }
+  }
+}
+  
+        
+              // Show profile icon and bookings tab only if they exist
+              if (profileIcon) profileIcon.style.display = "inline-block";
+              if (bookingsTab) bookingsTab.style.display = "inline-block";
+            } else {
+              authBtn.textContent = "Log In";
+              authBtn.onclick = () => {
+                window.location.href = "login.html";
+              };
+        
+              // Hide profile icon and bookings tab if visible
+              if (profileIcon) profileIcon.style.display = "none";
+              if (bookingsTab) bookingsTab.style.display = "none";
+            }
+          });
+        </script>
+        
+      
 </body>
 </html>
