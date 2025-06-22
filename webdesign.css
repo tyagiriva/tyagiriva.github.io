@@ -1088,17 +1088,20 @@ color: white;
 #sourceshead{
     color:#4A332D;
 }
-#rentaltable{
-   width: 100%;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    border-spacing: 0px;
-}
+.rentaltable {
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
 .tds{
     background-color:whitesmoke;
     border:none;
-    padding:15px;
+    padding-bottom:0px ;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px;
+margin-left: 3000px;  
+
 }
 #rentaltext{
     color:#4A332D;
