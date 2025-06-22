@@ -84,32 +84,40 @@
   </form>
   <script type="module" src="auth.js"></script>
   <script type="module">
-    import { auth, loginUser } from './auth.js';
-    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  
-    document.getElementById("loginForm")?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  try {
-    await loginUser(email, password);
-    console.log("✅ Login successful"); // <– See if this logs
-    window.location.href = "index.html";
-  } catch (err) {
-    console.error("❌ Login failed:", err.message);
-  }
-});
-
-  
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("✅ Firebase sees logged-in user:", user.email);
-        window.location.href = "index.html";
-      }
-    });
-  </script>
-  
+      import { auth } from "./auth.js";
+      import {
+        signOut,
+        onAuthStateChanged
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    
+      onAuthStateChanged(auth, (user) => {
+        const authBtn = document.querySelector("#authButton");
+        const profileIcon = document.querySelector("#profileIcon");
+        const bookingsTab = document.querySelector("#bookingsTab");
+    
+        if (user) {
+          authBtn.textContent = "Sign Out";
+          authBtn.onclick = async () => {
+            await signOut(auth);
+            alert("You have been signed out.");
+            location.reload();
+          };
+    
+          // Show profile icon and bookings tab only if they exist
+          if (profileIcon) profileIcon.style.display = "inline-block";
+          if (bookingsTab) bookingsTab.style.display = "inline-block";
+        } else {
+          authBtn.textContent = "Log In";
+          authBtn.onclick = () => {
+            window.location.href = "login.html";
+          };
+    
+          // Hide profile icon and bookings tab if visible
+          if (profileIcon) profileIcon.style.display = "none";
+          if (bookingsTab) bookingsTab.style.display = "none";
+        }
+      });
+    </script>
   
   
 </body>
