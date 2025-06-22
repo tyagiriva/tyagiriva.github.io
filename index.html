@@ -474,5 +474,41 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
       });
     }
   </script>
+  <script type="module">
+    import { firebaseApp } from "./auth.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  
+    const db = getFirestore(firebaseApp);
+  
+    document.getElementById("submit2")?.addEventListener("click", async () => {
+      const fname = document.getElementById("fname").value;
+      const lname = document.getElementById("lname").value;
+      const email = document.getElementById("emailid").value;
+      const message = document.getElementById("big").value;
+  
+      if (!fname || !lname || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+      }
+  
+      try {
+        await addDoc(collection(db, "contactMessages"), {
+          fname,
+          lname,
+          email,
+          message,
+          timestamp: new Date().toISOString()
+        });
+        alert("✅ Your message has been submitted!");
+      } catch (err) {
+        console.error("❌ Error submitting contact form:", err);
+        alert("Something went wrong. Please try again later.");
+      }
+    });
+  </script>
   
 </body>
