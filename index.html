@@ -48,6 +48,29 @@
       }
     }
   </script>
+  <script>
+        function showCustomAlert(message) {
+            const alert = document.createElement("div");
+            alert.classList.add("custom-alert", "visible");
+
+            const messageSpan = document.createElement("span");
+            messageSpan.textContent = message;
+
+            const closeBtn = document.createElement("span");
+            closeBtn.textContent = "✖";
+            closeBtn.classList.add("close-alert");
+            closeBtn.onclick = () => {
+                alert.classList.remove("visible");
+                alert.classList.add("hidden");
+                setTimeout(() => alert.remove(), 400);
+            };
+
+            alert.appendChild(messageSpan);
+            alert.appendChild(closeBtn);
+            document.body.appendChild(alert);
+        }
+
+    </script>
   
 </head>
 
@@ -469,7 +492,7 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
       const message = document.getElementById("big").value;
   
       if (!fname || !lname || !email || !message) {
-        alert("Please fill out all fields.");
+        showCustomAlert("Please fill out all fields.");
         return;
       }
   
@@ -481,10 +504,10 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
           message,
           timestamp: new Date().toISOString()
         });
-        alert("✅ Your message has been submitted!");
+        showCustomAlert("✅ Your message has been submitted!");
       } catch (err) {
         console.error("❌ Error submitting contact form:", err);
-        alert("Something went wrong. Please try again later.");
+        showCustomAlert("Something went wrong. Please try again later.");
       }
     });
   </script>
