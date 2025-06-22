@@ -1404,7 +1404,7 @@ margin-left: 3000px;
     height:30px;
   }
   .loginbg {
-    background-image: url("gym2.jpg"); /* Don't use /static/ here */
+    background-image: url("gym2.JPG"); /* Don't use /static/ here */
     background-repeat: no-repeat;
     background-size: cover;
 }
