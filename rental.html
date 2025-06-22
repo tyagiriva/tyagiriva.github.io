@@ -81,10 +81,39 @@
       }
     }
   </script>
+  <script>
+    function updateCartIcon() {
+      const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
+      let count = 0;
+  
+      cart.tickets.forEach(t => count += t.quantity);
+  
+      const img = document.getElementById("cartIcon");
+      if (img) {
+        if (count >= 1 && count <= 9) {
+          img.src = `cart${count}.png`;
+        } else {
+          img.src = "cart.png";
+        }
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartIcon);
+  </script>
   <style>
     * {
   box-sizing: border-box;
 }
+
+.calendar-day:hover:not(.blocked) {
+    background-color: #4c6aa1 !important;
+    color: white !important;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
 @media (min-width: 1200px) {
   .pricing-container {
     gap: 50px;
@@ -97,8 +126,7 @@
       background-color: transparent;
       border-spacing: 0;
     }
-    
-    
+  
 
     .autoshow tr {
       display: flex;
@@ -253,24 +281,19 @@ color:gray;
     </a>
     <button class="UTbutton" id="authButton">Log In</button>
  </div>
-    <div class="tab">
-      <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
-      <a href="rental.html"><button class="selectedtab" onclick="openPage(event,'rental')">Rental</button></a>
-      <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-       <a href="bookings.html" id="bookingsTab" style="display: none;">
-      <button class="tabclick">Bookings</button>
-    </a>
+ <div class="tab">
+  <a href="index.html"> <button class="tabclick" onclick="openPage(event,'rental')">Home</button></a>
+  <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+  <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+  <a href="cart.html"><img class="cartimg" id="cartIcon" src="cart.png" style="width: 70px;
+            height: 45px;"></a>
+  <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
 
-      <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
-
-      <button class="tabclick" onclick="myFunction()">Tickets</button>
-      <a href="bookings.html" id="bookingsTab" style="display: none;">
-        <button class="tabclick">Bookings</button>
-      </a>
-
-
-
-    </div>
+  <button class="tabclick" onclick="myFunction()">Tickets</button>
+  <a href="bookings.html" id="bookingsTab" style="display: none;">
+    <button class="tabclick">Bookings</button>
+  </a>
+  </div>
   <div id="myDropdown" class="dropdown-content">
     <a href="ticketbasketball.html">
       <p class="new">Basketball</p>
@@ -492,26 +515,32 @@ color:gray;
   <div class=formcolornew>
             <div class="extraspace"></div>
       <div class="extraspace"></div>
- <h2 class="fade" >Form</h2>
+ <h2 class="fade" >Rental Form</h2>
  <div class="extraspace4"></div>
+
+
      <form id="rentalForm">
-          <table class="fade" id="rentaltable">
+      <div style="margin-right: 100px;">
+        <table class="fade rentaltable align-right">
+
+            
             <tr>
-              <td class="tds">
+        
+              <td class="tds"colspan="2" >
+                <label for="date"></label>
+                <div id="calendarContainer" style="right: 90px; position: relative;"></div>
+                <input type="hidden" name="date" id="selectedDate" />
+                <p id="selectedDateDisplay" style="font-weight: bold;"></p>
+              </td>
+          
+              <td class="tds" style="right: 90px; position: relative;">
                 <label for="fname">First name:</label>
                 <input type="text" class="rentalinputs" name="fname"><br><br>
-              </td>
-              <td class="tds">
-                <label for="date">Date of Event:</label>
-                <input type="date" class="rentalinputs" name="date"><br><br>
-              </td>
-            </tr>
-            <tr>
-              <td class="tds">
+        <div class="extraspace4"></div>
                 <label for="lname">Last name:</label>
                 <input type="text" class="rentalinputs" name="lname"><br><br>
-              </td>
-              <td class="tds">
+                <div class="extraspace4"></div>
+     
                 <label for="event">Event type:</label>
                 <select name="choose an event" class="rentalinputs">
                   <option value="choose an event">Choose an Event</option>
@@ -520,21 +549,20 @@ color:gray;
                   <option value="sports game">Sports Game</option>
                   <option value="other">Other</option>
                 </select><br><br>
-              </td>
-            </tr>
-            <tr>
-              <td class="tds">
+                <div class="extraspace4"></div>
                 <label for="email">Email:</label>
                 <input type="text" class="rentalinputs" name="email"><br><br>
               </td>
             </tr>
           </table>
+        </div>
+<div class="extraspace"></div>
 
           <!-- ✅ Move the submit button INSIDE the form -->
-          <button type="submit" class="button">Submit</button>
+          <button type="submit" class="rentalSubmit">Submit</button>
         </form>
        <div class="extraspace"></div>
-        <div class="extraspace"></div>
+        
   </div>
 </div>
 
@@ -558,16 +586,38 @@ color:gray;
             alert("You have been signed out.");
             location.reload();
           };
-
+    
           // Show profile icon and bookings tab only if they exist
           if (profileIcon) profileIcon.style.display = "inline-block";
           if (bookingsTab) bookingsTab.style.display = "inline-block";
-        } else {
+
+          if (user.email === "westsidegym25@gmail.com") {
+  const tabBar = document.querySelector(".tab");
+  const bookingsTab = tabBar.querySelector("a[href='bookings.html']");
+
+  if (!tabBar.querySelector("#adminTab")) {
+    const adminTab = document.createElement("a");
+    adminTab.href = "admin.html";
+    adminTab.id = "adminTab";
+    adminTab.innerHTML = `<button class="tabclick">Admin Panel</button>`;
+
+    if (bookingsTab && bookingsTab.nextSibling) {
+      tabBar.insertBefore(adminTab, bookingsTab.nextSibling);
+    } else {
+      tabBar.appendChild(adminTab);
+    }
+  }
+}
+
+        } 
+        
+        
+        else {
           authBtn.textContent = "Log In";
           authBtn.onclick = () => {
             window.location.href = "login.html";
           };
-
+    
           // Hide profile icon and bookings tab if visible
           if (profileIcon) profileIcon.style.display = "none";
           if (bookingsTab) bookingsTab.style.display = "none";
@@ -575,6 +625,7 @@ color:gray;
       });
     </script>
     <script type="module">
+      import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
       import { firebaseApp, auth } from "./auth.js";
       import {
         getFirestore,
@@ -586,10 +637,17 @@ color:gray;
 
       document.querySelector("#rentalForm")?.addEventListener("submit", async (e) => {
         e.preventDefault();
+        console.log("🚀 Form submitted!");
 
         const date = document.querySelector("[name='date']")?.value;
         const event = document.querySelector("[name='choose an event']")?.value; // ✅ Ensure correct event field
+        const fname = document.querySelector("[name='fname']")?.value;
+        const lname = document.querySelector("[name='lname']")?.value;
 
+
+        console.log("📅 Date chosen:", date);
+
+       
         const user = auth.currentUser;
         if (!user) {
           alert("Please log in first.");
@@ -598,19 +656,33 @@ color:gray;
 
         console.log("📤 Booking Data Before Submit:", { uid: user.uid, date, event }); // Debugging log
 
-        try {
-          await addDoc(collection(db, "bookings"), {
-            uid: user.uid,
-            date,
-            event,  // ✅ Store event type in Firestore
-            timestamp: new Date().toISOString()
-          });
 
-          console.log("✅ Booking saved!");
-          alert("✅ Booking submitted!");
-          window.location.href = "bookings.html";
+        
+        // Check if date is blocked
+        const blockedRef = doc(db, "blockedDates", date);
+        const blockedSnap = await getDoc(blockedRef);
+        if (blockedSnap.exists()) {
+          alert("That date is blocked. Please choose another.");
+          return;
+        }
+
+        try {
+          await addDoc(collection(db, "pendingBookings"), {
+          uid: user.uid,
+          date,
+          event,
+          email: user.email,
+          fname,
+          lname,
+          timestamp: new Date().toISOString(),
+          approved: false
+        });
+
+
+          console.log("Booking saved!");
+          alert("Request sent. Waiting for approval.");
         } catch (err) {
-          console.error("❌ Firestore error:", err.message);
+          console.error(" Firestore error:", err.message);
           alert("Something went wrong when saving your booking.");
         }
       });
@@ -635,6 +707,157 @@ color:gray;
         });
       });
     </script>
+<script type="module">
+  import {
+    getDocs,
+    collection
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const disableBlockedDates = async () => {
+    const dateInput = document.querySelector("[name='date']");
+    if (!dateInput) return;
+
+    try {
+      const snapshot = await getDocs(collection(db, "blockedDates"));
+      const blocked = [];
+      snapshot.forEach(doc => blocked.push(doc.id));
+
+      dateInput.addEventListener("input", () => {
+        if (blocked.includes(dateInput.value)) {
+          alert(" That date is unavailable.");
+          dateInput.value = "";
+        }
+      });
+
+    } catch (err) {
+      console.error("Failed to load blocked dates:", err);
+    }
+  };
+
+  disableBlockedDates();
+</script>
+
+<script type="module">
+  import { firebaseApp } from "./auth.js";
+  import {
+    getFirestore,
+    getDocs,
+    collection
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const db = getFirestore(firebaseApp);
+  let currentMonthOffset = 0;
+
+  function renderCalendar(blockedDates) {
+    const container = document.getElementById("calendarContainer");
+    const today = new Date();
+    const targetDate = new Date(today.getFullYear(), today.getMonth() + currentMonthOffset, 1);
+    const year = targetDate.getFullYear();
+    const month = targetDate.getMonth();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    const monthName = targetDate.toLocaleString('default', { month: 'long' });
+
+    container.innerHTML = `
+    <div style="background-color: white; border-radius: 15px; width:341px; height: 302px; box-shadow:6px 6px 15px rgba(0, 0, 0, 0.1);"
+>
+    
+  <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    <button type="button" style=" color: rgb(123, 98, 85);  font-size: 25px;border: none; background-color: white;" id="prevMonth">←</button>
+    <p style="font-size: 20px; color: black;">${monthName} ${year}</p>
+    <button type="button" style="color:rgb(123, 98, 85);  font-size: 25px;border: none; background-color: white;" id="nextMonth">→</button>
+  </div>
+  <div class="extraspace"></div>
+  <div class="calendar"></div>
+  </div>
+`;
+
+
+    const calendar = container.querySelector(".calendar");
+    calendar.style.display = "grid";
+    calendar.style.gridTemplateColumns = "repeat(7, 40px)";
+    calendar.style.gap = "5px";
+
+
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement("div");
+      calendar.appendChild(empty);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const div = document.createElement("div");
+      div.textContent = day;
+      div.classList.add("calendar-day");
+
+      if (blockedDates.includes(dateStr)) {
+        div.classList.add("blocked");
+        div.style.backgroundColor = "gray";
+        div.style.color = "white";
+        div.style.pointerEvents = "none";
+      } else {
+        div.style.cursor = "pointer";
+        div.onclick = () => {
+  // Remove existing highlight
+  document.querySelectorAll(".calendar-day").forEach(el => {
+    if (!el.classList.contains("blocked")) {
+      el.style.backgroundColor = "#f0f0f0";
+      el.style.color = "black";
+    }
+  });
+
+  // Apply highlight
+  div.style.backgroundColor = "#345285";
+  div.style.color = "white";
+
+  // Set selected date
+  document.getElementById("selectedDate").value = dateStr;
+};
+
+      }
+
+      div.style.borderRadius = "50%";
+      div.style.width = "40px";
+      div.style.height = "40px";
+      div.style.textAlign = "center";
+      div.style.lineHeight = "40px";
+      div.style.backgroundColor ||= "#f0f0f0";
+
+      calendar.appendChild(div);
+    }
+
+    document.getElementById("prevMonth").onclick = () => {
+      currentMonthOffset--;
+      loadCalendar();
+    };
+    document.getElementById("nextMonth").onclick = () => {
+      currentMonthOffset++;
+      loadCalendar();
+    };
+  }
+
+  async function loadCalendar() {
+    const snap = await getDocs(collection(db, "blockedDates"));
+    const blockedDates = snap.docs.map(doc => doc.id);
+    renderCalendar(blockedDates);
+  }
+
+  loadCalendar();
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bookButtons = document.querySelectorAll(".bookNow");
+    bookButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById("form_rentals");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  });
+</script>
+
 
 
   </body>
