@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Westside Gym Assistant</title>
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 10px;
+      background-color: #f4f4f4;
+    }
+    #chat {
+      height: 340px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: white;
+    }
+    .user, .bot {
+      margin: 10px 0;
+    }
+    .user { text-align: right; }
+    .bot { text-align: left; color: #345285; }
+    input[type="text"] {
+      width: 72%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+      background-color: #345285;
+      color: white;
+      cursor: pointer;
+    }
+    #closeBtn {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #666;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h3 style="margin-top:0;">Ask Me Anything!</h3>
+  <button id="closeBtn" onclick="window.parent.postMessage('closeChatbot', '*')">×</button>
+  <div id="chat"></div>
+  <input type="text" id="userInput" placeholder="Type your question..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chat = document.getElementById("chat");
+      const text = input.value.trim();
+      if (!text) return;
+
+      chat.innerHTML += `<div class="user"><strong>You:</strong> ${text}</div>`;
+      input.value = "";
+
+      const response = getBotResponse(text.toLowerCase());
+      chat.innerHTML += `<div class="bot"><strong>WestsideBot:</strong> ${response}</div>`;
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function getBotResponse(msg) {
+      if (msg.includes("book") || msg.includes("rental"))
+        return "To rent the gym, go to the Rental page and fill out the form at the bottom after picking your date.";
+      if (msg.includes("ticket"))
+        return "Tickets can be purchased from the Tickets tab for events like Basketball, Volleyball, and Orchestra.";
+      if (msg.includes("amenities"))
+        return "We offer parking, concessions, security checks, and wheelchair accessibility.";
+      if (msg.includes("security"))
+        return "All bags are checked upon arrival to ensure guest safety.";
+      if (msg.includes("event") || msg.includes("calendar"))
+        return "Check out the Calendar tab to see all upcoming games and concerts.";
+      if (msg.includes("contact"))
+        return "Use the contact form at the bottom of the Home page, or email us directly.";
+      return "I'm not sure, but feel free to rephrase your question or visit the Home page!";
+    }
+  </script>
+</body>
+</html>
