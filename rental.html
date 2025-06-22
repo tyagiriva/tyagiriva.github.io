@@ -272,29 +272,6 @@ color:gray;
 </style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        function showCustomAlert(message) {
-            const alert = document.createElement("div");
-            alert.classList.add("custom-alert", "visible");
-
-            const messageSpan = document.createElement("span");
-            messageSpan.textContent = message;
-
-            const closeBtn = document.createElement("span");
-            closeBtn.textContent = "✖";
-            closeBtn.classList.add("close-alert");
-            closeBtn.onclick = () => {
-                alert.classList.remove("visible");
-                alert.classList.add("hidden");
-                setTimeout(() => alert.remove(), 400);
-            };
-
-            alert.appendChild(messageSpan);
-            alert.appendChild(closeBtn);
-            document.body.appendChild(alert);
-        }
-
-    </script>
 </head>
 
 <body>
@@ -606,7 +583,7 @@ color:gray;
           authBtn.textContent = "Sign Out";
           authBtn.onclick = async () => {
             await signOut(auth);
-            showCustomAlert("You have been signed out.");
+            alert("You have been signed out.");
             location.reload();
           };
     
@@ -673,7 +650,7 @@ color:gray;
        
         const user = auth.currentUser;
         if (!user) {
-          showCustomAlert("Please log in first.");
+          alert("Please log in first.");
           return;
         }
 
@@ -685,7 +662,7 @@ color:gray;
         const blockedRef = doc(db, "blockedDates", date);
         const blockedSnap = await getDoc(blockedRef);
         if (blockedSnap.exists()) {
-          showCustomAlert("That date is blocked. Please choose another.");
+          alert("That date is blocked. Please choose another.");
           return;
         }
 
@@ -703,10 +680,10 @@ color:gray;
 
 
           console.log("Booking saved!");
-          showCustomAlert("Request sent. Waiting for approval.");
+          alert("Request sent. Waiting for approval.");
         } catch (err) {
           console.error(" Firestore error:", err.message);
-          showCustomAlert("Something went wrong when saving your booking.");
+          alert("Something went wrong when saving your booking.");
         }
       });
 
