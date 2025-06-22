@@ -857,34 +857,6 @@ color:gray;
     });
   });
 </script>
-<script>
-  const allowedPages = ['index.html', 'rental.html', 'calendar.html', 'bookings.html'];
-  const currentPage = window.location.pathname.split("/").pop();
-
-  if (allowedPages.includes(currentPage)) {
-    const container = document.createElement("div");
-    container.id = "chatbot-container";
-    container.style.cssText = `
-      position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-    `;
-    container.innerHTML = `
-      <button id="chatbot-toggle" style="background-color:#345285; color:white; border:none; border-radius:50%; width:60px; height:60px; font-size:30px; cursor:pointer;">💬</button>
-      <iframe id="chatbot-frame" src="chatbot.html" style="display:none; width:320px; height:420px; border:none; border-radius:15px; box-shadow:0 0 10px rgba(0,0,0,0.3); transition: all 0.3s ease;"></iframe>
-    `;
-    document.body.appendChild(container);
-
-    const toggle = container.querySelector("#chatbot-toggle");
-    const frame = container.querySelector("#chatbot-frame");
-
-    toggle.addEventListener("click", () => {
-      frame.style.display = frame.style.display === "none" ? "block" : "none";
-    });
-
-    window.addEventListener("message", (e) => {
-      if (e.data === "closeChatbot") frame.style.display = "none";
-    });
-  }
-</script>
 
 
 
