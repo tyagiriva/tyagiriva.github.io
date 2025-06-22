@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KPXMCL5ELR');
+    </script>
+    <title> Westside Gym </title>
+    <meta name="description" content="Welcome to Westside Gym. Book events or purchase tickets for games today!">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KPXMCL5ELR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KPXMCL5ELR');
+    </script>
+    <title> Westside Gym </title>
+
+    <link rel="stylesheet" href="webdesign.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700|Khula" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.tabclick')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function showCustomAlert(message) {
+            const alert = document.createElement("div");
+            alert.classList.add("custom-alert", "visible");
+
+            const messageSpan = document.createElement("span");
+            messageSpan.textContent = message;
+
+            const closeBtn = document.createElement("span");
+            closeBtn.textContent = "✖";
+            closeBtn.classList.add("close-alert");
+            closeBtn.onclick = () => {
+                alert.classList.remove("visible");
+                alert.classList.add("hidden");
+                setTimeout(() => alert.remove(), 400);
+            };
+
+            alert.appendChild(messageSpan);
+            alert.appendChild(closeBtn);
+            document.body.appendChild(alert);
+        }
+
+    </script>
+</head>
+
+<body class="bgAcc">
+    <div class="uppertab">
+        <a href="profile.html" id="profileIcon" style="display: none;">
+            <button type="button" class="UTbutton"><img src="login.png" width="20" height="23"></button>
+        </a>
+        <button type="button" class="UTbutton" id="authButton">Log In</button>
+
+    </div>
+    <div class="tab">
+        <a href="index.html"> <button class="selectedtab" onclick="openPage(event,'rental')">Home</button></a>
+        <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
+        <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
+        <a href="cart.html"><img class="cartimg" src="cart.png"></a>
+        <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
+
+        <button class="tabclick" onclick="myFunction()">Tickets</button>
+        <a href="bookings.html" id="bookingsTab" style="display: none;">
+            <button class="tabclick">Bookings</button>
+        </a>
+
+
+    </div>
+    <div id="myDropdown" class="dropdown-content">
+        <a href="ticketbasketball.html">
+            <p class="new">Basketball</p>
+        </a>
+        <a href="ticketvoleyball.html">
+            <p class="new">Volleyball</p>
+        </a>
+        <a href="ticketorchestra.html">
+            <p class="new">Orchestra</p>
+        </a>
+    </div>
+    <div class="accBg">
+        <h3>Account Information</h3>
+        <p>Current Email:</p>
+        <input type="email" id="currentEmail" class="accInputs" disabled>
+        <p class="verifyStyle" id="verificationStatus">⚠️ Email verification status will appear here.</p>
+
+    </div>
+    <div class="accBg">
+        <h3>Change Account Information</h3>
+        <div class="formColumns"> <!-- New wrapper for side-by-side layout -->
+            <div class="containFlex column">
+                <p>Change Email:</p>
+                <input type="email" id="newEmail" class="accInputs">
+                <button id="updateEmailBtn" class="accButton">Submit</button>
+            </div>
+            <div class="containFlex column">
+                <p>Change Password:</p>
+                <input type="password" id="newPassword" class="accInputs">
+                <button id="updatePasswordBtn" class="accButton">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Identity</h3>
+            <p>Please enter your current password to proceed:</p>
+            <input type="password" id="modalPassword" class="accInputs">
+            <button type="button" id="confirmAuthBtn" class="accButton">Confirm</button>
+            <button type="button" id="cancelAuthBtn" class="accButton cancel">Cancel</button>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script type="module">
+        import { auth } from "./auth.js";
+        import {
+            signOut,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        onAuthStateChanged(auth, (user) => {
+            const authBtn = document.querySelector("#authButton");
+            const profileIcon = document.querySelector("#profileIcon");
+            const bookingsTab = document.querySelector("#bookingsTab");
+
+            if (user) {
+                authBtn.textContent = "Sign Out";
+                authBtn.onclick = async () => {
+                    await signOut(auth);
+                    showCustomAlert("You have been signed out.");
+                    showCustomAlert("You have been signed out.");
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2000); // waits 2 seconds before reload
+
+                }
+                // Show profile icon and bookings tab only if they exist
+                if (profileIcon) profileIcon.style.display = "inline-block";
+                if (bookingsTab) bookingsTab.style.display = "inline-block";
+            } else {
+                authBtn.textContent = "Log In";
+                authBtn.onclick = () => {
+                    showCustomAlert("Update successful!");
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 2000);
+
+
+                };
+
+                // Hide profile icon and bookings tab if visible
+                if (profileIcon) profileIcon.style.display = "none";
+                if (bookingsTab) bookingsTab.style.display = "none";
+            }
+        });
+    </script>
+    <script type="module">
+        import { auth } from "./auth.js";
+        import {
+            updateEmail,
+            updatePassword,
+            verifyBeforeUpdateEmail,
+            sendEmailVerification,
+            reauthenticateWithCredential,
+            EmailAuthProvider,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        let updateType = null;
+
+        // Show current email on page load
+        onAuthStateChanged(auth, async (user) => {
+            const emailInput = document.querySelector("#currentEmail");
+            const verificationStatus = document.querySelector("#verificationStatus");
+
+            if (user) {
+                await user.reload();
+                if (emailInput) emailInput.value = user.email || "Email not available";
+                if (verificationStatus) {
+                    verificationStatus.textContent = user.emailVerified
+                        ? "✅ Email Verified"
+                        : "⚠️ Email Not Verified";
+                }
+            } else {
+                const details = document.querySelector("#accountDetails");
+                if (details) details.innerHTML = "<p>Please log in to view account details.</p>";
+            }
+        });
+
+        // Modal open logic
+        document.querySelector("#updateEmailBtn").addEventListener("click", () => {
+            updateType = "email";
+            document.querySelector("#authModal").style.display = "block";
+        });
+
+        document.querySelector("#updatePasswordBtn").addEventListener("click", () => {
+            updateType = "password";
+            document.querySelector("#authModal").style.display = "block";
+        });
+
+        // Confirm update
+        document.querySelector("#confirmAuthBtn").addEventListener("click", async () => {
+            const user = auth.currentUser;
+            const currentPassword = document.querySelector("#modalPassword")?.value;
+
+            if (!user || !currentPassword) {
+                showCustomAlert("Please log in and enter your current password.");
+                return;
+            }
+
+            try {
+                const credential = EmailAuthProvider.credential(user.email, currentPassword);
+                await reauthenticateWithCredential(user, credential);
+                await user.reload();
+
+                if (updateType === "email") {
+                    const newEmail = document.querySelector("#newEmail")?.value;
+                    if (!newEmail) {
+                        alert("Please enter a new email.");
+                        return;
+                    }
+
+                    // Make sure current email is verified before proceeding
+                    if (!user.emailVerified) {
+                        await sendEmailVerification(user);
+                        showCustomAlert("⚠️ We've sent a verification email to your CURRENT email. Please verify it first before changing emails.");
+                        return;
+                    }
+
+                    // Send confirmation to NEW email
+                    await verifyBeforeUpdateEmail(user, newEmail);
+                    showCustomAlert("📩 A verification link has been sent to your NEW email. You’ve been signed out to complete the update.");
+                    // Don’t show another sign-out alert
+                    setTimeout(() => location.reload(), 2000);
+
+
+                }
+
+                if (updateType === "password") {
+                    const newPassword = document.querySelector("#newPassword")?.value;
+                    if (!newPassword) {
+                        alert("Please enter a new password.");
+                        return;
+                    }
+
+                    await updatePassword(user, newPassword);
+                    showCustomAlert("✅ Your password has been updated.");
+                }
+
+                // Close modal
+                document.querySelector("#authModal").style.display = "none";
+                showCustomAlert("You have been signed out.");
+                setTimeout(() => {
+                    location.reload();
+                }, 2000); // waits 2 seconds before reload
+
+
+            } catch (err) {
+                console.error("❌ Error during auth/update:", err);
+                showCustomAlert("Something went wrong: " + err.message);
+            }
+        });
+
+        // Cancel modal
+        document.addEventListener("DOMContentLoaded", () => {
+            const cancelBtn = document.querySelector("#cancelAuthBtn");
+            if (cancelBtn) {
+                cancelBtn.addEventListener("click", () => {
+                    document.querySelector("#authModal").style.display = "none";
+                    showCustomAlert("Update canceled.");
+                });
+            } else {
+                console.warn("#cancelAuthBtn not found.");
+            }
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
