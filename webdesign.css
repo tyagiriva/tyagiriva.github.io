@@ -2004,7 +2004,37 @@ margin-top: 50px;
 
 
 
+.rentalSubmit {
+    background-color:rgb(86, 70, 62);
+    color: white;
+    border-radius: 3px;
+    font-family: 'Quicksand';
+    border: none;
+    width: 100px;
+    height: 45px;
+    font-weight: 100;
+    font-size: 15px;
 
+margin-left: 335px;
+transition: .3s;
+
+}
+.rentalSubmit:hover{
+    background-color: #402d27;
+}
+#adminButton{
+    color: white;
+    background-color: rgb(79, 66, 59);
+    border: none;
+border-radius: 2px;
+padding: 5px;
+transition: 0.2s;
+font-weight: 100;
+}
+#adminButton:hover{
+background-color:rgb(109, 97, 90);;
+ 
+    }
 
 
 
