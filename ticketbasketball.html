@@ -598,30 +598,38 @@ const ticketType = "Basketball Ticket";
 
 
 function addToCart() {
-    const selectedDate = localStorage.getItem('selectedButton') || "No date selected";
-    const seatDropdown = document.getElementById("seatsection");
-    const selectedOptions = Array.from(seatDropdown.selectedOptions);
-    const newTickets = [];
+  const selectedDate = localStorage.getItem('selectedButton') || "No date selected";
+  const seatDropdown = document.getElementById("seatsection");
+  const selectedOptions = Array.from(seatDropdown.selectedOptions);
+  const newTickets = [];
 
-    selectedOptions.forEach(option => {
-        const section = option.textContent.trim().split(" - ")[0];
-        const price = parseInt(option.value);
-        const quantityInput = document.getElementById(`qty-${section}`);
-        const quantity = parseInt(quantityInput?.value || 0);
-        if (quantity > 0) {
-            newTickets.push({ type: ticketType, section, price, quantity });
-        }
-    });
+  selectedOptions.forEach(option => {
+    const section = option.textContent.trim().split(" - ")[0];
+    const price = parseInt(option.value);
+    const quantityInput = document.getElementById(`qty-${section}`);
+    const quantity = parseInt(quantityInput?.value || 0);
+    if (quantity > 0) {
+      newTickets.push({ type: ticketType, section, price, quantity });
+    }
+  });
 
-    let cart = JSON.parse(localStorage.getItem("cartData")) || { date: selectedDate, tickets: [], total: 0 };
+  let cart = JSON.parse(localStorage.getItem("cartData")) || { date: selectedDate, tickets: [], total: 0 };
 
-    cart.tickets = cart.tickets.concat(newTickets);
-    cart.total = cart.tickets.reduce((sum, t) => sum + t.price * t.quantity, 0);
+  cart.tickets = cart.tickets.concat(newTickets);
+  cart.total = cart.tickets.reduce((sum, t) => sum + t.price * t.quantity, 0);
 
-    localStorage.setItem("cartData", JSON.stringify(cart));
-    updateCartIcon();
+  localStorage.setItem("cartData", JSON.stringify(cart));
+  updateCartIcon();
+
+  // Show success alert
+  showCustomAlert("✅ Seat(s) added to cart!");
+
+  // Delay the redirect to let the alert show
+  setTimeout(() => {
     window.location.href = "cart.html";
+  }, 5000);
 }
+
 
   </script>
   <script type="module">
@@ -640,7 +648,7 @@ function addToCart() {
         authBtn.textContent = "Sign Out";
         authBtn.onclick = async () => {
           await signOut(auth);
-          alert("You have been signed out.");
+          showCustomAlert("You have been signed out.");
           location.reload();
         };
         if (user.email === "westsidegym25@gmail.com") {
