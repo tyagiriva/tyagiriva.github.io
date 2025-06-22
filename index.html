@@ -62,7 +62,7 @@
     <a href="index.html"> <button class="selectedtab" onclick="openPage(event,'rental')">Home</button></a>
     <a href="rental.html"><button class="tabclick" onclick="openPage(event,'rental')">Rental</button></a>
     <a href="calendar.html"> <button class="tabclick" onclick="openPage(event,'calendar')">Calendar</button> </a>
-    <a href="cart.html"><img class="cartimg" src="cart.png"></a>
+    <a href="cart.html"><img class="cartimg" id="cartIcon" src="cart.png"></a>
     <!--<a href="information.html"> <button class="tabclick" onclick="openPage(event,'information')">Information</button> </a>-->
 
     <button class="tabclick" onclick="myFunction()">Tickets</button>
@@ -330,7 +330,30 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
           // Show profile icon and bookings tab only if they exist
           if (profileIcon) profileIcon.style.display = "inline-block";
           if (bookingsTab) bookingsTab.style.display = "inline-block";
-        } else {
+
+          if (user.email === "westsidegym25@gmail.com") {
+  const tabBar = document.querySelector(".tab");
+  const bookingsTab = tabBar.querySelector("a[href='bookings.html']");
+
+  if (!tabBar.querySelector("#adminTab")) {
+    const adminTab = document.createElement("a");
+    adminTab.href = "admin.html";
+    adminTab.id = "adminTab";
+    adminTab.innerHTML = `<button class="tabclick">Admin Panel</button>`;
+
+    if (bookingsTab && bookingsTab.nextSibling) {
+      tabBar.insertBefore(adminTab, bookingsTab.nextSibling);
+    } else {
+      tabBar.appendChild(adminTab);
+    }
+  }
+}
+
+
+        } 
+        
+        
+        else {
           authBtn.textContent = "Log In";
           authBtn.onclick = () => {
             window.location.href = "login.html";
@@ -380,5 +403,25 @@ ngn?entry=ttu&g_ep=EgoyMDI1MDYxMS4wIKXMDSoASAFQAw%3D%3D"> <p style="font-size: 2
       peopleText.textContent = testimonials[currentIndex].name;
     }
   </script>
+  <script>
+    function updateCartIcon() {
+      const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
+      let count = 0;
+  
+      cart.tickets.forEach(t => count += t.quantity);
+  
+      const img = document.getElementById("cartIcon");
+      if (img) {
+        if (count >= 1 && count <= 9) {
+          img.src = `cart${count}.png`;
+        } else {
+          img.src = "cart.png";
+        }
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", updateCartIcon);
+  </script>
+  
     
 </body>
