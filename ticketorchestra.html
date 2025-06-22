@@ -113,7 +113,7 @@
       <a href="bookings.html" id="bookingsTab" style="display: none;">
       <button class="tabclick">Bookings</button>
       </a>
-      <a href="cart.html"><img class="cartimg" src="cart.png"></a>
+      <a href="cart.html"><img class="cartimg"id="cartIcon" src="cart.png"></a>
 
 
     </div>
@@ -323,40 +323,39 @@
               <div class="pricedropdown">
                 <div id="sectionInputs" ></div>
                 <p class="trialText3">Tickets</p>
-                <select id="seatsection" name="seatsection" multiple size="12" onchange="updateSectionInputs()"
-                  style="width: 245px; font-size: 15px; margin-top: 10px;">
-                  <option class="ticket-select"value="30">A1 - $30</option>
-                  <option class="ticket-select"value="30">A2 - $30</option>
-                  <option class="ticket-select"value="30">A3 - $30</option>
-                  <option class="ticket-select"value="30">A4 - $30</option>
-                  <option class="ticket-select"value="30">A5 - $30</option>
-                  <option class="ticket-select"value="30">A6 - $30</option>
-                  <option class="ticket-select"value="30">A7 - $30</option>
-                  <option class="ticket-select"value="30">A8 - $30</option>
-                  <option class="ticket-select"value="30">A9 - $30</option>
-                  <option class="ticket-select"value="30">A10 - $30</option>
-                  <option class="ticket-select"value="20">B1 - $20</option>
-                  <option class="ticket-select"value="20">B2 - $20</option>
-                  <option class="ticket-select"value="20">B3 - $20</option>
-                  <option class="ticket-select"value="20">B4 - $20</option>
-                  <option class="ticket-select"value="20">B5 - $20</option>
-                  <option class="ticket-select"value="20">B6 - $20</option>
-                  <option class="ticket-select"value="20">B7 - $20</option>
-                  <option class="ticket-select"value="20">B8 - $20</option>
-                  <option class="ticket-select"value="20">B9 - $20</option>
-                  <option class="ticket-select"value="20">B10 - $20</option>
-                  <option class="ticket-select"value="20">B11 - $20</option>
-                  <option class="ticket-select"value="20">B12 - $20</option>
-                  <option class="ticket-select"value="20">B13 - $20</option>
-                  <option class="ticket-select"value="20">B14 - $20</option>
-                  <option class="ticket-select"value="20">B15 - $20</option>
-                  <option class="ticket-select"value="20">B16 - $20</option>
-                  <option class="ticket-select"value="20">B17 - $20</option>
-                  <option class="ticket-select"value="20">B18 - $20</option>
-                  <option class="ticket-select"value="20">B19 - $20</option>
-                  <option value="20">B20 - $20</option>
-                  <option value="20">B20 - $20</option>
-                </select>
+                <select class="fullSelect"id="seatsection" name="seatsection" multiple size="10" onchange="updateSectionInputs()"
+                style="width: 245px; font-size: 15px; margin-top: 10px;">
+                <option class="ticket-select"value="30">A1 - $30</option>
+                <option class="ticket-select"value="30">A2 - $30</option>
+                <option class="ticket-select"value="30">A3 - $30</option>
+                <option class="ticket-select"value="30">A4 - $30</option>
+                <option class="ticket-select"value="30">A5 - $30</option>
+                <option class="ticket-select"value="30">A6 - $30</option>
+                <option class="ticket-select"value="30">A7 - $30</option>
+                <option class="ticket-select"value="30">A8 - $30</option>
+                <option class="ticket-select"value="30">A9 - $30</option>
+                <option class="ticket-select"value="30">A10 - $30</option>
+                <option class="ticket-select"value="20">B1 - $20</option>
+                <option class="ticket-select"value="20">B2 - $20</option>
+                <option class="ticket-select"value="20">B3 - $20</option>
+                <option class="ticket-select"value="20">B4 - $20</option>
+                <option class="ticket-select"value="20">B5 - $20</option>
+                <option class="ticket-select"value="20">B6 - $20</option>
+                <option class="ticket-select"value="20">B7 - $20</option>
+                <option class="ticket-select"value="20">B8 - $20</option>
+                <option class="ticket-select"value="20">B9 - $20</option>
+                <option class="ticket-select"value="20">B10 - $20</option>
+                <option class="ticket-select"value="20">B11 - $20</option>
+                <option class="ticket-select"value="20">B12 - $20</option>
+                <option class="ticket-select"value="20">B13 - $20</option>
+                <option class="ticket-select"value="20">B14 - $20</option>
+                <option class="ticket-select"value="20">B15 - $20</option>
+                <option class="ticket-select"value="20">B16 - $20</option>
+                <option class="ticket-select"value="20">B17 - $20</option>
+                <option class="ticket-select"value="20">B18 - $20</option>
+                <option class="ticket-select"value="20">B19 - $20</option>
+                <option class="ticket-select"value="20">B20 - $20</option>
+              </select>
   
   
   
@@ -599,6 +598,24 @@
             alert("You have been signed out.");
             location.reload();
           };
+          if (user.email === "westsidegym25@gmail.com") {
+  const tabBar = document.querySelector(".tab");
+  const bookingsTab = tabBar.querySelector("a[href='bookings.html']");
+
+  if (!tabBar.querySelector("#adminTab")) {
+    const adminTab = document.createElement("a");
+    adminTab.href = "admin.html";
+    adminTab.id = "adminTab";
+    adminTab.innerHTML = `<button class="tabclick">Admin Panel</button>`;
+
+    if (bookingsTab && bookingsTab.nextSibling) {
+      tabBar.insertBefore(adminTab, bookingsTab.nextSibling);
+    } else {
+      tabBar.appendChild(adminTab);
+    }
+  }
+}
+
     
           // Show profile icon and bookings tab only if they exist
           if (profileIcon) profileIcon.style.display = "inline-block";
@@ -615,5 +632,24 @@
         }
       });
     </script>
+    <script>
+      function updateCartIcon() {
+        const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
+        let count = 0;
     
+        // Add up all quantities
+        cart.tickets.forEach(t => count += t.quantity);
+    
+        // Cap the count at 9 (or default)
+        const img = document.getElementById("cartIcon");
+        if (count >= 1 && count <= 9) {
+          img.src = `cart${count}.png`;
+        } else {
+          img.src = "cart.png";
+        }
+      }
+    
+      // Call it once DOM is loaded
+      document.addEventListener("DOMContentLoaded", updateCartIcon);
+    </script>
   </body>
