@@ -195,7 +195,8 @@
             sendEmailVerification,
             reauthenticateWithCredential,
             EmailAuthProvider,
-            onAuthStateChanged
+            onAuthStateChanged,
+            signOut
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
         let updateType = null;
@@ -236,7 +237,7 @@
             const currentPassword = document.querySelector("#modalPassword")?.value;
 
             if (!user || !currentPassword) {
-                showCustomAlert("Please log in and enter your current password.");
+                showCustomAlert("⚠️ Please log in and enter your current password.");
                 return;
             }
 
@@ -252,19 +253,19 @@
                         return;
                     }
 
-                    // Make sure current email is verified before proceeding
                     if (!user.emailVerified) {
                         await sendEmailVerification(user);
-                        showCustomAlert("⚠️ We've sent a verification email to your CURRENT email. Please verify it first before changing emails.");
+                        showCustomAlert("📩 We've sent a verification email to your CURRENT email. Please verify it first.");
                         return;
                     }
 
-                    // Send confirmation to NEW email
                     await verifyBeforeUpdateEmail(user, newEmail);
-                    showCustomAlert("📩 A verification link has been sent to your NEW email. You’ve been signed out to complete the update.");
-                    // Don’t show another sign-out alert
-                    setTimeout(() => location.reload(), 2000);
+                    await signOut(auth); // force frontend to update too
 
+                    showCustomAlert("📩 A verification link has been sent to your NEW email. You’ve been signed out to complete the update.");
+                    setTimeout(() => {
+                        window.location.href = "login.html"; // or wherever you want them to go
+                    }, 3000);
 
                 }
 
@@ -277,21 +278,20 @@
 
                     await updatePassword(user, newPassword);
                     showCustomAlert("✅ Your password has been updated.");
+
+                    // Optional: wait a second before refreshing to show the alert
+                    setTimeout(() => location.reload(), 2000);
                 }
 
-                // Close modal
                 document.querySelector("#authModal").style.display = "none";
-                showCustomAlert("You have been signed out.");
-                setTimeout(() => {
-                    location.reload();
-                }, 2000); // waits 2 seconds before reload
-
 
             } catch (err) {
-                console.error("❌ Error during auth/update:", err);
+                console.error("❌ Error during reauth/update:", err);
                 showCustomAlert("Something went wrong: " + err.message);
             }
         });
+
+
 
         // Cancel modal
         document.addEventListener("DOMContentLoaded", () => {
