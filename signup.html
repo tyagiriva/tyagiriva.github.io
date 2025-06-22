@@ -119,7 +119,32 @@
         }
       });
     </script>
+<script type="module">
+  import { signUpUser } from "./auth.js";
 
+  const signupForm = document.getElementById("signupForm");
+
+  signupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    try {
+      await signUpUser(email, password);
+      alert("Account created and logged in!");
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("Signup error: " + error.message);
+    }
+  });
+</script>
   
 </body>
 </html>
