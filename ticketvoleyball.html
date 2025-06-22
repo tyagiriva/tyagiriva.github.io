@@ -34,6 +34,29 @@
             }
           }
         </script>
+    <script>
+        function showCustomAlert(message) {
+            const alert = document.createElement("div");
+            alert.classList.add("custom-alert", "visible");
+
+            const messageSpan = document.createElement("span");
+            messageSpan.textContent = message;
+
+            const closeBtn = document.createElement("span");
+            closeBtn.textContent = "✖";
+            closeBtn.classList.add("close-alert");
+            closeBtn.onclick = () => {
+                alert.classList.remove("visible");
+                alert.classList.add("hidden");
+                setTimeout(() => alert.remove(), 400);
+            };
+
+            alert.appendChild(messageSpan);
+            alert.appendChild(closeBtn);
+            document.body.appendChild(alert);
+        }
+
+    </script>
 
 </head>
 <body class="background">
@@ -572,7 +595,7 @@
       updateCartIcon();
     
       // Show success alert
-      alert("✅ Seat(s) added to cart!");
+      showCustomAlert("✅ Seat(s) added to cart!");
     
       // Delay the redirect to let the alert show
       setTimeout(() => {
@@ -597,7 +620,7 @@
           authBtn.textContent = "Sign Out";
           authBtn.onclick = async () => {
             await signOut(auth);
-            alert("You have been signed out.");
+            showCustomAlert("You have been signed out.");
             location.reload();
           };
           if (user.email === "westsidegym25@gmail.com") {
