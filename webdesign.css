@@ -74,7 +74,7 @@ background-color: rgb(161, 161, 161);
     background-color: white;
     border: 0;
     width:17%;
-    padding-top: 10px; /*change made */
+    padding-top: 10px;
     height: 100%;
 }
 .newtd{
@@ -462,7 +462,7 @@ h2 {
     margin-top: 50px;
    
 }
-.buttonRental { /*change made*/
+.buttonRental { 
     background-color: rgb(60, 45, 38);
     color: white;
     border-radius: 3px;
@@ -641,11 +641,11 @@ button2:hover{
 }
 
 
-#homepage { /*change made */
+#homepage { 
     background-image: url("gym2.JPG");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed; /* This is the key line */
+    background-attachment: fixed; 
     height: 650px;
     padding-bottom: 40px;
     width: 100%;
@@ -957,7 +957,7 @@ color: white;
 .very1{
     height:auto;
     width:auto;
-    background-color:white; /*change made*/
+    background-color:white; 
     border:0px;
     padding-bottom: 0px;
     padding-right: 0px;
@@ -968,7 +968,7 @@ color: white;
 }
 .very10{
    font-size: 15px;
-   background-color:white; /*change made*/
+   background-color:white; 
     border:0px;
     height: auto;
     width: auto;
