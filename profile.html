@@ -170,15 +170,15 @@
                 if (profileIcon) profileIcon.style.display = "inline-block";
                 if (bookingsTab) bookingsTab.style.display = "inline-block";
             } else {
-                authBtn.textContent = "Log In";
-                authBtn.onclick = () => {
-                    showCustomAlert("Update successful!");
-                    setTimeout(() => {
-                        window.location.href = "login.html";
-                    }, 2000);
+  authBtn.textContent = "Log In";
+  authBtn.onclick = () => {
+    // No alert here!
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
+  };
+}
 
-
-                };
 
                 // Hide profile icon and bookings tab if visible
                 if (profileIcon) profileIcon.style.display = "none";
