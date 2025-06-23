@@ -149,42 +149,37 @@
             signOut,
             onAuthStateChanged
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
         onAuthStateChanged(auth, (user) => {
-            const authBtn = document.querySelector("#authButton");
-            const profileIcon = document.querySelector("#profileIcon");
-            const bookingsTab = document.querySelector("#bookingsTab");
-
-            if (user) {
-                authBtn.textContent = "Sign Out";
-                authBtn.onclick = async () => {
-                    await signOut(auth);
-                    showCustomAlert("You have been signed out.");
-                    showCustomAlert("You have been signed out.");
-                    setTimeout(() => {
-                        location.reload();
-                    }, 2000); // waits 2 seconds before reload
-
-                }
-                // Show profile icon and bookings tab only if they exist
-                if (profileIcon) profileIcon.style.display = "inline-block";
-                if (bookingsTab) bookingsTab.style.display = "inline-block";
-            } else {
-  authBtn.textContent = "Log In";
-  authBtn.onclick = () => {
-    // No alert here!
-    setTimeout(() => {
-      window.location.href = "login.html";
-    }, 2000);
-  };
-}
-
-
-                // Hide profile icon and bookings tab if visible
-                if (profileIcon) profileIcon.style.display = "none";
-                if (bookingsTab) bookingsTab.style.display = "none";
-            }
+          const authBtn = document.querySelector("#authButton");
+          const profileIcon = document.querySelector("#profileIcon");
+          const bookingsTab = document.querySelector("#bookingsTab");
+        
+          if (user) {
+            authBtn.textContent = "Sign Out";
+            authBtn.onclick = async () => {
+              await signOut(auth);
+              showCustomAlert("You have been signed out.");
+              setTimeout(() => {
+                location.reload();
+              }, 2000);
+            };
+        
+            if (profileIcon) profileIcon.style.display = "inline-block";
+            if (bookingsTab) bookingsTab.style.display = "inline-block";
+        
+          } else {
+            authBtn.textContent = "Log In";
+            authBtn.onclick = () => {
+              setTimeout(() => {
+                window.location.href = "login.html";
+              }, 2000);
+            };
+        
+            if (profileIcon) profileIcon.style.display = "none";
+            if (bookingsTab) bookingsTab.style.display = "none";
+          }
         });
+
     </script>
     <script type="module">
         import { auth } from "./auth.js";
