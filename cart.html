@@ -62,6 +62,29 @@
       
        
     </style>
+    <script>
+        function showCustomAlert(message) {
+            const alert = document.createElement("div");
+            alert.classList.add("custom-alert", "visible");
+
+            const messageSpan = document.createElement("span");
+            messageSpan.textContent = message;
+
+            const closeBtn = document.createElement("span");
+            closeBtn.textContent = "✖";
+            closeBtn.classList.add("close-alert");
+            closeBtn.onclick = () => {
+                alert.classList.remove("visible");
+                alert.classList.add("hidden");
+                setTimeout(() => alert.remove(), 400);
+            };
+
+            alert.appendChild(messageSpan);
+            alert.appendChild(closeBtn);
+            document.body.appendChild(alert);
+        }
+
+    </script>
 </head>
 <body>
     <div class="uppertab">
@@ -137,7 +160,7 @@
         window.submitOrder = async () => {
           const cart = JSON.parse(localStorage.getItem("cartData"));
           if (!cart || !cart.tickets.length) {
-            alert("Cart is empty.");
+            showCustomAlert("Cart is empty.");
             return;
           }
       
@@ -151,7 +174,7 @@
               timestamp: new Date().toISOString()
             });
       
-            alert("✅ Order placed!");
+            showCustomAlert("✅ Order placed!");
             localStorage.removeItem("cartData");
             location.reload();
           } catch (err) {
@@ -195,7 +218,7 @@
               authBtn.textContent = "Sign Out";
               authBtn.onclick = async () => {
                 await signOut(auth);
-                alert("You have been signed out.");
+                showCustomAlert("You have been signed out.");
                 location.reload();
               };
               if (user.email === "westsidegym25@gmail.com") {
