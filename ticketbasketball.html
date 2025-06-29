@@ -637,26 +637,26 @@ function addToCart() {
 
 
   </script>
-  <script type="module">
-    import { auth } from "./auth.js";
-    import {
-      signOut,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  
-    onAuthStateChanged(auth, (user) => {
-      const authBtn = document.querySelector("#authButton");
-      const profileIcon = document.querySelector("#profileIcon");
-      const bookingsTab = document.querySelector("#bookingsTab");
-  
-      if (user) {
-        authBtn.textContent = "Sign Out";
-        authBtn.onclick = async () => {
-          await signOut(auth);
-          showCustomAlert("You have been signed out.");
-          location.reload();
-        };
-        if (user.email === "westsidegym25@gmail.com") {
+<script type="module">
+          import { auth } from "./auth.js";
+          import {
+            signOut,
+            onAuthStateChanged
+          } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        
+          onAuthStateChanged(auth, (user) => {
+            const authBtn = document.querySelector("#authButton");
+            const profileIcon = document.querySelector("#profileIcon");
+            const bookingsTab = document.querySelector("#bookingsTab");
+        
+            if (user) {
+              authBtn.textContent = "Sign Out";
+              authBtn.onclick = async () => {
+                await signOut(auth);
+                showCustomAlert("You have been signed out.");
+                location.reload();
+              };
+              if (user.email === "westsidegym25@gmail.com") {
   const tabBar = document.querySelector(".tab");
   const bookingsTab = tabBar.querySelector("a[href='bookings.html']");
 
@@ -673,22 +673,23 @@ function addToCart() {
     }
   }
 }
-
-        // Show profile icon and bookings tab only if they exist
-        if (profileIcon) profileIcon.style.display = "inline-block";
-        if (bookingsTab) bookingsTab.style.display = "inline-block";
-      } else {
-        authBtn.textContent = "Log In";
-        authBtn.onclick = () => {
-          window.location.href = "login.html";
-        };
   
-        // Hide profile icon and bookings tab if visible
-        if (profileIcon) profileIcon.style.display = "none";
-        if (bookingsTab) bookingsTab.style.display = "none";
-      }
-    });
-  </script>
+        
+              // Show profile icon and bookings tab only if they exist
+              if (profileIcon) profileIcon.style.display = "inline-block";
+              if (bookingsTab) bookingsTab.style.display = "inline-block";
+            } else {
+              authBtn.textContent = "Log In";
+              authBtn.onclick = () => {
+                window.location.href = "login.html";
+              };
+        
+              // Hide profile icon and bookings tab if visible
+              if (profileIcon) profileIcon.style.display = "none";
+              if (bookingsTab) bookingsTab.style.display = "none";
+            }
+          });
+        </script>
   <script>
     function updateCartIcon() {
       const cart = JSON.parse(localStorage.getItem("cartData")) || { tickets: [] };
