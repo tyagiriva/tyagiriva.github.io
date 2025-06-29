@@ -90,26 +90,31 @@
       overflow-y: hidden;
     }
   </style>
-  <script>
-        function showCustomAlert(message) {
-            const alert = document.createElement("div");
-            alert.classList.add("custom-alert", "visible");
-
-            const messageSpan = document.createElement("span");
-            messageSpan.textContent = message;
-
-            const closeBtn = document.createElement("span");
-            closeBtn.textContent = "✖";
-            closeBtn.classList.add("close-alert");
-            closeBtn.onclick = () => {
-                alert.classList.remove("visible");
-                alert.classList.add("hidden");
-                setTimeout(() => alert.remove(), 400);
-            };
-
-            alert.appendChild(messageSpan);
-            alert.appendChild(closeBtn);
-            document.body.appendChild(alert);
+ <script>
+        function showCustomAlert(message, onClose) {
+          const alert = document.createElement("div");
+          alert.classList.add("custom-alert", "visible");
+        
+          const messageSpan = document.createElement("span");
+          messageSpan.textContent = message;
+        
+          const closeBtn = document.createElement("span");
+          closeBtn.textContent = "✖";
+          closeBtn.classList.add("close-alert");
+          closeBtn.onclick = () => {
+            alert.classList.remove("visible");
+            alert.classList.add("hidden");
+            setTimeout(() => {
+              alert.remove();
+              if (typeof onClose === "function") {
+                onClose(); // this is your refresh trigger!
+              }
+            }, 400);
+          };
+        
+          alert.appendChild(messageSpan);
+          alert.appendChild(closeBtn);
+          document.body.appendChild(alert);
         }
 
     </script>
